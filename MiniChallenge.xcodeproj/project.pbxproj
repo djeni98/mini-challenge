@@ -11,6 +11,7 @@
 		B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76BBBD32682AA5500523DAD /* ContentView.swift */; };
 		B76BBBD62682AA5600523DAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76BBBD52682AA5600523DAD /* Assets.xcassets */; };
 		B76BBBD92682AA5600523DAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76BBBD82682AA5600523DAD /* Preview Assets.xcassets */; };
+		B76BBBE22682AA7200523DAD /* Receita.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76BBBE12682AA7200523DAD /* Receita.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		B76BBBD52682AA5600523DAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B76BBBD82682AA5600523DAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B76BBBDA2682AA5600523DAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B76BBBE12682AA7200523DAD /* Receita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receita.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				B76BBBD12682AA5500523DAD /* MiniChallengeApp.swift */,
 				B76BBBD32682AA5500523DAD /* ContentView.swift */,
+				B76BBBE02682AA6300523DAD /* Model */,
 				B76BBBD52682AA5600523DAD /* Assets.xcassets */,
 				B76BBBDA2682AA5600523DAD /* Info.plist */,
 				B76BBBD72682AA5600523DAD /* Preview Content */,
@@ -67,6 +70,14 @@
 				B76BBBD82682AA5600523DAD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B76BBBE02682AA6300523DAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B76BBBE12682AA7200523DAD /* Receita.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */,
+				B76BBBE22682AA7200523DAD /* Receita.swift in Sources */,
 				B76BBBD22682AA5500523DAD /* MiniChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
