@@ -22,7 +22,7 @@ struct MainCard: View {
                 Image(imagem)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 340, height: 210, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(width: 340, height: 210, alignment: .center)
                     .clipped()
                     .padding(.bottom, 110)
                 
@@ -30,7 +30,7 @@ struct MainCard: View {
                     Text(tipoRefeição)
                         .font(.caption)
                         .padding(.bottom, 8)
-                        .foregroundColor(Color(.systemGray))
+                        .foregroundColor(Color("Laranja"))
                     
                     Text(receita)
                         .font(.title3)
@@ -48,9 +48,10 @@ struct MainCard: View {
                 }
                 .padding(.top, 190)
                 .padding(.horizontal, 25)
+                
             }
             .frame(width: 340, height: 310, alignment: .center)
-            .cornerRadius(40)
+            .cornerRadius(30)
             .shadow(radius: 20)
             
         }
