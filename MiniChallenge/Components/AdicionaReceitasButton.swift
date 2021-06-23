@@ -29,4 +29,4 @@ struct AdicionaReceitasButton_Previews: PreviewProvider {
         AdicionaReceitasButton { print("Run Action") }
     }
 }
-m
+
