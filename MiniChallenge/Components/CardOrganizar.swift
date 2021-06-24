@@ -11,8 +11,7 @@ struct CardOrganizar: View {
     var imagem = "Strogo"
     var receita = "Strogonoff"
     var buttonAction: () -> Void
-    
-    
+    var estaOrganizado = false
     
     var body: some View {
         VStack {
@@ -36,13 +35,23 @@ struct CardOrganizar: View {
                         
                         Button(action: buttonAction) {
                             ZStack {
-                                RoundedRectangle(cornerRadius: 24)
-                                    .frame(width: 100, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    .foregroundColor(Color("Laranja"))
-                                Text("Organizar")
+                                if estaOrganizado {
+                                    RoundedRectangle(cornerRadius: 24)
+                                        .foregroundColor(.accentColor)
+                                        .frame(width: 100, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    
+                                } else {
+                                    RoundedRectangle(cornerRadius: 24)
+                                        .stroke(Color("Laranja"), lineWidth: 2)
+                                        .foregroundColor(.accentColor)
+                                        .frame(width: 100, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    
+                                }
+                                
+                                Text(estaOrganizado ? "Organizar" : "Editar")
                                     .font(.body)
                                     .bold()
-                                    .foregroundColor(.white)
+                                    .foregroundColor(estaOrganizado ? .white : .accentColor)
                             }
                         }
                     }

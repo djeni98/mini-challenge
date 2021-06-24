@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14404EBE2683786A003970CC /* MainCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14404EBD2683786A003970CC /* MainCard.swift */; };
+		14404EBE2683786A003970CC /* CardPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14404EBD2683786A003970CC /* CardPrincipal.swift */; };
+		14598D562684A869002D43B2 /* CardReduzido.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14598D552684A869002D43B2 /* CardReduzido.swift */; };
 		14B474F52683C55E008394D5 /* CardOrganizar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B474F42683C55E008394D5 /* CardOrganizar.swift */; };
 		B76BBBD22682AA5500523DAD /* MiniChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76BBBD12682AA5500523DAD /* MiniChallengeApp.swift */; };
 		B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76BBBD32682AA5500523DAD /* ContentView.swift */; };
@@ -18,7 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		14404EBD2683786A003970CC /* MainCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCard.swift; sourceTree = "<group>"; };
+		14404EBD2683786A003970CC /* CardPrincipal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPrincipal.swift; sourceTree = "<group>"; };
+		14598D552684A869002D43B2 /* CardReduzido.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReduzido.swift; sourceTree = "<group>"; };
 		14B474F42683C55E008394D5 /* CardOrganizar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOrganizar.swift; sourceTree = "<group>"; };
 		B76BBBCE2682AA5500523DAD /* MiniChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76BBBD12682AA5500523DAD /* MiniChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallengeApp.swift; sourceTree = "<group>"; };
@@ -91,8 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				B7CBC6402683668C00460809 /* AdicionaReceitasButton.swift */,
-				14404EBD2683786A003970CC /* MainCard.swift */,
+				14404EBD2683786A003970CC /* CardPrincipal.swift */,
 				14B474F42683C55E008394D5 /* CardOrganizar.swift */,
+				14598D552684A869002D43B2 /* CardReduzido.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -168,10 +171,11 @@
 			files = (
 				B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */,
 				14B474F52683C55E008394D5 /* CardOrganizar.swift in Sources */,
+				14598D562684A869002D43B2 /* CardReduzido.swift in Sources */,
 				B76BBBE22682AA7200523DAD /* Receita.swift in Sources */,
 				B76BBBD22682AA5500523DAD /* MiniChallengeApp.swift in Sources */,
 				B7CBC6412683668C00460809 /* AdicionaReceitasButton.swift in Sources */,
-				14404EBE2683786A003970CC /* MainCard.swift in Sources */,
+				14404EBE2683786A003970CC /* CardPrincipal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

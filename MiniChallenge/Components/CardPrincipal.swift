@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainCard: View {
+struct CardPrincipal: View {
     var imagem = "Strogo"
     var tipoRefeição = "ALMOÇO"
     var receita = "Strogonoff"
@@ -30,7 +30,7 @@ struct MainCard: View {
                     Text(tipoRefeição)
                         .font(.caption)
                         .padding(.bottom, 8)
-                        .foregroundColor(Color("Laranja"))
+                        .foregroundColor(.accentColor)
                     
                     Text(receita)
                         .font(.title3)
@@ -60,7 +60,7 @@ struct MainCard: View {
 
 struct MainCard_Previews: PreviewProvider {
     static var previews: some View {
-        MainCard()
+        CardPrincipal()
     }
 }
 
