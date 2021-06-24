@@ -60,8 +60,8 @@ struct CardOrganizar: View {
                 
             }
             .frame(height: 200, alignment: .center)
-            .cornerRadius(30)
-            .shadow(radius: 20)
+            .cornerRadius(20)
+            .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.2), radius: 20)
             
         }
     }

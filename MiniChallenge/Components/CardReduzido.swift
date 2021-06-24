@@ -26,28 +26,28 @@ struct CardReduzido: View {
                     .clipped()
                     .padding(.bottom, 110)
                 
-                HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(receita)
-                            .font(.title3)
-                            .bold()
-                        
-                        HStack {
-                            Image(systemName: "clock")
-                            Text("\(tempoPreparo) - \(nivel)")
-                        }
-                        .font(.caption)
-                        .foregroundColor(Color(.systemGray))
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(receita)
+                        .font(.title3)
+                        .bold()
+
+                    HStack {
+                        Text(nivel)
                         Spacer()
+                        Image(systemName: "clock")
+                        Text(tempoPreparo)
                     }
-                    .padding(.top, 170)
-                    .padding(.horizontal, 25)
+                    .font(.caption)
+                    .foregroundColor(.accentColor)
                     Spacer()
                 }
+                .padding(.top, 170)
+                .padding(.horizontal, 25)
             }
             .frame(height: 200, alignment: .leading)
-            .cornerRadius(30)
-            .shadow(radius: 20)
+            .cornerRadius(20)
+            .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.2), radius: 20)
             
         }
     }

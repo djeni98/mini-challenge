@@ -52,7 +52,7 @@ struct CardPrincipal: View {
             }
             .frame(height: 310, alignment: .center)
             .cornerRadius(30)
-            .shadow(radius: 20)
+            .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.2), radius: 20)
             
         }
     }
