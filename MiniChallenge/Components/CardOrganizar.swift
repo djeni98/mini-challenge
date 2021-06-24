@@ -8,10 +8,20 @@
 import SwiftUI
 
 struct CardOrganizar: View {
-    var imagem = "Strogo"
-    var receita = "Strogonoff"
+    var receita: Receita
+    var estaOrganizado: Bool
     var buttonAction: () -> Void
-    var estaOrganizado = true
+
+    var imagem: String {
+        guard let nomeImagem = receita.nomeImagem else {
+            return "sem-imagem"
+        }
+        return nomeImagem
+    }
+    var nome: String { receita.nome }
+    var nivel: String { receita.nivelDificuldade.toString() }
+    var tempoPreparo: String { receita.tempoPreparo }
+
     
     var body: some View {
         VStack {
@@ -28,29 +38,29 @@ struct CardOrganizar: View {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
-                        Text(receita)
+                        Text(nome)
                             .font(.title3)
                             .bold()
                         Spacer()
                         
                         Button(action: buttonAction) {
                             ZStack {
-                                if estaOrganizado {
+                                if !estaOrganizado {
                                     RoundedRectangle(cornerRadius: 24)
                                         .foregroundColor(.accentColor)
                                         .frame(width: 100, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                     
                                 } else {
                                     RoundedRectangle(cornerRadius: 24)
-                                        .stroke(Color("Laranja"), lineWidth: 2)
+                                        .stroke(Color.accentColor, lineWidth: 2)
                                         .foregroundColor(.accentColor)
                                         .frame(width: 100, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 
                                 }
-                                Text(estaOrganizado ? "Organizar" : "Editar")
+                                Text(!estaOrganizado ? "Organizar" : "Editar")
                                     .font(.body)
                                     .bold()
-                                    .foregroundColor(estaOrganizado ? .white : .accentColor)
+                                    .foregroundColor(!estaOrganizado ? .white : .accentColor)
                             }
                         }
                     }
@@ -71,9 +81,9 @@ struct CardOrganizar: View {
 struct CardOrganizar_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CardOrganizar { print("Run Action") }
+            CardOrganizar(receita: listaDeReceitas[0], estaOrganizado: false) { print("Run Action") }
                        .padding()
-            CardOrganizar { print("Run Action") }
+            CardOrganizar(receita: listaDeReceitas[3], estaOrganizado: true) { print("Run Action") }
                        .padding()
                }.previewLayout(.fixed(width: 400, height: 400))
         

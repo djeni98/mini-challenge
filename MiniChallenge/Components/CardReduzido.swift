@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct CardReduzido: View {
-    var imagem = "Strogo"
-    var receita = "Strogonoff"
-    var nivel = "Iniciante"
-    var tempoPreparo = "20 min"
+    var receita: Receita
+    var imagem: String {
+        guard let nomeImagem = receita.nomeImagem else {
+            return "sem-imagem"
+        }
+        return nomeImagem
+    }
+    var nome: String { receita.nome }
+    var nivel: String { receita.nivelDificuldade.toString() }
+    var tempoPreparo: String { receita.tempoPreparo }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,7 +34,7 @@ struct CardReduzido: View {
                 
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(receita)
+                    Text(nome)
                         .font(.title3)
                         .bold()
 
@@ -48,14 +54,13 @@ struct CardReduzido: View {
             .frame(height: 200, alignment: .leading)
             .cornerRadius(20)
             .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.2), radius: 20)
-            
         }
     }
 }
 
 struct CardReduzido_Previews: PreviewProvider {
     static var previews: some View {
-        CardReduzido()
+        CardReduzido(receita: listaDeReceitas[0])
             .padding(20)
     }
 }
