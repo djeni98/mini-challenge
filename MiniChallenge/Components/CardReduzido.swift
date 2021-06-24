@@ -22,7 +22,7 @@ struct CardReduzido: View {
                 Image(imagem)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 340, height: 150, alignment: .center)
+                    .frame(height: 150, alignment: .center)
                     .clipped()
                     .padding(.bottom, 110)
                 
@@ -45,7 +45,7 @@ struct CardReduzido: View {
                     Spacer()
                 }
             }
-            .frame(width: 340, height: 200, alignment: .leading)
+            .frame(height: 200, alignment: .leading)
             .cornerRadius(30)
             .shadow(radius: 20)
             
@@ -56,5 +56,6 @@ struct CardReduzido: View {
 struct CardReduzido_Previews: PreviewProvider {
     static var previews: some View {
         CardReduzido()
+            .padding(20)
     }
 }

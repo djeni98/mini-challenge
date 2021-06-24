@@ -22,7 +22,7 @@ struct CardPrincipal: View {
                 Image(imagem)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 340, height: 210, alignment: .center)
+                    .frame(height: 210, alignment: .center)
                     .clipped()
                     .padding(.bottom, 110)
                 
@@ -50,7 +50,7 @@ struct CardPrincipal: View {
                 .padding(.horizontal, 25)
                 
             }
-            .frame(width: 340, height: 310, alignment: .center)
+            .frame(height: 310, alignment: .center)
             .cornerRadius(30)
             .shadow(radius: 20)
             
@@ -61,6 +61,7 @@ struct CardPrincipal: View {
 struct MainCard_Previews: PreviewProvider {
     static var previews: some View {
         CardPrincipal()
+            .padding(20)
     }
 }
 
