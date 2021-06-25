@@ -19,14 +19,17 @@ struct CardPrincipal: View {
             ZStack {
                 Rectangle()
                     .foregroundColor(.white)
+
                 Image(imagem)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: 210, alignment: .center)
+                    .frame(minWidth: 320, minHeight: 210)
                     .clipped()
                     .padding(.bottom, 110)
+                    Spacer()
                 
                 VStack(alignment: .leading, spacing: 4) {
+                    Spacer()
                     Text(tipoRefeição)
                         .font(.caption)
                         .padding(.bottom, 8)
@@ -44,16 +47,16 @@ struct CardPrincipal: View {
                     }
                     .font(.caption)
                     .foregroundColor(Color(.systemGray))
+                    .padding(.bottom)
+                    
+                    
                     
                 }
-                .padding(.top, 190)
                 .padding(.horizontal, 25)
                 
+                
             }
-            .frame(height: 310, alignment: .center)
-            .cornerRadius(30)
-            .shadow(radius: 20)
-            
+            .frame(height: .infinity, alignment: .center)
         }
     }
 }
@@ -61,7 +64,8 @@ struct CardPrincipal: View {
 struct MainCard_Previews: PreviewProvider {
     static var previews: some View {
         CardPrincipal()
-            .padding(20)
+            .frame(width: 300, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+
     }
 }
 

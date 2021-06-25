@@ -11,7 +11,7 @@ struct CardOrganizar: View {
     var imagem = "Strogo"
     var receita = "Strogonoff"
     var buttonAction: () -> Void
-    var estaOrganizado = true
+    var estaOrganizado: Bool
     
     var body: some View {
         VStack {
@@ -71,9 +71,14 @@ struct CardOrganizar: View {
 struct CardOrganizar_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CardOrganizar { print("Run Action") }
+            CardOrganizar(buttonAction: {
+                print("Run Action")
+            }, estaOrganizado: true)
                        .padding()
-            CardOrganizar { print("Run Action") }
+            
+            CardOrganizar(buttonAction: {
+                print("Run Action")
+            }, estaOrganizado: false)
                        .padding()
                }.previewLayout(.fixed(width: 400, height: 400))
         
