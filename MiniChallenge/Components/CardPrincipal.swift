@@ -62,7 +62,6 @@ struct CardPrincipal: View {
                 
                 
             }
-            .frame(height: .infinity, alignment: .center)
         }
     }
 }
