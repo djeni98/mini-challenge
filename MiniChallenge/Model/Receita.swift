@@ -24,7 +24,8 @@ enum Dificuldade {
     case iniciante, intermediario, avancado
 }
 
-struct Receita {
+struct Receita: Identifiable{
+    var id : Int
     var categoria: TipoDeRefeicao;
     var nivelDificuldade: Dificuldade;
     var nome: String;
