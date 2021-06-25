@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		328B9F8F2684B73200286FD9 /* PlanejamentoLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328B9F8E2684B73200286FD9 /* PlanejamentoLista.swift */; };
 		B746D36B2683D20C00917D47 /* MinicardReceitaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B746D36A2683D20C00917D47 /* MinicardReceitaButton.swift */; };
 		B746D36D2683D8BE00917D47 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B746D36C2683D8BE00917D47 /* SearchField.swift */; };
 		B76BBBD22682AA5500523DAD /* MiniChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76BBBD12682AA5500523DAD /* MiniChallengeApp.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		328B9F8E2684B73200286FD9 /* PlanejamentoLista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanejamentoLista.swift; sourceTree = "<group>"; };
 		B746D36A2683D20C00917D47 /* MinicardReceitaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinicardReceitaButton.swift; sourceTree = "<group>"; };
 		B746D36C2683D8BE00917D47 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		B76BBBCE2682AA5500523DAD /* MiniChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		328B9F872684B68400286FD9 /* Telas */ = {
+			isa = PBXGroup;
+			children = (
+				328B9F8E2684B73200286FD9 /* PlanejamentoLista.swift */,
+			);
+			path = Telas;
+			sourceTree = "<group>";
+		};
 		B76BBBC52682AA5500523DAD = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +72,7 @@
 			children = (
 				B76BBBD12682AA5500523DAD /* MiniChallengeApp.swift */,
 				B76BBBD32682AA5500523DAD /* ContentView.swift */,
+				328B9F872684B68400286FD9 /* Telas */,
 				B7CBC63F2683662400460809 /* Components */,
 				B76BBBE02682AA6300523DAD /* Model */,
 				B76BBBD52682AA5600523DAD /* Assets.xcassets */,
@@ -170,6 +181,7 @@
 				B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */,
 				B76BBBE22682AA7200523DAD /* Receita.swift in Sources */,
 				B746D36B2683D20C00917D47 /* MinicardReceitaButton.swift in Sources */,
+				328B9F8F2684B73200286FD9 /* PlanejamentoLista.swift in Sources */,
 				B76BBBD22682AA5500523DAD /* MiniChallengeApp.swift in Sources */,
 				B7CBC6412683668C00460809 /* AdicionaReceitasButton.swift in Sources */,
 			);
