@@ -11,7 +11,22 @@ struct Ingrediente {
     var quantidade: Int?;
     var nome: String;
 
-    var descricao: String;
+    var descricao: String?;
+
+    func toString() -> String {
+        var str = ""
+        if let quantidade = self.quantidade {
+            str += " \(quantidade)"
+        }
+
+        str += " \(self.nome)"
+
+        if let descricao = self.descricao {
+            str += " \(descricao)"
+        }
+
+        return str
+    }
 }
 
 enum TipoDeRefeicao {
@@ -93,7 +108,10 @@ var listaDeReceitas = [
     Receita(
         id: 1, categoria: .refeicaoPrincipal, nivelDificuldade: .intermediario,
         nome: "Strogonoff", tempoPreparo: "30 min", ingredientes: [
-            Ingrediente(quantidade: 3, nome: "cenouras", descricao: "grandes")
+            Ingrediente(quantidade: 3, nome: "cenouras", descricao: "grandes"),
+            Ingrediente(quantidade: 1, nome: "cebola", descricao: "picada"),
+            Ingrediente(quantidade: 3, nome: "tomates"),
+            Ingrediente(nome: "Sal")
         ],
         modoPreparo: "Meu modo de preparo", nomeImagem: "Strogo"),
     Receita(
