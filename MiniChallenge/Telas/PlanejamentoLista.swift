@@ -26,7 +26,12 @@ struct PlanejamentoLista: View {
     ]
     var body: some View {
         //NavigationView{
+        let date = Date()
+        let weekday = Calendar.current.component(.weekday, from: date)
+        let day = Calendar.current.component(.day, from: date)
             VStack(alignment: .leading){
+                Text("\(weekday)")
+                Text("\(day)")
                 Text("Semana - Almoço").font(.system(.largeTitle)).bold()
                 List(){
                     ForEach(testArray){ element in
