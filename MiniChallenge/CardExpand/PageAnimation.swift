@@ -54,7 +54,7 @@ struct PageAnimation: View {
                 VStack {
                     ScrollView {
                         CardPrincipal()
-                            .cornerRadius(radius: 30, corners: [.topLeft, .topRight])
+                            .cornerRadius(30)
                             .matchedGeometryEffect(id: "Card", in: namespace)
                             .frame(idealHeight: 400)
                             .onTapGesture {
@@ -62,6 +62,7 @@ struct PageAnimation: View {
                                     estaExpandido.toggle()
                                 }
                             }
+                        Divider()
                         
                         Text("""
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam felis elit, porta ac mollis non, venenatis sed justo.
@@ -71,12 +72,11 @@ struct PageAnimation: View {
                             Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed maximus metus vel sodales congue.
                             
                             Cras euismod neque euismod odio sagittis porttitor. Praesent magna tellus, convallis vel elit elementum, dignissim pretium tellus. Praesent efficitur viverra aliquet.
-                            
-                            Maecenas convallis auctor nibh ac pulvinar. Integer porttitor, velit vitae aliquam tempor, lectus elit maximus turpis, et semper magna quam et velit.
-                            
-                            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed maximus metus vel sodales congue.
-                            
-                            Cras euismod neque euismod odio sagittis porttitor. Praesent magna tellus, convallis vel elit elementum, dignissim pretium tellus. Praesent efficitur viverra aliquet.
+                                Maecenas convallis auctor nibh ac pulvinar. Integer porttitor, velit vitae aliquam tempor, lectus elit maximus turpis, et semper magna quam et velit.
+                                
+                                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed maximus metus vel sodales congue.
+                                
+                                Cras euismod neque euismod odio sagittis porttitor. Praesent magna tellus, convallis vel elit elementum, dignissim pretium tellus. Praesent efficitur viverra aliquet.
                             
                             """)
                             .padding(40)
