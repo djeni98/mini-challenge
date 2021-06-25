@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct PageAnimation: View {
-    
+    var receita: Receita
     @State var estaExpandido = false
     @Namespace var namespace
     
     var imagem = "Strogo"
     var tipoRefeição = "ALMOÇO"
-    var receita = "Strogonoff"
+    var nome = "Strogonoff"
     var nivel = "Iniciante"
     var tempoPreparo = "20 min"
     
@@ -30,7 +30,7 @@ struct PageAnimation: View {
 //                        ForEach(cards) { card in
                         ScrollView {
                             VStack {
-                                CardPrincipal()
+                                CardPrincipal(receita: receita)
                                     .clipShape(RoundedRectangle(cornerRadius: 30))
                                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                                     .matchedGeometryEffect(id: "Card", in: namespace)
@@ -53,7 +53,7 @@ struct PageAnimation: View {
             if estaExpandido {
                 VStack {
                     ScrollView {
-                        CardPrincipal()
+                        CardPrincipal(receita: receita)
                             .cornerRadius(30)
                             .matchedGeometryEffect(id: "Card", in: namespace)
                             .frame(idealHeight: 400)
@@ -98,6 +98,6 @@ struct PageAnimation: View {
 
 struct PageAnimation_Previews: PreviewProvider {
     static var previews: some View {
-        PageAnimation()
+        PageAnimation(receita: listaDeReceitas[0])
     }
 }
