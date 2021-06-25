@@ -11,7 +11,7 @@ struct CardOrganizar: View {
     var receita: Receita
     var estaOrganizado: Bool
     var buttonAction: () -> Void
-
+  
     var imagem: String {
         guard let nomeImagem = receita.nomeImagem else {
             return "sem-imagem"
@@ -21,7 +21,6 @@ struct CardOrganizar: View {
     var nome: String { receita.nome }
     var nivel: String { receita.nivelDificuldade.toString() }
     var tempoPreparo: String { receita.tempoPreparo }
-
     
     var body: some View {
         VStack {
