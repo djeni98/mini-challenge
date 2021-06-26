@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CardReduzido: View {
     var receita: Receita
+    @Binding var listaControle: [ControleQuantidade]
+    var dismissCallerView: () -> Void
+
     var imagem: String {
         guard let nomeImagem = receita.nomeImagem else {
             return "sem-imagem"
@@ -18,7 +21,9 @@ struct CardReduzido: View {
     var nome: String { receita.nome }
     var nivel: String { receita.nivelDificuldade.toString() }
     var tempoPreparo: String { receita.tempoPreparo }
-    
+
+    @State var mostraReceita = false
+
     var body: some View {
         VStack(alignment: .leading) {
             ZStack {
@@ -54,13 +59,26 @@ struct CardReduzido: View {
             .frame(height: 200, alignment: .leading)
             .cornerRadius(20)
             .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.2), radius: 20)
+            .sheet(isPresented: $mostraReceita, content: {
+                ReceitaModalStack(
+                    isPresented: $mostraReceita,
+                    receita: receita,
+                    listaControle: $listaControle,
+                    dismissCallerView: dismissCallerView
+                )
+            })
+            .contentShape(Rectangle())
+            .onTapGesture {
+                mostraReceita = true
+            }
         }
     }
 }
 
 struct CardReduzido_Previews: PreviewProvider {
     static var previews: some View {
-        CardReduzido(receita: listaDeReceitas[0])
+        CardReduzido(receita: listaDeReceitas[0], listaControle: .constant([])) {}
             .padding(20)
+            .previewLayout(.fixed(width: 375, height: 250))
     }
 }
