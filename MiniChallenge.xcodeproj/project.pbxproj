@@ -25,6 +25,8 @@
 		B76BBBD62682AA5600523DAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76BBBD52682AA5600523DAD /* Assets.xcassets */; };
 		B76BBBD92682AA5600523DAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76BBBD82682AA5600523DAD /* Preview Assets.xcassets */; };
 		B76BBBE22682AA7200523DAD /* Receita.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76BBBE12682AA7200523DAD /* Receita.swift */; };
+		B77FA58C2688DC6300D569AA /* CardapioSemanaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FA58B2688DC6300D569AA /* CardapioSemanaView.swift */; };
+		B77FA58E2688E27E00D569AA /* ListaReceitasDeRefeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FA58D2688E27E00D569AA /* ListaReceitasDeRefeicao.swift */; };
 		B797C38C2684BD720048FC7C /* DottedOutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B797C38B2684BD720048FC7C /* DottedOutlineButton.swift */; };
 		B7CBC6412683668C00460809 /* AdicionaReceitasButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CBC6402683668C00460809 /* AdicionaReceitasButton.swift */; };
 		B7CC709A26868C8B00E01848 /* ButtonPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CC709926868C8B00E01848 /* ButtonPicker.swift */; };
@@ -51,6 +53,8 @@
 		B76BBBD82682AA5600523DAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B76BBBDA2682AA5600523DAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B76BBBE12682AA7200523DAD /* Receita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receita.swift; sourceTree = "<group>"; };
+		B77FA58B2688DC6300D569AA /* CardapioSemanaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardapioSemanaView.swift; sourceTree = "<group>"; };
+		B77FA58D2688E27E00D569AA /* ListaReceitasDeRefeicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaReceitasDeRefeicao.swift; sourceTree = "<group>"; };
 		B797C38B2684BD720048FC7C /* DottedOutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedOutlineButton.swift; sourceTree = "<group>"; };
 		B7CBC6402683668C00460809 /* AdicionaReceitasButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionaReceitasButton.swift; sourceTree = "<group>"; };
 		B7CC709926868C8B00E01848 /* ButtonPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPicker.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 			children = (
 				B71FA41B26867AC100FBA88D /* ReceitaModalStack.swift */,
 				B73E30272684F3E7007FB08D /* PesquisaReceitaView.swift */,
+				B77FA58B2688DC6300D569AA /* CardapioSemanaView.swift */,
 			);
 			path = Planejamento;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				B746D36E2683E50400917D47 /* FiiledButton.swift */,
 				B797C38B2684BD720048FC7C /* DottedOutlineButton.swift */,
 				B7CC709926868C8B00E01848 /* ButtonPicker.swift */,
+				B77FA58D2688E27E00D569AA /* ListaReceitasDeRefeicao.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -226,11 +232,13 @@
 				B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */,
 				B746D36F2683E50400917D47 /* FiiledButton.swift in Sources */,
 				B7CC709A26868C8B00E01848 /* ButtonPicker.swift in Sources */,
+				B77FA58C2688DC6300D569AA /* CardapioSemanaView.swift in Sources */,
 				14B474F52683C55E008394D5 /* CardOrganizar.swift in Sources */,
 				14598D562684A869002D43B2 /* CardReduzido.swift in Sources */,
 				B76BBBE22682AA7200523DAD /* Receita.swift in Sources */,
 				148A592E2686116B008B4DD8 /* Transicao.swift in Sources */,
 				7A132FE42684169500DC46C1 /* ListaOpcoesReceita.swift in Sources */,
+				B77FA58E2688E27E00D569AA /* ListaReceitasDeRefeicao.swift in Sources */,
 				B797C38C2684BD720048FC7C /* DottedOutlineButton.swift in Sources */,
 				B746D36B2683D20C00917D47 /* MinicardReceitaButton.swift in Sources */,
 				148A593226861650008B4DD8 /* CornerRadiusStyle.swift in Sources */,
