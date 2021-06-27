@@ -9,19 +9,22 @@ import SwiftUI
 
 struct CardapioSemanaView: View {
 
-    @State var listaCafeDaManha: [ControleQuantidade] = []
-    @State var listaAlmoco: [ControleQuantidade] = []
-    @State var listaJantar: [ControleQuantidade] = []
+    @StateObject var controleCafeDaManha = ControleQuantidadeReceitasModel()
+    @StateObject var controleAlmoco = ControleQuantidadeReceitasModel()
+    @StateObject var controleJantar = ControleQuantidadeReceitasModel()
 
-    @State var listaLanches: [ControleQuantidade] = []
+    // @State var listaLanches: [ControleQuantidade] = []
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                ListaReceitasDeRefeicao(tipoRefeicao: .cafeDaManha, listaControle: $listaCafeDaManha)
+                ListaReceitasDeRefeicao(tipoRefeicao: .cafeDaManha)
+                    .environmentObject(controleCafeDaManha)
 
-                ListaReceitasDeRefeicao(tipoRefeicao: .almoco, listaControle: $listaAlmoco)
+                ListaReceitasDeRefeicao(tipoRefeicao: .almoco)
+                    .environmentObject(controleAlmoco)
 
-                ListaReceitasDeRefeicao(tipoRefeicao: .jantar, listaControle: $listaJantar)
+                ListaReceitasDeRefeicao(tipoRefeicao: .jantar)
+                    .environmentObject(controleJantar)
 
                 // ListaReceitasDeRefeicao(tipoRefeicao: .lanche, listaControle: $listaLanches)
 

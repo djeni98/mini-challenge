@@ -9,8 +9,6 @@ import SwiftUI
 
 struct PesquisaReceitaView: View {
     var tipoRefeicao: TipoDeRefeicao
-    @Binding var listaControle: [ControleQuantidade]
-
     @Environment(\.presentationMode) var presentation
 
     @State var query: String = ""
@@ -27,7 +25,7 @@ struct PesquisaReceitaView: View {
                     .padding(.vertical)
 
                 ForEach(receitas) { receita in
-                    CardReduzido(receita: receita, listaControle: $listaControle) {
+                    CardReduzido(receita: receita) {
                         self.presentation.wrappedValue.dismiss()
                     }
                         .padding(.bottom)
@@ -41,7 +39,7 @@ struct PesquisaReceitaView: View {
 struct PesquisaReceitaView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PesquisaReceitaView(tipoRefeicao: .almoco, listaControle: .constant([]))
+            PesquisaReceitaView(tipoRefeicao: .almoco)
         }
     }
 }

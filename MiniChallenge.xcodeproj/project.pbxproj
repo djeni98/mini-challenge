@@ -27,6 +27,7 @@
 		B76BBBE22682AA7200523DAD /* Receita.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76BBBE12682AA7200523DAD /* Receita.swift */; };
 		B77FA58C2688DC6300D569AA /* CardapioSemanaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FA58B2688DC6300D569AA /* CardapioSemanaView.swift */; };
 		B77FA58E2688E27E00D569AA /* ListaReceitasDeRefeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FA58D2688E27E00D569AA /* ListaReceitasDeRefeicao.swift */; };
+		B78B43682689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78B43672689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift */; };
 		B797C38C2684BD720048FC7C /* DottedOutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B797C38B2684BD720048FC7C /* DottedOutlineButton.swift */; };
 		B7CBC6412683668C00460809 /* AdicionaReceitasButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CBC6402683668C00460809 /* AdicionaReceitasButton.swift */; };
 		B7CC709A26868C8B00E01848 /* ButtonPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CC709926868C8B00E01848 /* ButtonPicker.swift */; };
@@ -55,6 +56,7 @@
 		B76BBBE12682AA7200523DAD /* Receita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receita.swift; sourceTree = "<group>"; };
 		B77FA58B2688DC6300D569AA /* CardapioSemanaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardapioSemanaView.swift; sourceTree = "<group>"; };
 		B77FA58D2688E27E00D569AA /* ListaReceitasDeRefeicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaReceitasDeRefeicao.swift; sourceTree = "<group>"; };
+		B78B43672689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControleQuantidadeReceitasModel.swift; sourceTree = "<group>"; };
 		B797C38B2684BD720048FC7C /* DottedOutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedOutlineButton.swift; sourceTree = "<group>"; };
 		B7CBC6402683668C00460809 /* AdicionaReceitasButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionaReceitasButton.swift; sourceTree = "<group>"; };
 		B7CC709926868C8B00E01848 /* ButtonPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPicker.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				B76BBBE12682AA7200523DAD /* Receita.swift */,
+				B78B43672689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				B76BBBE22682AA7200523DAD /* Receita.swift in Sources */,
 				148A592E2686116B008B4DD8 /* Transicao.swift in Sources */,
 				7A132FE42684169500DC46C1 /* ListaOpcoesReceita.swift in Sources */,
+				B78B43682689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift in Sources */,
 				B77FA58E2688E27E00D569AA /* ListaReceitasDeRefeicao.swift in Sources */,
 				B797C38C2684BD720048FC7C /* DottedOutlineButton.swift in Sources */,
 				B746D36B2683D20C00917D47 /* MinicardReceitaButton.swift in Sources */,

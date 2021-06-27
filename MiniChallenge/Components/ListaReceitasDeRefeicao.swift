@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ListaReceitasDeRefeicao: View {
     var tipoRefeicao: TipoDeRefeicao
-    @Binding var listaControle: [ControleQuantidade]
+    @EnvironmentObject var controleReceitas: ControleQuantidadeReceitasModel
+    var listaControle: [ControleQuantidade] { controleReceitas.lista }
     @State var refeicaoViewActive = false
 
     var body: some View {
@@ -29,14 +30,14 @@ struct ListaReceitasDeRefeicao: View {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 0) {
-                    ForEach(0..<listaControle.count) { i in
-                        let receita = listaControle[i].receita
+                    ForEach(listaControle) { item in
+                        let receita = item.receita
                         MinicardReceitaButton(imageName: receita.nomeImagem) {}
                             .padding(.trailing)
                     }
 
                     NavigationLink(
-                        destination: PesquisaReceitaView(tipoRefeicao: tipoRefeicao, listaControle: $listaControle),
+                        destination: PesquisaReceitaView(tipoRefeicao: tipoRefeicao).environmentObject(controleReceitas),
                         isActive: $refeicaoViewActive,
                         label: {})
 
@@ -52,23 +53,28 @@ struct ListaReceitasDeRefeicao: View {
 
 struct ListaReceitasDeRefeicao_Previews: PreviewProvider {
     static let listaControle1 = [
-        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 2, receita: listaDeReceitas[0]),
-        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 2, receita: listaDeReceitas[1])
+        ControleQuantidade( quantidadePessoas: 2, receita: listaDeReceitas[0]),
+        ControleQuantidade( quantidadePessoas: 2, receita: listaDeReceitas[1])
     ]
 
     static let listaControle2 = [
-        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 2, receita: listaDeReceitas[0]),
-        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 2, receita: listaDeReceitas[1]),
-        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 2, receita: listaDeReceitas[2]),
-        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 2, receita: listaDeReceitas[3])
+        ControleQuantidade(quantidadePessoas: 2, receita: listaDeReceitas[0]),
+        ControleQuantidade(quantidadePessoas: 2, receita: listaDeReceitas[1]),
+        ControleQuantidade(quantidadePessoas: 2, receita: listaDeReceitas[2]),
+        ControleQuantidade(quantidadePessoas: 2, receita: listaDeReceitas[3])
     ]
 
 
     static var previews: some View {
         Group {
-            ListaReceitasDeRefeicao(tipoRefeicao: .cafeDaManha, listaControle: .constant([]))
-            ListaReceitasDeRefeicao(tipoRefeicao: .almoco, listaControle: .constant(listaControle1))
-            ListaReceitasDeRefeicao(tipoRefeicao: .jantar, listaControle: .constant(listaControle2))
+            ListaReceitasDeRefeicao(tipoRefeicao: .cafeDaManha)
+                .environmentObject(ControleQuantidadeReceitasModel())
+
+            ListaReceitasDeRefeicao(tipoRefeicao: .almoco)
+                .environmentObject(ControleQuantidadeReceitasModel(listaControle1))
+            
+            ListaReceitasDeRefeicao(tipoRefeicao: .jantar)
+                .environmentObject(ControleQuantidadeReceitasModel(listaControle2))
         }.previewLayout(.fixed(width: 375, height: 200))
     }
 }
