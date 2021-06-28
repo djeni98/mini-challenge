@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PesquisaReceitaView: View {
     var tipoRefeicao: TipoDeRefeicao
+    @Environment(\.presentationMode) var presentation
 
     @State var query: String = ""
 
@@ -21,10 +22,12 @@ struct PesquisaReceitaView: View {
         ScrollView {
             VStack {
                 SearchField(query: $query)
-                    .padding(.bottom)
+                    .padding(.vertical)
 
                 ForEach(receitas) { receita in
-                    CardReduzido(receita: receita)
+                    CardReduzido(receita: receita) {
+                        self.presentation.wrappedValue.dismiss()
+                    }
                         .padding(.bottom)
                 }
             }.padding(.horizontal)
