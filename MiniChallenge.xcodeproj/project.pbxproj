@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141B1CB32688E6AA00A07F41 /* RemoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B1CB22688E6AA00A07F41 /* RemoveButton.swift */; };
 		7A132FE42684169500DC46C1 /* ListaOpcoesReceita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A132FE32684169500DC46C1 /* ListaOpcoesReceita.swift */; };
 		7A28D2422685FE6300595997 /* ItensCarrosselDias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A28D2412685FE6300595997 /* ItensCarrosselDias.swift */; };
 		7AF9998F2683F90800E91065 /* ListaReceitasParaOrganizar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF9998E2683F90800E91065 /* ListaReceitasParaOrganizar.swift */; };
@@ -14,10 +15,12 @@
 		B746D36D2683D8BE00917D47 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B746D36C2683D8BE00917D47 /* SearchField.swift */; };
 		14404EBE2683786A003970CC /* CardPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14404EBD2683786A003970CC /* CardPrincipal.swift */; };
 		14598D562684A869002D43B2 /* CardReduzido.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14598D552684A869002D43B2 /* CardReduzido.swift */; };
-		14598D592684C93A002D43B2 /* PageAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14598D582684C93A002D43B2 /* PageAnimation.swift */; };
+		14598D592684C93A002D43B2 /* CardAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14598D582684C93A002D43B2 /* CardAnimationView.swift */; };
+		14883FDD268A2A3900772C7C /* CardDetalhadoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14883FDC268A2A3900772C7C /* CardDetalhadoView.swift */; };
 		148A592E2686116B008B4DD8 /* Transicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148A592D2686116B008B4DD8 /* Transicao.swift */; };
 		148A593226861650008B4DD8 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148A593126861650008B4DD8 /* CornerRadiusStyle.swift */; };
 		14B474F52683C55E008394D5 /* CardOrganizar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B474F42683C55E008394D5 /* CardOrganizar.swift */; };
+		14C5B89026894A6D00203634 /* dasdas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C5B88F26894A6D00203634 /* dasdas.swift */; };
 		7A132FE42684169500DC46C1 /* ListaOpcoesReceita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A132FE32684169500DC46C1 /* ListaOpcoesReceita.swift */; };
 		7AF9998F2683F90800E91065 /* ListaReceitasParaOrganizar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF9998E2683F90800E91065 /* ListaReceitasParaOrganizar.swift */; };
 		B71FA41C26867AC100FBA88D /* ReceitaModalStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71FA41B26867AC100FBA88D /* ReceitaModalStack.swift */; };
@@ -39,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		141B1CB22688E6AA00A07F41 /* RemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveButton.swift; sourceTree = "<group>"; };
 		7A132FE32684169500DC46C1 /* ListaOpcoesReceita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaOpcoesReceita.swift; sourceTree = "<group>"; };
 		7A28D2412685FE6300595997 /* ItensCarrosselDias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItensCarrosselDias.swift; sourceTree = "<group>"; };
 		7AF9998E2683F90800E91065 /* ListaReceitasParaOrganizar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaReceitasParaOrganizar.swift; sourceTree = "<group>"; };
@@ -46,10 +50,12 @@
 		B746D36C2683D8BE00917D47 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		14404EBD2683786A003970CC /* CardPrincipal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPrincipal.swift; sourceTree = "<group>"; };
 		14598D552684A869002D43B2 /* CardReduzido.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReduzido.swift; sourceTree = "<group>"; };
-		14598D582684C93A002D43B2 /* PageAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAnimation.swift; sourceTree = "<group>"; };
+		14598D582684C93A002D43B2 /* CardAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAnimationView.swift; sourceTree = "<group>"; };
+		14883FDC268A2A3900772C7C /* CardDetalhadoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetalhadoView.swift; sourceTree = "<group>"; };
 		148A592D2686116B008B4DD8 /* Transicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transicao.swift; sourceTree = "<group>"; };
 		148A593126861650008B4DD8 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
 		14B474F42683C55E008394D5 /* CardOrganizar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOrganizar.swift; sourceTree = "<group>"; };
+		14C5B88F26894A6D00203634 /* dasdas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dasdas.swift; sourceTree = "<group>"; };
 		7A132FE32684169500DC46C1 /* ListaOpcoesReceita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaOpcoesReceita.swift; sourceTree = "<group>"; };
 		7AF9998E2683F90800E91065 /* ListaReceitasParaOrganizar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaReceitasParaOrganizar.swift; sourceTree = "<group>"; };
 		B71FA41B26867AC100FBA88D /* ReceitaModalStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceitaModalStack.swift; sourceTree = "<group>"; };
@@ -86,7 +92,9 @@
 		14598D572684C8FF002D43B2 /* CardExpand */ = {
 			isa = PBXGroup;
 			children = (
-				14598D582684C93A002D43B2 /* PageAnimation.swift */,
+				14598D582684C93A002D43B2 /* CardAnimationView.swift */,
+				14883FDC268A2A3900772C7C /* CardDetalhadoView.swift */,
+				14C5B88F26894A6D00203634 /* dasdas.swift */,
 				148A592D2686116B008B4DD8 /* Transicao.swift */,
 				148A593126861650008B4DD8 /* CornerRadiusStyle.swift */,
 			);
@@ -168,6 +176,7 @@
 				B746D36C2683D8BE00917D47 /* SearchField.swift */,
 				B746D36E2683E50400917D47 /* FiiledButton.swift */,
 				B797C38B2684BD720048FC7C /* DottedOutlineButton.swift */,
+				141B1CB22688E6AA00A07F41 /* RemoveButton.swift */,
 				B7CC709926868C8B00E01848 /* ButtonPicker.swift */,
 				B77FA58D2688E27E00D569AA /* ListaReceitasDeRefeicao.swift */,
 			);
@@ -245,7 +254,10 @@
 			files = (
 				7A28D2422685FE6300595997 /* ItensCarrosselDias.swift in Sources */,
 				B746D36D2683D8BE00917D47 /* SearchField.swift in Sources */,
-				14598D592684C93A002D43B2 /* PageAnimation.swift in Sources */,
+				14883FDD268A2A3900772C7C /* CardDetalhadoView.swift in Sources */,
+				14598D592684C93A002D43B2 /* CardAnimationView.swift in Sources */,
+				14C5B89026894A6D00203634 /* dasdas.swift in Sources */,
+				141B1CB32688E6AA00A07F41 /* RemoveButton.swift in Sources */,
 				B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */,
 				B746D36F2683E50400917D47 /* FiiledButton.swift in Sources */,
 				B7CC709A26868C8B00E01848 /* ButtonPicker.swift in Sources */,
