@@ -41,6 +41,11 @@ struct ListaReceitasDeRefeicao: View {
                         destination: PesquisaReceitaView(tipoRefeicao: tipoRefeicao).environmentObject(controleReceitas),
                         isActive: $refeicaoViewActive,
                         label: {})
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                
+                            }
+                        }
 
 
                     AdicionaReceitasButton() {
