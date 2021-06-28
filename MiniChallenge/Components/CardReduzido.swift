@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CardReduzido: View {
     var receita: Receita
-    @Binding var listaControle: [ControleQuantidade]
+    @EnvironmentObject var controleReceitas: ControleQuantidadeReceitasModel
+    var listaControle: [ControleQuantidade] { controleReceitas.lista }
     var dismissCallerView: () -> Void
 
     var imagem: String {
@@ -63,9 +64,8 @@ struct CardReduzido: View {
                 ReceitaModalStack(
                     isPresented: $mostraReceita,
                     receita: receita,
-                    listaControle: $listaControle,
                     dismissCallerView: dismissCallerView
-                )
+                ).environmentObject(controleReceitas)
             })
             .contentShape(Rectangle())
             .onTapGesture {
@@ -77,7 +77,7 @@ struct CardReduzido: View {
 
 struct CardReduzido_Previews: PreviewProvider {
     static var previews: some View {
-        CardReduzido(receita: listaDeReceitas[0], listaControle: .constant([])) {}
+        CardReduzido(receita: listaDeReceitas[0]) {}
             .padding(20)
             .previewLayout(.fixed(width: 375, height: 250))
     }

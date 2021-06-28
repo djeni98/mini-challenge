@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        PageAnimation(receita: listaDeReceitas[0])
+        NavigationView {
+            CardapioSemanaView()
+        }
     }
 }
 
