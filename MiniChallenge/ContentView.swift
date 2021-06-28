@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        PageAnimation(receita: listaDeReceitas[0])
+        CardAnimationView(receitas: listaDeReceitas, receita: listaDeReceitas[0])
+//        PageAnimation(receita: listaDeReceitas[0])
+
     }
 }
 
@@ -18,3 +20,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
