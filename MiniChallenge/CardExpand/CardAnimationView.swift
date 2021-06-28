@@ -122,6 +122,8 @@ struct CardAnimationView: View {
                                 self.receitaSelecionado = nil
                                 estaAnimando = true
                                 estaExpandido.toggle()
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { estaAnimando = false }
                             }
                             }) {
                                 Image(systemName: "xmark.circle.fill")

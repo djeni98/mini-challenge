@@ -35,6 +35,7 @@ struct ListaReceitasDeRefeicao: View {
                         MinicardReceitaButton(imageName: receita.nomeImagem) {}
                             .padding(.trailing)
                     }
+                    .transition(.scale)
 
                     NavigationLink(
                         destination: PesquisaReceitaView(tipoRefeicao: tipoRefeicao).environmentObject(controleReceitas),
