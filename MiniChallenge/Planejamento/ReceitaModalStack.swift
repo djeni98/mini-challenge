@@ -10,8 +10,15 @@ import SwiftUI
 struct ReceitaModalStack: View {
     @Binding var isPresented: Bool
     var receita: Receita
-    @Binding var listaControle: [ControleQuantidade]
     var dismissCallerView: () -> Void
+
+    @EnvironmentObject var controleReceitas: ControleQuantidadeReceitasModel
+    var listaControle: [ControleQuantidade] {
+        controleReceitas.lista
+    }
+    var listaComMesmaReceita: [ControleQuantidade] {
+        controleReceitas.lista.filter({ $0.receita.id == receita.id })
+    }
 
     var nivel: String { receita.nivelDificuldade.toString() }
     var tempoPreparo: String { receita.tempoPreparo }
@@ -58,12 +65,16 @@ struct ReceitaModalStack: View {
                 leading: Button("Cancelar") { isPresented = false },
                 trailing: Button("Concluir") {
                     isPresented = false
-                    for _ in 0..<repeticaoSemana {
-                        listaControle.append(ControleQuantidade(quantidadeSemana: repeticaoSemana, quantidadePessoas: quantidadePessoas, receita: receita))
+                    for _ in listaComMesmaReceita.count..<repeticaoSemana {
+                        controleReceitas.lista.append(
+                            ControleQuantidade( quantidadePessoas: quantidadePessoas, receita: receita)
+                        )
                     }
 
                     dismissCallerView()
                 })
+        }.onAppear {
+            self.repeticaoSemana = listaComMesmaReceita.count
         }
     }
 
@@ -84,7 +95,7 @@ struct ReceitaModalStack: View {
 
                 Spacer()
 
-                ButtonPicker(value: $repeticaoSemana, downLimit: 0, upLimit: 7 - listaControle.count)
+                ButtonPicker(value: $repeticaoSemana, downLimit: 0, upLimit: 7 - listaControle.filter({ $0.receita.id != receita.id }).count)
             }
         }
     }
@@ -140,9 +151,9 @@ struct ReceitaModalStack_Previews: PreviewProvider {
     static var previews: some View {
         ReceitaModalStack(
             isPresented: .constant(true),
-            receita: listaDeReceitas[0],
-            listaControle: .constant([])
+            receita: listaDeReceitas[0]
         ) {}
+        .environmentObject(ControleQuantidadeReceitasModel())
     }
 }
 

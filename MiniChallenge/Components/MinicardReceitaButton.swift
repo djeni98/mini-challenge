@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct MinicardReceitaButton: View {
-    var imageName: String
+    var imageName: String?
     var buttonAction: () -> Void
+
+    var image: String { imageName != nil ? imageName! : "sem-imagem" }
     var body: some View {
         VStack {
             Button(action: buttonAction) {
                 ZStack {
-                    Image(imageName)
+                    Image(image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 80, height: 80)
