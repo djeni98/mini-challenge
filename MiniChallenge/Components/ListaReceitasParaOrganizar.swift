@@ -49,10 +49,10 @@ struct ListaReceitasParaOrganizar: View {
                     .padding(.leading)
                 }
                 Spacer()
-                VStack(alignment: .trailing){
-                    Image(systemName: "line.horizontal.3")
-                        .foregroundColor(Color(.systemGray2))
-                }
+//                VStack(alignment: .trailing){
+//                    Image(systemName: "line.horizontal.3")
+//                        .foregroundColor(Color(.systemGray2))
+//                }
             }
             .padding()
             //
