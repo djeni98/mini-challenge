@@ -13,23 +13,42 @@ struct CardapioSemanaView: View {
     @StateObject var controleAlmoco = ControleQuantidadeReceitasModel()
     @StateObject var controleJantar = ControleQuantidadeReceitasModel()
 
+    @State var estaEditando = false
+    @State var estaAnimando = false
+    
     // @State var listaLanches: [ControleQuantidade] = []
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                ListaReceitasDeRefeicao(tipoRefeicao: .cafeDaManha)
+
+                ListaReceitasDeRefeicao(tipoRefeicao: .cafeDaManha, estaEditando: estaEditando)
                     .environmentObject(controleCafeDaManha)
 
-                ListaReceitasDeRefeicao(tipoRefeicao: .almoco)
+                ListaReceitasDeRefeicao(tipoRefeicao: .almoco, estaEditando: estaEditando)
                     .environmentObject(controleAlmoco)
 
-                ListaReceitasDeRefeicao(tipoRefeicao: .jantar)
+                ListaReceitasDeRefeicao(tipoRefeicao: .jantar, estaEditando: estaEditando)
                     .environmentObject(controleJantar)
 
                 // ListaReceitasDeRefeicao(tipoRefeicao: .lanche, listaControle: $listaLanches)
 
             }
         }.navigationTitle("Cardápio da semana")
+        .navigationBarItems(
+            leading: Button("Editar") {},
+            trailing: Button(
+                action: {
+                    withAnimation(.spring()) {
+                        if estaAnimando { return }
+                        estaEditando.toggle()
+                        estaAnimando = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { estaAnimando = false }
+                    }
+                }, label: {
+                    Image(systemName: "slider.horizontal.3")
+                }
+            )
+        )
     }
 }
 
