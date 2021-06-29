@@ -10,29 +10,42 @@ import SwiftUI
 struct PesquisaReceitaView: View {
     var tipoRefeicao: TipoDeRefeicao
     @Environment(\.presentationMode) var presentation
-
+    
+    @State var searchBar = false
+    @State var receitas: [Receita] = []
     @State var query: String = ""
-
-    var receitas: [Receita] {
-        listaDeReceitas.filter { query.isEmpty || $0.nome.uppercased().contains(query.uppercased())
-        }
+    
+    func filterFunc(_ receita: Receita) -> Bool {
+        query.isEmpty || receita.nome.uppercased().contains(query.uppercased())
     }
-
+    
     var body: some View {
         ScrollView {
             VStack {
-                SearchField(query: $query)
-                    .padding(.vertical)
+                if searchBar {
+                    SearchField(query: $query)
+                        .transition(AnyTransition.opacity.combined(with: .move(edge: .trailing)))
+                        .padding(.vertical)
+                }
 
-                ForEach(receitas) { receita in
+                ForEach(receitas.filter(filterFunc)) { receita in
                     CardReduzido(receita: receita) {
                         self.presentation.wrappedValue.dismiss()
                     }
-                        .padding(.bottom)
+                    .transition(AnyTransition.opacity.combined(with: .move(edge: .trailing)))
+                    .padding(.bottom)
                 }
             }.padding(.horizontal)
+            .onAppear {
+                withAnimation(.spring(response: 0.5, dampingFraction: 0.9, blendDuration: 2)) {
+                    receitas = listaDeReceitas
+                    
+                    searchBar.toggle()
+                }
+            }
         }
         .navigationTitle(tipoRefeicao.toString())
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 

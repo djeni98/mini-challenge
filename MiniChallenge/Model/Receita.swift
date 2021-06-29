@@ -73,6 +73,7 @@ enum Dificuldade {
     }
 }
 
+
 struct Receita: Identifiable {
     var id: Int;
     var categoria: TipoDeRefeicao;
@@ -95,7 +96,6 @@ struct CardapioDia {
     var jantar: ControleQuantidade;
     var lanches: [Receita];
 }
-
 
 var listaDeReceitas = [
     Receita(
