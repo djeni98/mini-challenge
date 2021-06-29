@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ListaReceitasDeRefeicao: View {
     var tipoRefeicao: TipoDeRefeicao
+    var estaEditando: Bool
     @EnvironmentObject var controleReceitas: ControleQuantidadeReceitasModel
     var listaControle: [ControleQuantidade] { controleReceitas.lista }
     @State var refeicaoViewActive = false
@@ -32,8 +33,15 @@ struct ListaReceitasDeRefeicao: View {
                 HStack(spacing: 0) {
                     ForEach(listaControle) { item in
                         let receita = item.receita
-                        MinicardReceitaButton(imageName: receita.nomeImagem) {}
-                            .padding(.trailing)
+                        let index = listaControle.firstIndex { $0.id == item.id }!
+                        MinicardReceitaButton(
+                            receita: receita, estaEditando: estaEditando,
+                            removeAction: {
+                                withAnimation { () -> () in
+                                    self.controleReceitas.lista.remove(at: index)
+                                }
+                            }
+                        ).padding(.trailing)
                     }
                     .transition(.scale)
 
@@ -68,13 +76,13 @@ struct ListaReceitasDeRefeicao_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            ListaReceitasDeRefeicao(tipoRefeicao: .cafeDaManha)
+            ListaReceitasDeRefeicao(tipoRefeicao: .cafeDaManha, estaEditando: false)
                 .environmentObject(ControleQuantidadeReceitasModel())
 
-            ListaReceitasDeRefeicao(tipoRefeicao: .almoco)
+            ListaReceitasDeRefeicao(tipoRefeicao: .almoco, estaEditando: false)
                 .environmentObject(ControleQuantidadeReceitasModel(listaControle1))
             
-            ListaReceitasDeRefeicao(tipoRefeicao: .jantar)
+            ListaReceitasDeRefeicao(tipoRefeicao: .jantar, estaEditando: true)
                 .environmentObject(ControleQuantidadeReceitasModel(listaControle2))
         }.previewLayout(.fixed(width: 375, height: 200))
     }

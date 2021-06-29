@@ -11,6 +11,7 @@ struct ControleQuantidade: Identifiable {
     var id = UUID()
     var quantidadePessoas: Int
     var receita: Receita
+    var data: Date = Date()
 }
 
 class ControleQuantidadeReceitasModel: ObservableObject {
