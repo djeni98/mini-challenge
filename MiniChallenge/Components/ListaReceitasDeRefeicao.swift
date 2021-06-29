@@ -23,7 +23,7 @@ struct ListaReceitasDeRefeicao: View {
                     .fontWeight(.semibold)
                     .font(.title3)
                 Spacer()
-                Text("\(listaControle.count)/7")
+                Text(tipoRefeicao == .lanche ? "Livre" : "\(listaControle.count)/7")
                     .fontWeight(.semibold)
                     .foregroundColor(.accentColor)
                     .font(.subheadline)
@@ -35,7 +35,7 @@ struct ListaReceitasDeRefeicao: View {
                         let receita = item.receita
                         let index = listaControle.firstIndex { $0.id == item.id }!
                         MinicardReceitaButton(
-                            receita: receita, estaEditando: estaEditando,
+                            receita: receita, estaEditando: tipoRefeicao == .lanche ? true : estaEditando,
                             removeAction: {
                                 withAnimation { () -> () in
                                     self.controleReceitas.lista.remove(at: index)
@@ -46,7 +46,15 @@ struct ListaReceitasDeRefeicao: View {
                     .transition(.scale)
 
                     NavigationLink(
-                        destination: PesquisaReceitaView(tipoRefeicao: tipoRefeicao).environmentObject(controleReceitas),
+                        destination: {
+                            VStack {
+                                if tipoRefeicao == .lanche {
+                                    PesquisaLanchesView(fechaView: true).environmentObject(controleReceitas)
+                                } else{
+                                    PesquisaReceitaView(tipoRefeicao: tipoRefeicao).environmentObject(controleReceitas)
+                                }
+                            }
+                        }(),
                         isActive: $refeicaoViewActive,
                         label: {})
                         .onTapGesture {
@@ -81,6 +89,9 @@ struct ListaReceitasDeRefeicao_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
+            ListaReceitasDeRefeicao(tipoRefeicao: .lanche, estaEditando: false)
+            .environmentObject(ControleQuantidadeReceitasModel())
+
             ListaReceitasDeRefeicao(tipoRefeicao: .cafeDaManha, estaEditando: false)
                 .environmentObject(ControleQuantidadeReceitasModel())
 
