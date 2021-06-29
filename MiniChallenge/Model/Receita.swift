@@ -89,14 +89,6 @@ enum DiaDaSemana {
     case domingo, segunda, terca, quarta, quinta, sexta, sabado
 }
 
-//struct ControleQuantidade: Identifiable {
-//    var id =  UUID()
-//    var quantidadeSemana: Int;
-//    var quantidadePessoas: Int;
-//    var receita: Receita;
-//    var dataDePreparo: Date
-//}
-
 struct CardapioDia {
     var diaDaSemana: DiaDaSemana;
     var cafeDaManha: ControleQuantidade;

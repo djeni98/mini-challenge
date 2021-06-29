@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlanejamentoLista: View {    
     @State var listaDeReceitas = [
-        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 1, receita: Receita(
+        ControleQuantidade(quantidadePessoas: 1, receita: Receita(
             id: 1, categoria: .refeicaoPrincipal, nivelDificuldade: .intermediario,
             nome: "Strogonoff", tempoPreparo: "30 min", ingredientes: [
                 Ingrediente(quantidade: 3, nome: "cenouras", descricao: "grandes"),
@@ -18,19 +18,19 @@ struct PlanejamentoLista: View {
                 Ingrediente(nome: "Sal", descricao: "grandes")
             ],
             modoPreparo: "Meu modo de preparo"), dataDePreparo: Date()),
-        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 1, receita: Receita(
+        ControleQuantidade(quantidadePessoas: 1, receita: Receita(
                 id: 2, categoria: .refeicaoPrincipal, nivelDificuldade: .iniciante,
                 nome: "Abóbora assada", tempoPreparo: "25 min", ingredientes: [
                     Ingrediente(quantidade: 1, nome: "abóbora", descricao: "grandes")
                 ],
                 modoPreparo: "Meu modo de preparo 2"), dataDePreparo: Date()),
-        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 1, receita: Receita(
+        ControleQuantidade(quantidadePessoas: 1, receita: Receita(
                 id: 3, categoria: .cafeDaManha, nivelDificuldade: .iniciante,
                 nome: "Sanduiche", tempoPreparo: "3 min", ingredientes: [
                     Ingrediente(quantidade: 2, nome: "pães", descricao: "(fatias)")
                 ],
                 modoPreparo: "Meu modo de preparo 3"), dataDePreparo: Date()),
-        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 1, receita: Receita(
+        ControleQuantidade(quantidadePessoas: 1, receita: Receita(
                 id: 4, categoria: .cafeDaManha, nivelDificuldade: .iniciante,
                 nome: "Torradas com ovo", tempoPreparo: "10 min", ingredientes: [
                     Ingrediente(quantidade: 2, nome: "ovos", descricao: "grandes")
