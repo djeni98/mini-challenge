@@ -37,6 +37,7 @@ struct CardapioSemanaView: View {
                 FilledButton(label: "Organizar Semana", desabilitado: $desabilitarBotaoOrganizar) {}
             }
         }.navigationTitle("Cardápio da semana")
+        .navigationBarTitleDisplayMode(.large)
         .navigationBarItems(
             leading: Button("Editar") {},
             trailing: Button(

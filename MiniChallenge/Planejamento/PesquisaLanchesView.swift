@@ -21,6 +21,10 @@ struct PesquisaLanchesView: View {
         controleLanches.lista
     }
 
+    func filterFunc(_ receita: Receita) -> Bool {
+        pesquisa.isEmpty || receita.nome.uppercased().contains(pesquisa.uppercased())
+    }
+
     let selecaoTexto = "Selecione à vontade os lanches que você gosta de comer durante o dia"
     var body: some View {
         ScrollView {
@@ -37,7 +41,7 @@ struct PesquisaLanchesView: View {
                 }.padding(.horizontal)
 
 
-                ForEach(lanches) { lanche in
+                ForEach(lanches.filter(filterFunc)) { lanche in
                     VStack {
                         HStack {
                             Image(lanche.nomeImagem ?? "sem-imagem")
@@ -79,15 +83,14 @@ struct PesquisaLanchesView: View {
             }
         }
         .navigationTitle("Lanches")
+        .navigationBarTitleDisplayMode(.large)
         .navigationBarItems(
             leading: lanchesSelecionados.isEmpty ? AnyView(EmptyView()) : AnyView(botaoLimparTudo),
             trailing: lanchesSelecionados.isEmpty ? AnyView(EmptyView()) : AnyView(botaoConcluir)
         )
         .navigationBarBackButtonHidden(!lanchesSelecionados.isEmpty)
         .onAppear {
-            lanches = listaDeReceitas.filter {
-                pesquisa.isEmpty || $0.nome.uppercased().contains(pesquisa.uppercased())
-            }
+            lanches = listaDeReceitas
         }
     }
 

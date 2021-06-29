@@ -61,6 +61,7 @@ struct ReceitaModalStack: View {
                 
             }
             .navigationTitle(receita.nome)
+            .navigationBarTitleDisplayMode(.large)
             .navigationBarItems(
                 leading: Button("Cancelar") { isPresented = false },
                 trailing: Button("Concluir") {
