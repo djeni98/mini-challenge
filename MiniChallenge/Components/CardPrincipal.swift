@@ -8,60 +8,82 @@
 import SwiftUI
 
 struct CardPrincipal: View {
-    var imagem = "Strogo"
-    var tipoRefeição = "ALMOÇO"
-    var receita = "Strogonoff"
-    var nivel = "Iniciante"
-    var tempoPreparo = "20 min"
+    var receita: Receita
+    var imagem: String {
+        guard let nomeImagem = receita.nomeImagem else {
+            return "sem-imagem"
+        }
+        return nomeImagem
+    }
+    var nome: String { receita.nome }
+    var nivel: String { receita.nivelDificuldade.toString() }
+    var tempoPreparo: String { receita.tempoPreparo }
+    var tipoRefeicao: String { receita.categoria.toString() }
     
     var body: some View {
         VStack {
             ZStack {
-                Rectangle()
-                    .foregroundColor(.white)
-                Image(imagem)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 210, alignment: .center)
-                    .clipped()
-                    .padding(.bottom, 110)
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(tipoRefeição)
-                        .font(.caption)
-                        .padding(.bottom, 8)
-                        .foregroundColor(.accentColor)
-                    
-                    Text(receita)
-                        .font(.title3)
-                        .bold()
-                    
-                    HStack {
-                        Text(nivel)
+            Rectangle()
+                .foregroundColor(.clear)
+                .background(
+                    Image(imagem)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipped())
+            
+                ZStack {
+                    VStack(alignment: .leading, spacing: 4) {
                         Spacer()
-                        Image(systemName: "clock")
-                        Text(tempoPreparo)
+
+                        
+                        Text(tipoRefeicao.uppercased())
+                            .font(.caption)
+                            .padding(.bottom, 14)
+                            .foregroundColor(.accentColor)
+                        
+                        Text(nome)
+                            .font(.title3)
+                            .bold()
+                        
+                        HStack {
+                            Text(nivel)
+                            Spacer()
+                            Image(systemName: "clock")
+                            Text(tempoPreparo)
+                        }
+                        .font(.caption)
+                        .foregroundColor(Color(.systemGray))
+                        .padding(.bottom)
+                        
                     }
-                    .font(.caption)
-                    .foregroundColor(Color(.systemGray))
-                    
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 12)
+                    .foregroundColor(.black)
                 }
-                .padding(.top, 190)
-                .padding(.horizontal, 25)
+                .zIndex(1)
+               
                 
+                ZStack {
+                    VStack {
+                        Spacer()
+                        Rectangle()
+                            .frame(height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.white)
+                    }
+                }
             }
-            .frame(height: 310, alignment: .center)
-            .cornerRadius(30)
-            .shadow(radius: 20)
             
         }
+        .cornerRadius(20)
     }
 }
 
 struct MainCard_Previews: PreviewProvider {
     static var previews: some View {
-        CardPrincipal()
-            .padding(20)
+        CardPrincipal(receita: listaDeReceitas[0])
+        
+        
+            
     }
 }
 

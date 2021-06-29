@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct CardReduzido: View {
-    var imagem = "Strogo"
-    var receita = "Strogonoff"
-    var nivel = "Iniciante"
-    var tempoPreparo = "20 min"
-    
+    var receita: Receita
+    @EnvironmentObject var controleReceitas: ControleQuantidadeReceitasModel
+    var listaControle: [ControleQuantidade] { controleReceitas.lista }
+    var dismissCallerView: () -> Void
+
+    var imagem: String {
+        guard let nomeImagem = receita.nomeImagem else {
+            return "sem-imagem"
+        }
+        return nomeImagem
+    }
+    var nome: String { receita.nome }
+    var nivel: String { receita.nivelDificuldade.toString() }
+    var tempoPreparo: String { receita.tempoPreparo }
+
+    @State var mostraReceita = false
+
     var body: some View {
         VStack(alignment: .leading) {
             ZStack {
@@ -26,36 +38,47 @@ struct CardReduzido: View {
                     .clipped()
                     .padding(.bottom, 110)
                 
-                HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(receita)
-                            .font(.title3)
-                            .bold()
-                        
-                        HStack {
-                            Image(systemName: "clock")
-                            Text("\(tempoPreparo) - \(nivel)")
-                        }
-                        .font(.caption)
-                        .foregroundColor(Color(.systemGray))
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(nome)
+                        .font(.title3)
+                        .bold()
+
+                    HStack {
+                        Text(nivel)
                         Spacer()
+                        Image(systemName: "clock")
+                        Text(tempoPreparo)
                     }
-                    .padding(.top, 170)
-                    .padding(.horizontal, 25)
+                    .font(.caption)
+                    .foregroundColor(.accentColor)
                     Spacer()
                 }
+                .padding(.top, 170)
+                .padding(.horizontal, 25)
             }
             .frame(height: 200, alignment: .leading)
-            .cornerRadius(30)
-            .shadow(radius: 20)
-            
+            .cornerRadius(20)
+            .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.2), radius: 20)
+            .sheet(isPresented: $mostraReceita, content: {
+                ReceitaModalStack(
+                    isPresented: $mostraReceita,
+                    receita: receita,
+                    dismissCallerView: dismissCallerView
+                ).environmentObject(controleReceitas)
+            })
+            .contentShape(Rectangle())
+            .onTapGesture {
+                mostraReceita = true
+            }
         }
     }
 }
 
 struct CardReduzido_Previews: PreviewProvider {
     static var previews: some View {
-        CardReduzido()
+        CardReduzido(receita: listaDeReceitas[0]) {}
             .padding(20)
+            .previewLayout(.fixed(width: 375, height: 250))
     }
 }
