@@ -7,46 +7,50 @@
 
 import SwiftUI
 
-struct PlanejamentoLista: View {
-    struct ex: Identifiable {
-        let id = UUID()
-        var dia: Int
-        var sem: String
-        var descricao: String
-        var tDP: Int
-    }
-    @State var testArray = [
-        ex(dia: 1, sem: "S", descricao: "Receita balala", tDP: 12),
-        ex(dia: 2, sem: "T", descricao: "Receita falala", tDP: 20),
-        ex(dia: 3, sem: "Q", descricao: "Receita tatata", tDP: 30),
-        ex(dia: 4, sem: "Q", descricao: "Receita lplplp", tDP: 40),
-        ex(dia: 5, sem: "S", descricao: "Receita asasas", tDP: 23),
-        ex(dia: 6, sem: "S", descricao: "Receita rsrsrs", tDP: 53),
-        ex(dia: 7, sem: "D", descricao: "Receita wewewe", tDP: 16)
-    ]
+struct PlanejamentoLista: View {    
+    @State var listaDeReceitas = [
+        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 1, receita: Receita(
+            id: 1, categoria: .refeicaoPrincipal, nivelDificuldade: .intermediario,
+            nome: "Strogonoff", tempoPreparo: "30 min", ingredientes: [
+                Ingrediente(quantidade: 3, nome: "cenouras", descricao: "grandes"),
+                Ingrediente(quantidade: 1, nome: "cebola", descricao: "picada"),
+                Ingrediente(quantidade: 3, nome: "tomates", descricao: "grandes"),
+                Ingrediente(nome: "Sal", descricao: "grandes")
+            ],
+            modoPreparo: "Meu modo de preparo"), dataDePreparo: Date()),
+        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 1, receita: Receita(
+                id: 2, categoria: .refeicaoPrincipal, nivelDificuldade: .iniciante,
+                nome: "Abóbora assada", tempoPreparo: "25 min", ingredientes: [
+                    Ingrediente(quantidade: 1, nome: "abóbora", descricao: "grandes")
+                ],
+                modoPreparo: "Meu modo de preparo 2"), dataDePreparo: Date()),
+        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 1, receita: Receita(
+                id: 3, categoria: .cafeDaManha, nivelDificuldade: .iniciante,
+                nome: "Sanduiche", tempoPreparo: "3 min", ingredientes: [
+                    Ingrediente(quantidade: 2, nome: "pães", descricao: "(fatias)")
+                ],
+                modoPreparo: "Meu modo de preparo 3"), dataDePreparo: Date()),
+        ControleQuantidade(quantidadeSemana: 1, quantidadePessoas: 1, receita: Receita(
+                id: 4, categoria: .cafeDaManha, nivelDificuldade: .iniciante,
+                nome: "Torradas com ovo", tempoPreparo: "10 min", ingredientes: [
+                    Ingrediente(quantidade: 2, nome: "ovos", descricao: "grandes")
+                ],
+                modoPreparo: "Meu modo de preparo 4"), dataDePreparo: Date())
+    ];
+    
     var body: some View {
         //NavigationView{
         let date = Date()
         let weekday = Calendar.current.component(.weekday, from: date)
         let day = Calendar.current.component(.day, from: date)
             VStack(alignment: .leading){
-                Text("\(weekday)")
-                Text("\(day)")
                 Text("Semana - Almoço").font(.system(.largeTitle)).bold()
                 List(){
-                    ForEach(testArray){ element in
-                        HStack(spacing:0){
-                            VStack(){
-                                Text(element.sem)
-                                Text(String(element.dia))
-                            }
-                                .padding(.trailing)
-                            Text(element.descricao)
-
-                        }
+                    ForEach(listaDeReceitas){ dia in
+                        ListaReceitasParaOrganizar(receita: dia.receita, diaSemana: "S", data: 1)
                     }
                     .onMove(perform: move)
-                    
+                    .padding(.vertical, -10)
                 }
                 .padding(.leading, -48)
             }
@@ -57,9 +61,8 @@ struct PlanejamentoLista: View {
     }
     
     func move(from source: IndexSet, to destination: Int) {
-        testArray.move(fromOffsets: source, toOffset: destination)
-        for i in 0..<testArray.count {
-            testArray[i].dia = i+1
+        listaDeReceitas.move(fromOffsets: source, toOffset: destination)
+        for i in 0..<listaDeReceitas.count {
         }
     }
 }

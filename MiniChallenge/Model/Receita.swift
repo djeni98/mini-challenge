@@ -25,7 +25,7 @@ enum Dificuldade {
 }
 
 struct Receita: Identifiable{
-    var id : Int
+    var id: Int
     var categoria: TipoDeRefeicao;
     var nivelDificuldade: Dificuldade;
     var nome: String;
@@ -39,10 +39,12 @@ enum DiaDaSemana {
 }
 
 
-struct ControleQuantidade {
+struct ControleQuantidade: Identifiable {
+    var id =  UUID()
     var quantidadeSemana: Int;
     var quantidadePessoas: Int;
     var receita: Receita;
+    var dataDePreparo: Date
 }
 
 struct CardapioDia {
