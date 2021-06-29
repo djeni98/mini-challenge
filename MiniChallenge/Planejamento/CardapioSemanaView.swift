@@ -12,11 +12,12 @@ struct CardapioSemanaView: View {
     @StateObject var controleCafeDaManha = ControleQuantidadeReceitasModel()
     @StateObject var controleAlmoco = ControleQuantidadeReceitasModel()
     @StateObject var controleJantar = ControleQuantidadeReceitasModel()
+    @StateObject var controleLanches = ControleQuantidadeReceitasModel()
 
     @State var estaEditando = false
     @State var estaAnimando = false
-    
-    // @State var listaLanches: [ControleQuantidade] = []
+
+    @State var desabilitarBotaoOrganizar = true
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -30,8 +31,10 @@ struct CardapioSemanaView: View {
                 ListaReceitasDeRefeicao(tipoRefeicao: .jantar, estaEditando: estaEditando)
                     .environmentObject(controleJantar)
 
-                // ListaReceitasDeRefeicao(tipoRefeicao: .lanche, listaControle: $listaLanches)
+                ListaReceitasDeRefeicao(tipoRefeicao: .lanche, estaEditando: estaEditando)
+                    .environmentObject(controleLanches)
 
+                FilledButton(label: "Organizar Semana", desabilitado: $desabilitarBotaoOrganizar) {}
             }
         }.navigationTitle("Cardápio da semana")
         .navigationBarItems(
