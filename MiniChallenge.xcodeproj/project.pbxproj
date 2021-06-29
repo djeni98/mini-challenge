@@ -43,6 +43,7 @@
 		B797C38C2684BD720048FC7C /* DottedOutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B797C38B2684BD720048FC7C /* DottedOutlineButton.swift */; };
 		B7CBC6412683668C00460809 /* AdicionaReceitasButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CBC6402683668C00460809 /* AdicionaReceitasButton.swift */; };
 		B7CC709A26868C8B00E01848 /* ButtonPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CC709926868C8B00E01848 /* ButtonPicker.swift */; };
+		B7EAD068268B8A9400C5B552 /* listaDeReceitasPronta.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EAD067268B8A9400C5B552 /* listaDeReceitasPronta.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		B797C38B2684BD720048FC7C /* DottedOutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedOutlineButton.swift; sourceTree = "<group>"; };
 		B7CBC6402683668C00460809 /* AdicionaReceitasButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionaReceitasButton.swift; sourceTree = "<group>"; };
 		B7CC709926868C8B00E01848 /* ButtonPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPicker.swift; sourceTree = "<group>"; };
+		B7EAD067268B8A9400C5B552 /* listaDeReceitasPronta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listaDeReceitasPronta.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				B76BBBE12682AA7200523DAD /* Receita.swift */,
+				B7EAD067268B8A9400C5B552 /* listaDeReceitasPronta.swift */,
 				B78B43672689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift */,
 				7A4431A2268B492500F90EC2 /* Noticia.swift */,
 			);
@@ -292,6 +295,7 @@
 				14C5B89026894A6D00203634 /* dasdas.swift in Sources */,
 				141B1CB32688E6AA00A07F41 /* RemoveButton.swift in Sources */,
 				B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */,
+				B7EAD068268B8A9400C5B552 /* listaDeReceitasPronta.swift in Sources */,
 				B746D36F2683E50400917D47 /* FiiledButton.swift in Sources */,
 				B7345C28268B4A4E0021BFEF /* PesquisaLanchesView.swift in Sources */,
 				B7CC709A26868C8B00E01848 /* ButtonPicker.swift in Sources */,
