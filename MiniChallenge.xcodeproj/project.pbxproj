@@ -131,12 +131,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		1490D353268B43B00016E31A /* Início */ = {
+		1490D353268B43B00016E31A /* Inicio */ = {
 			isa = PBXGroup;
 			children = (
 				1490D354268B45610016E31A /* Semana.swift */,
 			);
-			name = "Início";
+			name = Inicio;
 			path = "Início";
 			sourceTree = "<group>";
 		};
@@ -193,7 +193,7 @@
 				B76BBBD32682AA5500523DAD /* ContentView.swift */,
 				328B9F872684B68400286FD9 /* Telas */,
 				B73E30262684F30B007FB08D /* Planejamento */,
-				1490D353268B43B00016E31A /* Início */,
+				1490D353268B43B00016E31A /* Inicio */,
 				7A44319D268A9C2E00F90EC2 /* Home */,
 				B7CBC63F2683662400460809 /* Components */,
 				14598D572684C8FF002D43B2 /* CardExpand */,

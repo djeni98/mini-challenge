@@ -37,7 +37,7 @@ struct TabBar: View {
 
 
             NavigationView {
-                CardapioSemanaView()
+                Semana()
             }
             .tabItem {
                 Image(systemName: "calendar")
