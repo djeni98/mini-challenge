@@ -43,5 +43,6 @@ struct OrganizaRefeicaoLista_Previews: PreviewProvider {
         
         NavigationView{            OrganizaRefeicaoLista().environmentObject(ControleRefeicoesModel.criaTeste())
         }
+        .preferredColorScheme(.dark)
     }
 }

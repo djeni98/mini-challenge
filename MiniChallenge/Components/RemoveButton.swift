@@ -23,7 +23,7 @@ struct RemoveButton: View {
                 .cornerRadius(20)
 //                .frame(width: 350, height: 300)
                 .foregroundColor(.black)
-                .opacity(0.5)
+                .opacity(0.4)
 
             
             Button(action: {
