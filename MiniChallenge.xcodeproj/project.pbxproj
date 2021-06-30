@@ -18,6 +18,8 @@
 		14B474F52683C55E008394D5 /* CardOrganizar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B474F42683C55E008394D5 /* CardOrganizar.swift */; };
 		14C5B89026894A6D00203634 /* dasdas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C5B88F26894A6D00203634 /* dasdas.swift */; };
 		328B9F8F2684B73200286FD9 /* PlanejamentoLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328B9F8E2684B73200286FD9 /* PlanejamentoLista.swift */; };
+		32F152AD268C93AE00F8C406 /* OrganizaRefeicaoLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F152AC268C93AE00F8C406 /* OrganizaRefeicaoLista.swift */; };
+		32F152B0268C9AF400F8C406 /* Dados.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F152AF268C9AF400F8C406 /* Dados.swift */; };
 		7A132FE42684169500DC46C1 /* ListaOpcoesReceita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A132FE32684169500DC46C1 /* ListaOpcoesReceita.swift */; };
 		7A28D2422685FE6300595997 /* ItensCarrosselDias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A28D2412685FE6300595997 /* ItensCarrosselDias.swift */; };
 		7A44319B268A8BCC00F90EC2 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A44319A268A8BCC00F90EC2 /* TabBar.swift */; };
@@ -57,6 +59,8 @@
 		14B474F42683C55E008394D5 /* CardOrganizar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOrganizar.swift; sourceTree = "<group>"; };
 		14C5B88F26894A6D00203634 /* dasdas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dasdas.swift; sourceTree = "<group>"; };
 		328B9F8E2684B73200286FD9 /* PlanejamentoLista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanejamentoLista.swift; sourceTree = "<group>"; };
+		32F152AC268C93AE00F8C406 /* OrganizaRefeicaoLista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizaRefeicaoLista.swift; sourceTree = "<group>"; };
+		32F152AF268C9AF400F8C406 /* Dados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dados.swift; sourceTree = "<group>"; };
 		7A132FE32684169500DC46C1 /* ListaOpcoesReceita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaOpcoesReceita.swift; sourceTree = "<group>"; };
 		7A28D2412685FE6300595997 /* ItensCarrosselDias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItensCarrosselDias.swift; sourceTree = "<group>"; };
 		7A44319A268A8BCC00F90EC2 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				328B9F8E2684B73200286FD9 /* PlanejamentoLista.swift */,
+				32F152AC268C93AE00F8C406 /* OrganizaRefeicaoLista.swift */,
 			);
 			path = Telas;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				B76BBBE12682AA7200523DAD /* Receita.swift */,
 				B7EAD067268B8A9400C5B552 /* listaDeReceitasPronta.swift */,
 				B78B43672689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift */,
+				32F152AF268C9AF400F8C406 /* Dados.swift */,
 				7A4431A2268B492500F90EC2 /* Noticia.swift */,
 			);
 			path = Model;
@@ -291,6 +297,7 @@
 				B746D36F2683E50400917D47 /* FiiledButton.swift in Sources */,
 				7A4431A1268AA1D800F90EC2 /* CardHome.swift in Sources */,
 				14883FDD268A2A3900772C7C /* CardDetalhadoView.swift in Sources */,
+				32F152B0268C9AF400F8C406 /* Dados.swift in Sources */,
 				14598D592684C93A002D43B2 /* CardAnimationView.swift in Sources */,
 				14C5B89026894A6D00203634 /* dasdas.swift in Sources */,
 				141B1CB32688E6AA00A07F41 /* RemoveButton.swift in Sources */,
@@ -310,6 +317,7 @@
 				B797C38C2684BD720048FC7C /* DottedOutlineButton.swift in Sources */,
 				B746D36B2683D20C00917D47 /* MinicardReceitaButton.swift in Sources */,
 				328B9F8F2684B73200286FD9 /* PlanejamentoLista.swift in Sources */,
+				32F152AD268C93AE00F8C406 /* OrganizaRefeicaoLista.swift in Sources */,
 				148A593226861650008B4DD8 /* CornerRadiusStyle.swift in Sources */,
 				B76BBBD22682AA5500523DAD /* MiniChallengeApp.swift in Sources */,
 				B73E30282684F3E7007FB08D /* PesquisaReceitaView.swift in Sources */,
