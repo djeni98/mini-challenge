@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "334433_tabitharwheeler_564af1c1-0686-465f-8c99-37b6dfc1690e.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
