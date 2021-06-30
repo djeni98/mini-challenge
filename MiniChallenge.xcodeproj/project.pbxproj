@@ -18,6 +18,8 @@
 		1490D355268B45610016E31A /* Semana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1490D354268B45610016E31A /* Semana.swift */; };
 		14B474F52683C55E008394D5 /* CardOrganizar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B474F42683C55E008394D5 /* CardOrganizar.swift */; };
 		14C5B89026894A6D00203634 /* dasdas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C5B88F26894A6D00203634 /* dasdas.swift */; };
+		14D4668B268CF1F6000CF79D /* ListaMercado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4668A268CF1F6000CF79D /* ListaMercado.swift */; };
+		14D4668D268D0390000CF79D /* Perfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4668C268D0390000CF79D /* Perfil.swift */; };
 		328B9F8F2684B73200286FD9 /* PlanejamentoLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328B9F8E2684B73200286FD9 /* PlanejamentoLista.swift */; };
 		32F152AD268C93AE00F8C406 /* OrganizaRefeicaoLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F152AC268C93AE00F8C406 /* OrganizaRefeicaoLista.swift */; };
 		32F152B0268C9AF400F8C406 /* Dados.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F152AF268C9AF400F8C406 /* Dados.swift */; };
@@ -61,6 +63,8 @@
 		1490D354268B45610016E31A /* Semana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semana.swift; sourceTree = "<group>"; };
 		14B474F42683C55E008394D5 /* CardOrganizar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOrganizar.swift; sourceTree = "<group>"; };
 		14C5B88F26894A6D00203634 /* dasdas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dasdas.swift; sourceTree = "<group>"; };
+		14D4668A268CF1F6000CF79D /* ListaMercado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaMercado.swift; sourceTree = "<group>"; };
+		14D4668C268D0390000CF79D /* Perfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfil.swift; sourceTree = "<group>"; };
 		328B9F8E2684B73200286FD9 /* PlanejamentoLista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanejamentoLista.swift; sourceTree = "<group>"; };
 		32F152AC268C93AE00F8C406 /* OrganizaRefeicaoLista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizaRefeicaoLista.swift; sourceTree = "<group>"; };
 		32F152AF268C9AF400F8C406 /* Dados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dados.swift; sourceTree = "<group>"; };
@@ -134,21 +138,23 @@
 			path = "Início";
 			sourceTree = "<group>";
 		};
-		7A44319D268A9C2E00F90EC2 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				7A44319E268A9C4A00F90EC2 /* Home.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		328B9F872684B68400286FD9 /* Telas */ = {
 			isa = PBXGroup;
 			children = (
 				328B9F8E2684B73200286FD9 /* PlanejamentoLista.swift */,
 				32F152AC268C93AE00F8C406 /* OrganizaRefeicaoLista.swift */,
+				14D4668A268CF1F6000CF79D /* ListaMercado.swift */,
 			);
 			path = Telas;
+			sourceTree = "<group>";
+		};
+		7A44319D268A9C2E00F90EC2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7A44319E268A9C4A00F90EC2 /* Home.swift */,
+				14D4668C268D0390000CF79D /* Perfil.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		B73E30262684F30B007FB08D /* Planejamento */ = {
@@ -313,7 +319,7 @@
 			files = (
 				7A28D2422685FE6300595997 /* ItensCarrosselDias.swift in Sources */,
 				B746D36D2683D8BE00917D47 /* SearchField.swift in Sources */,
-				14598D592684C93A002D43B2 /* PageAnimation.swift in Sources */,
+				14598D592684C93A002D43B2 /* CardAnimationView.swift in Sources */,
 				7A44319B268A8BCC00F90EC2 /* TabBar.swift in Sources */,
 				B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */,
 				B746D36F2683E50400917D47 /* FiiledButton.swift in Sources */,
@@ -332,9 +338,11 @@
 				B77FA58C2688DC6300D569AA /* CardapioSemanaView.swift in Sources */,
 				14B474F52683C55E008394D5 /* CardOrganizar.swift in Sources */,
 				14598D562684A869002D43B2 /* CardReduzido.swift in Sources */,
+				14D4668B268CF1F6000CF79D /* ListaMercado.swift in Sources */,
 				B76BBBE22682AA7200523DAD /* Receita.swift in Sources */,
 				1490D355268B45610016E31A /* Semana.swift in Sources */,
 				148A592E2686116B008B4DD8 /* Transicao.swift in Sources */,
+				14D4668D268D0390000CF79D /* Perfil.swift in Sources */,
 				7A132FE42684169500DC46C1 /* ListaOpcoesReceita.swift in Sources */,
 				B78B43682689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift in Sources */,
 				B77FA58E2688E27E00D569AA /* ListaReceitasDeRefeicao.swift in Sources */,

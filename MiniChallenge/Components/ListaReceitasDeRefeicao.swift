@@ -100,6 +100,9 @@ struct ListaReceitasDeRefeicao_Previews: PreviewProvider {
             
             ListaReceitasDeRefeicao(tipoRefeicao: .jantar, estaEditando: true)
                 .environmentObject(ControleQuantidadeReceitasModel(listaControle2))
-        }.previewLayout(.fixed(width: 375, height: 200))
+        }
+        .previewLayout(.fixed(width: 375, height: 200))
+        .preferredColorScheme(.dark)
+
     }
 }

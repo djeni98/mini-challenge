@@ -31,5 +31,6 @@ struct DottedOutlineButton_Previews: PreviewProvider {
             DottedOutlineButton(label: "Adicionar lanche") {}
                 .padding()
         }.previewLayout(.fixed(width: 400, height: 80))
+        .preferredColorScheme(.dark)
     }
 }

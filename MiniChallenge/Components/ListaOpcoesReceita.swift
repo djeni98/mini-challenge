@@ -30,11 +30,10 @@ struct ListaOpcoesReceita: View {
                         Spacer()
                         ZStack{
                             Image(systemName: self.selected == versao.versaoReceita ? "largecircle.fill.circle" : "circle")
-                                .renderingMode(.original)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 15, height: 15)
-                                .foregroundColor(.accentColor)
+                                .foregroundColor(Color("LightDarkText"))
                         }
                     }.padding(.horizontal)
                 }
@@ -47,6 +46,7 @@ struct ListaOpcoesReceita: View {
 struct ListaOpcoesReceita_Previews: PreviewProvider {
     static var previews: some View {
         ListaOpcoesReceita( versaoesDaReceita:[ReceitaSelecionada(id: 1, versaoReceita: "Carne vermelha"),ReceitaSelecionada(id: 2, versaoReceita: "Carne de frango"),ReceitaSelecionada(id: 3, versaoReceita: "Vegetariano")])
+            .preferredColorScheme(.dark)
         
         
     }
