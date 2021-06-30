@@ -8,14 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var semanaPlanejada = false
     var body: some View {
-        NavigationView {
-            Home(
-                semanaPlanejada: semanaPlanejada,
-                noticias: listaDeNoticias
-            )
-        }
+        TabBar()
     }
 }
 

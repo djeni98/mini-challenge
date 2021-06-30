@@ -17,37 +17,49 @@ struct TabBar: View {
     init() {
         UITabBar.appearance().barTintColor = UIColor(Color.white) // custom color.
        }
-    
+
+    @State var semanaPlanejada = true
+
     var body: some View {
         TabView(selection: $selectedItem) {
-            Text("")
-                .tabItem {
-                    Image(systemName: self.selectedItem == TabItem.inicio ? "house.fill" : "house")
-                    Text("Inicio")
+            NavigationView {
+                Home(
+                    semanaPlanejada: semanaPlanejada,
+                    noticias: listaDeNoticias) {
+                    selectedItem = TabItem.semana
                 }
-                .tag(TabItem.inicio)
-            
-            Text("")
-                .tabItem {
-                    Image(systemName: "calendar")
-                    Text("Semana")
-                }
-                .tag(TabItem.semana)
-            
-            Text("")
+            }
+            .tabItem {
+                Image(systemName: self.selectedItem == TabItem.inicio ? "house.fill" : "house")
+                Text("Inicio")
+            }
+            .tag(TabItem.inicio)
+
+
+            NavigationView {
+                CardapioSemanaView()
+            }
+            .tabItem {
+                Image(systemName: "calendar")
+                Text("Semana")
+            }
+            .tag(TabItem.semana)
+
+
+            Text("WIP Receitas")
                 .tabItem {
                     Image(systemName:  self.selectedItem == TabItem.receitas ? "book.fill" : "book")
                     Text("Receitas")
                 }
                 .tag(TabItem.receitas)
-            Text("")
+
+            Text("WIP Mercado")
                 .tabItem {
                     Image(systemName: self.selectedItem == TabItem.mercado ? "cart.fill" : "cart")
                     Text("Mercado")
                 }
                 .tag(TabItem.mercado)
         }
-        
     }
 }
 

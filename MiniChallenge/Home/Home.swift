@@ -9,8 +9,9 @@ import SwiftUI
 import Foundation
 
 struct Home: View {
-    var semanaPlanejada : Bool
+    var semanaPlanejada: Bool
     var noticias: [Noticia]
+    var navegaParaPlanejamentoView: () -> Void
     
     var images = ["domingo", "segunda", "terca", "quarta", "quinta", "sexta", "sabado"]
     
@@ -83,12 +84,14 @@ struct Home: View {
                             .padding(.bottom, 50)
                             .onTapGesture {
                                 mostraInicioPlanejamento = true
+
+                                navegaParaPlanejamentoView()
                             }
 
-                        NavigationLink(
-                            destination: CardapioSemanaView(),
-                            isActive: $mostraInicioPlanejamento,
-                            label: {})
+//                        NavigationLink(
+//                            destination: CardapioSemanaView(funcoes: funcoes),
+//                            isActive: $mostraInicioPlanejamento,
+//                            label: {})
                     }
                 }
                 
@@ -138,7 +141,7 @@ func day(data: Date) -> String {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            Home(semanaPlanejada: true, noticias: listaDeNoticias)
+            Home(semanaPlanejada: true, noticias: listaDeNoticias) {}
         }
     }
 }
