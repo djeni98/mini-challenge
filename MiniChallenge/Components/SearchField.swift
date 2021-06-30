@@ -45,5 +45,6 @@ struct SearchField_Previews: PreviewProvider {
             SearchField(query: .constant("Ovo"))
                 .padding()
         }.previewLayout(.fixed(width: 400, height: 70))
+        .preferredColorScheme(.dark)
     }
 }

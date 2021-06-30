@@ -40,7 +40,7 @@ struct CardDetalhadoView: View {
                     .padding(40)
             }
         }
-        .background(Color.white)
+        .background(Color("LightDarkBg"))
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .matchedGeometryEffect(id: "Container\(receita.id)", in: namespace)
         .statusBar(hidden: true)

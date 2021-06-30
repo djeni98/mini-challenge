@@ -47,18 +47,18 @@ struct ReceitaModalStack: View {
                         .font(.caption)
                         .foregroundColor(Color(.systemGray))
                         .padding(.vertical, 5)
+                        .padding(.bottom, 20)
                         
-                        repeticaoSemanaView.padding(.bottom)
+                        repeticaoSemanaView.padding(.bottom, 40)
                         
-                        quantidadePessoasView.padding(.bottom)
+                        quantidadePessoasView.padding(.bottom, 40)
                         
-                        ingredientesView.padding(.bottom)
+                        ingredientesView.padding(.bottom, 40)
                         
-                        modoDePreparoView.padding(.bottom)
+                        modoDePreparoView.padding(.bottom, 40)
                         
                     }.padding(.horizontal)
-                }
-                
+                }   
             }
             .navigationTitle(receita.nome)
             .navigationBarItems(

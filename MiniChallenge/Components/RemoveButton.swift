@@ -19,10 +19,11 @@ struct RemoveButton: View {
     var body: some View {
         
         ZStack {
-            RoundedRectangle(cornerRadius: 20)
-                .frame(width: 350, height: 300)
+            Rectangle()
+                .cornerRadius(20)
+//                .frame(width: 350, height: 300)
                 .foregroundColor(.black)
-                .opacity(0.3)
+                .opacity(0.5)
 
             
             Button(action: {

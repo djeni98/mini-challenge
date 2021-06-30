@@ -42,7 +42,6 @@ struct PesquisaReceitaView: View {
                     receitas = listaDeReceitas.filter { query.isEmpty || $0.nome.uppercased().contains(query.uppercased())
                         
                     }
-                    
                     searchBar.toggle()
                 }
             }
