@@ -23,6 +23,7 @@ class ControleQuantidadeReceitasModel: ObservableObject {
 }
 
 class ControleRefeicoesModel: ObservableObject{
+    @Published var dataInicio = Date()
     @Published var cafeDaManha: [ControleQuantidade] = []
     @Published var almoco: [ControleQuantidade] = []
     @Published var janta: [ControleQuantidade] = []

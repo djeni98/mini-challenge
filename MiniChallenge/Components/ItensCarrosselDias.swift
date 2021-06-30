@@ -10,6 +10,7 @@ import SwiftUI
 struct ItensCarrosselDias: View {
     var img: String
     var date: Date
+    var buttonAction: () -> Void
     
     let today = Date()
     let tomorrow = Date().addingTimeInterval(86400)
@@ -31,10 +32,7 @@ struct ItensCarrosselDias: View {
         
         
         HStack{
-            Button(action: {
-                
-            }){
-                
+            Button(action: buttonAction) {
                 VStack(alignment:.leading){
                     Image(img)
                         .resizable()
