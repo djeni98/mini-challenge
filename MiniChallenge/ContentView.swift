@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var semanaPlanejada = false
     var body: some View {
         NavigationView {
-            Semana()
-            
+            Home(
+                semanaPlanejada: semanaPlanejada,
+                noticias: listaDeNoticias
+            ).navigationBarHidden(true)
         }
     }
 }

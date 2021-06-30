@@ -23,6 +23,8 @@ struct Home: View {
     
     var timeDay = 86400
     var next = Calendar.current.component(.day, from: Date().addingTimeInterval(86400))
+
+    @State var mostraInicioPlanejamento = false
     
     var body: some View {
         //var day = dayWeek
@@ -63,9 +65,17 @@ struct Home: View {
                             }
                         }
                     }
-                    else{
+                    else {
                         CardHome(semanaOrganizada: semanaPlanejada, img: "calendar")
                             .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .onTapGesture {
+                                mostraInicioPlanejamento = true
+                            }
+
+                        NavigationLink(
+                            destination: CardapioSemanaView(),
+                            isActive: $mostraInicioPlanejamento,
+                            label: {})
                     }
                 }
                 
@@ -114,6 +124,9 @@ func day(data: Date) -> String {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home(semanaPlanejada: false, noticias: listaDeNoticias)
+        NavigationView {
+            Home(semanaPlanejada: false, noticias: listaDeNoticias)
+                .navigationBarHidden(true)
+        }
     }
 }

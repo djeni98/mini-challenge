@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct CardapioSemanaView: View {
+    var dataInicio: Date
+
+    init(dataInicio: Date = Date()) {
+        self.dataInicio = dataInicio
+    }
+
+    @Environment(\.presentationMode) var presentation
 
     @StateObject var controleCafeDaManha = ControleQuantidadeReceitasModel()
     @StateObject var controleAlmoco = ControleQuantidadeReceitasModel()
@@ -17,7 +24,16 @@ struct CardapioSemanaView: View {
     @State var estaEditando = false
     @State var estaAnimando = false
 
-    @State var desabilitarBotaoOrganizar = true
+    @State var navegaOrganizaSemana = false
+
+    @StateObject var controleGeral = ControleRefeicoesModel()
+
+    func desabilitaBotao() -> Bool {
+        return ![
+            controleCafeDaManha, controleAlmoco, controleJantar
+        ].allSatisfy { $0.lista.count == 7 }
+    }
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -34,12 +50,26 @@ struct CardapioSemanaView: View {
                 ListaReceitasDeRefeicao(tipoRefeicao: .lanche, estaEditando: estaEditando)
                     .environmentObject(controleLanches)
 
-                FilledButton(label: "Organizar Semana", desabilitado: $desabilitarBotaoOrganizar) {}
+                FilledButton(label: "Organizar Semana", desabilitado: desabilitaBotao()) {
+                    controleGeral.dataInicio = dataInicio
+                    controleGeral.cafeDaManha = controleCafeDaManha.lista
+                    controleGeral.almoco = controleAlmoco.lista
+                    controleGeral.janta = controleJantar.lista
+                    navegaOrganizaSemana = true
+                }
+
+                NavigationLink(
+                    destination: OrganizaRefeicaoLista().environmentObject(controleGeral),
+                    isActive: $navegaOrganizaSemana,
+                    label: {})
             }
         }.navigationTitle("Cardápio da semana")
         .navigationBarTitleDisplayMode(.large)
+        .navigationBarBackButtonHidden(true)
         .navigationBarItems(
-            leading: Button("Editar") {},
+            leading: Button("Editar") {
+                self.presentation.wrappedValue.dismiss()
+            }.font(.body),
             trailing: Button(
                 action: {
                     withAnimation(.spring()) {
