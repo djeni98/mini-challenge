@@ -14,7 +14,7 @@ struct ContentView: View {
             Home(
                 semanaPlanejada: semanaPlanejada,
                 noticias: listaDeNoticias
-            ).navigationBarHidden(true)
+            )
         }
     }
 }

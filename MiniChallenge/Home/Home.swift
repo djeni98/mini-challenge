@@ -24,7 +24,9 @@ struct Home: View {
     var timeDay = 86400
     var next = Calendar.current.component(.day, from: Date().addingTimeInterval(86400))
 
+
     @State var mostraInicioPlanejamento = false
+    @State var mostraReceitasDoDia = false
     
     var body: some View {
         //var day = dayWeek
@@ -44,30 +46,41 @@ struct Home: View {
                             .frame(width: 45, height: 45)
                             .clipShape(Circle())
                     }
-                }
+                }.padding(.vertical, 20)
                 
                 VStack(alignment: .center){
                     
-                    if semanaPlanejada{
+                    if semanaPlanejada {
                         CardHome(semanaOrganizada: semanaPlanejada, img: "tomato")
                             .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        
+                            .onTapGesture {
+                                mostraReceitasDoDia = true
+                            }
+
                         VStack{
                             ScrollView(.horizontal, showsIndicators: false){
                                 HStack{
                                     ForEach (images, id: \.self) { image in
                                         VStack(alignment: .leading){
-                                            ItensCarrosselDias(img: image, date: Date())
+                                            ItensCarrosselDias(img: image, date: Date()) {
+                                                mostraReceitasDoDia = true
+                                            }
                                         }.padding(.vertical, 30)
                                         
                                     }
                                 }
                             }
                         }
+
+                        NavigationLink(
+                            destination: CardAnimationView(receitas: listaDeReceitasPronta),
+                            isActive: $mostraReceitasDoDia,
+                            label: {})
                     }
                     else {
                         CardHome(semanaOrganizada: semanaPlanejada, img: "calendar")
                             .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .padding(.bottom, 50)
                             .onTapGesture {
                                 mostraInicioPlanejamento = true
                             }
@@ -84,8 +97,7 @@ struct Home: View {
                     Text("Dicas de nutricionistas")
                         .font(.title2)
                         .bold()
-                        .padding(.vertical, 20)
-                        .padding(.top,30)
+                        .padding(.bottom, 20)
                     ForEach (noticias) { noticia in
                         VStack{
                             if noticia.tipo == .nutriocional{
@@ -110,6 +122,7 @@ struct Home: View {
                 }
             }.padding()
         }
+        .navigationBarHidden(true)
     }
 }
 
@@ -125,8 +138,7 @@ func day(data: Date) -> String {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            Home(semanaPlanejada: false, noticias: listaDeNoticias)
-                .navigationBarHidden(true)
+            Home(semanaPlanejada: true, noticias: listaDeNoticias)
         }
     }
 }

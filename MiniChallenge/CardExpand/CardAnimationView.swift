@@ -13,10 +13,9 @@
 import SwiftUI
 
 struct CardAnimationView: View {
-    
+
     //MARK: Vars -
     var receitas: [Receita]
-    var receita: Receita
     var diaDaSemana = "Quinta-Feira"
     var sliderButton = "slider.horizontal.3"
     var randomDoubleAnimation = Double.random(in: 2.3...2.5)
@@ -50,6 +49,40 @@ struct CardAnimationView: View {
             self.id = tipoRefeicao.rawValue
         }
     }
+
+    var botaoEditar: some View {
+        Button(action: {
+            withAnimation(.spring()) {
+                if estaAnimando { return }
+                estaAnimando = true
+                estaRemovendo.toggle()
+                //estaChacoalhando.toggle()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { elipseAnimada.toggle() }
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { estaOpaco.toggle() }
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { estaAnimando = false }
+            }
+        }) {
+            Image(systemName: sliderButton)
+                .font(.title2)
+
+        }
+    }
+
+    var header: some View {
+        HStack() {
+            Text(diaDaSemana)
+                .font(.largeTitle)
+                .bold()
+
+            Spacer()
+
+            botaoEditar
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 40)
+    }
     
     var body: some View {
         ZStack {
@@ -57,33 +90,6 @@ struct CardAnimationView: View {
             //MARK: CardView -
             if !estaExpandido {
                 ScrollView {
-                    HStack() {
-                        Text(diaDaSemana)
-                            .font(.largeTitle)
-                            .bold()
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            withAnimation(.spring()) {
-                                if estaAnimando { return }
-                                estaAnimando = true
-                                estaRemovendo.toggle()
-                                //estaChacoalhando.toggle()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { elipseAnimada.toggle() }
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { estaOpaco.toggle() }
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { estaAnimando = false }
-                            }
-                        }) {
-                            Image(systemName: sliderButton)
-                                .font(.title)
-                        }
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 40)
-                    
                     VStack(spacing: 20) {
                         ForEach(refeicoes) { refeicao in                            
                             if let receita = refeicao.receita {
@@ -132,6 +138,7 @@ struct CardAnimationView: View {
                         }
                     }
                     .padding(.horizontal, 20)
+                    .padding(.top, 20)
                     .zIndex(1)
                     
                     DottedOutlineButton(label: "Adicionar Lanche") {
@@ -174,6 +181,10 @@ struct CardAnimationView: View {
                 }
             }
         }
+        .navigationTitle(diaDaSemana)
+        .navigationBarTitleDisplayMode(.large)
+        .navigationBarItems(trailing: botaoEditar)
+        .navigationBarHidden(estaExpandido)
     }
     
     //MARK: Funcs -
@@ -202,7 +213,9 @@ struct CardAnimationView: View {
 
 struct PageAnimation_Previews: PreviewProvider {
     static var previews: some View {
-        CardAnimationView(receitas: listaDeReceitas, receita: listaDeReceitas[0])
+        NavigationView {
+            CardAnimationView(receitas: listaDeReceitas)
+        }
     }
 }
 
