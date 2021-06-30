@@ -53,7 +53,10 @@ struct TabBar: View {
                 }
                 .tag(TabItem.receitas)
 
-            Text("WIP Mercado")
+
+            NavigationView {
+                ListaMercado()                
+            }
                 .tabItem {
                     Image(systemName: self.selectedItem == TabItem.mercado ? "cart.fill" : "cart")
                     Text("Mercado")
