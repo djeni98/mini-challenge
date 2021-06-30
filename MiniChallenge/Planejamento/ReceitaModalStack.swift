@@ -53,9 +53,11 @@ struct ReceitaModalStack: View {
                         
                         quantidadePessoasView.padding(.bottom, 40)
                         
-                        ingredientesView.padding(.bottom, 40)
-                        
-                        modoDePreparoView.padding(.bottom, 40)
+                        DescricaoIngredientesSubview(ingredientes: receita.ingredientes)
+                            .padding(.bottom, 40)
+
+                        DescricaoModoPreparoSubview(modoPreparo: receita.modoPreparo)
+                            .padding(.bottom, 40)
                         
                     }.padding(.horizontal)
                 }   
@@ -119,35 +121,6 @@ struct ReceitaModalStack: View {
                 
                 ButtonPicker(value: $quantidadePessoas, downLimit: 1, upLimit: 100)
             }
-        }
-    }
-    
-    var ingredientesView: some View {
-        VStack(alignment: .leading) {
-            Text("Ingredientes")
-                .bold()
-                .font(.title2)
-                .padding(.bottom, 5)
-            
-            ForEach(receita.ingredientes.indices) { i in
-                let ingrediente = receita.ingredientes[i]
-                Text("→ \(ingrediente.toString())")
-                    .padding(.leading, 5)
-                    .padding(.bottom, 1)
-            }
-            
-        }
-    }
-    
-    var modoDePreparoView: some View {
-        VStack(alignment: .leading) {
-            Text("Modo de Preparo")
-                .bold()
-                .font(.title2)
-                .padding(.bottom, 5)
-            
-            Text(receita.modoPreparo)
-            
         }
     }
 }

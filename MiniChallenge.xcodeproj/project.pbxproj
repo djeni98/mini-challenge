@@ -45,6 +45,8 @@
 		B76BBBE22682AA7200523DAD /* Receita.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76BBBE12682AA7200523DAD /* Receita.swift */; };
 		B77FA58C2688DC6300D569AA /* CardapioSemanaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FA58B2688DC6300D569AA /* CardapioSemanaView.swift */; };
 		B77FA58E2688E27E00D569AA /* ListaReceitasDeRefeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FA58D2688E27E00D569AA /* ListaReceitasDeRefeicao.swift */; };
+		B780B886268D2ECA00DF1DD3 /* DescricaoIngredientesSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B780B885268D2ECA00DF1DD3 /* DescricaoIngredientesSubview.swift */; };
+		B780B888268D2FDF00DF1DD3 /* DescricaoModoPreparoSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B780B887268D2FDF00DF1DD3 /* DescricaoModoPreparoSubview.swift */; };
 		B78B43682689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78B43672689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift */; };
 		B797C38C2684BD720048FC7C /* DottedOutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B797C38B2684BD720048FC7C /* DottedOutlineButton.swift */; };
 		B7CBC6412683668C00460809 /* AdicionaReceitasButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CBC6402683668C00460809 /* AdicionaReceitasButton.swift */; };
@@ -92,6 +94,8 @@
 		B76BBBE12682AA7200523DAD /* Receita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receita.swift; sourceTree = "<group>"; };
 		B77FA58B2688DC6300D569AA /* CardapioSemanaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardapioSemanaView.swift; sourceTree = "<group>"; };
 		B77FA58D2688E27E00D569AA /* ListaReceitasDeRefeicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaReceitasDeRefeicao.swift; sourceTree = "<group>"; };
+		B780B885268D2ECA00DF1DD3 /* DescricaoIngredientesSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescricaoIngredientesSubview.swift; sourceTree = "<group>"; };
+		B780B887268D2FDF00DF1DD3 /* DescricaoModoPreparoSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescricaoModoPreparoSubview.swift; sourceTree = "<group>"; };
 		B78B43672689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControleQuantidadeReceitasModel.swift; sourceTree = "<group>"; };
 		B797C38B2684BD720048FC7C /* DottedOutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedOutlineButton.swift; sourceTree = "<group>"; };
 		B7CBC6402683668C00460809 /* AdicionaReceitasButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionaReceitasButton.swift; sourceTree = "<group>"; };
@@ -246,6 +250,8 @@
 				7A44319A268A8BCC00F90EC2 /* TabBar.swift */,
 				7A4431A0268AA1D800F90EC2 /* CardHome.swift */,
 				7AE3E62B268B6DE400C8E18A /* ItemNoticia.swift */,
+				B780B885268D2ECA00DF1DD3 /* DescricaoIngredientesSubview.swift */,
+				B780B887268D2FDF00DF1DD3 /* DescricaoModoPreparoSubview.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 				B746D36D2683D8BE00917D47 /* SearchField.swift in Sources */,
 				14598D592684C93A002D43B2 /* CardAnimationView.swift in Sources */,
 				7A44319B268A8BCC00F90EC2 /* TabBar.swift in Sources */,
+				B780B888268D2FDF00DF1DD3 /* DescricaoModoPreparoSubview.swift in Sources */,
 				B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */,
 				B746D36F2683E50400917D47 /* FiiledButton.swift in Sources */,
 				7A4431A1268AA1D800F90EC2 /* CardHome.swift in Sources */,
@@ -337,6 +344,7 @@
 				32F152B0268C9AF400F8C406 /* Dados.swift in Sources */,
 				14598D592684C93A002D43B2 /* CardAnimationView.swift in Sources */,
 				14C5B89026894A6D00203634 /* dasdas.swift in Sources */,
+				B780B886268D2ECA00DF1DD3 /* DescricaoIngredientesSubview.swift in Sources */,
 				141B1CB32688E6AA00A07F41 /* RemoveButton.swift in Sources */,
 				B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */,
 				B7EAD068268B8A9400C5B552 /* listaDeReceitasPronta.swift in Sources */,
