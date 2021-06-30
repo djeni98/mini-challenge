@@ -14,18 +14,11 @@ struct Ingrediente {
     var descricao: String?;
 
     func toString() -> String {
-        var str = ""
-        if let quantidade = self.quantidade {
-            str += " \(quantidade)"
-        }
-
-        str += " \(self.nome)"
-
         if let descricao = self.descricao {
-            str += " \(descricao)"
+            return descricao
         }
 
-        return str
+        return nome
     }
 }
 
@@ -56,6 +49,11 @@ enum TipoDeRefeicao: Int {
         let refPrincipais: [TipoDeRefeicao] = [.refeicaoPrincipal, .almoco, .jantar]
         return refPrincipais.contains(self)
     }
+
+    func match(_ other: TipoDeRefeicao) -> Bool {
+        return self.isRefeicaoPrincipal() && other.isRefeicaoPrincipal() ||
+            self == other
+    }
 }
 
 enum Dificuldade {
@@ -72,6 +70,7 @@ enum Dificuldade {
         }
     }
 }
+
 
 struct Receita: Identifiable {
     var id: Int;
@@ -95,7 +94,6 @@ struct CardapioDia {
     var jantar: ControleQuantidade;
     var lanches: [Receita];
 }
-
 
 var listaDeReceitas = [
     Receita(
