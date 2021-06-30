@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct Semana: View {
+    
+    init() {
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(Color("Laranja"))
+    }
+    
     let diaEmSegundos = 86400
     var tituloView = "Início da semana"
+    var tituloAlert = "Redefinir dia de início?"
     
     @State private var diaSelecionado = 0
+    @State var diaSelecionadoStored: Int = 0
+    @State var mostrandoAlerta = false
+    @State var mostraCardapioView = false
     var limiteInferiorDias = Date()
+    
     
     var body: some View {
             VStack(alignment: .leading)  {
@@ -22,6 +32,8 @@ struct Semana: View {
                     ForEach(0..<7) { multiplicador in
                         let dia = limiteInferiorDias.addingTimeInterval(TimeInterval(multiplicador * diaEmSegundos))
                         criaText(data: dia)
+                            .tag(multiplicador)
+                        
                     }
                     .foregroundColor(Color("Laranja"))
                 }
@@ -34,16 +46,33 @@ struct Semana: View {
                 
                 Spacer()
                 
+                NavigationLink(
+                    destination: CardapioSemanaView(), isActive: $mostraCardapioView, label: {})
 
+            }
+            .onAppear {
+                diaSelecionadoStored = diaSelecionado
             }
             .navigationBarTitle(tituloView)
             .toolbar(content: {
-                NavigationLink(
-                    destination: CardapioSemanaView(),
-                    label: { Text("Definir") })
+                if diaSelecionado == diaSelecionadoStored {
+                    Button("Manter") { mostraCardapioView = true }
+                    
+                } else {
+                    Button("Redefinir") { mostrandoAlerta = true }
+                }
             })
+            .alert(isPresented: $mostrandoAlerta) {
+                Alert(
+                    title: Text(tituloAlert),
+                    message: Text("Você está redefinindo o dia de início do seu planejamento, de \(retornaDia(diaSelecionadoStored)) para \(retornaDia(diaSelecionado))"),
+                    primaryButton: .destructive(Text("Redefinir"), action: {
+                        //Action
+                    }),
+                    secondaryButton: .cancel(Text("Cancelar")))
+            }
 
-        }
+    }
     
     func dataText(data: Date) -> String {
         let formatter = DateFormatter()
@@ -59,6 +88,15 @@ struct Semana: View {
         
         return formatter.string(from: data).capitalized
     }
+    
+    func retornaDia(_ distancia: Int) -> String {
+        let dia = limiteInferiorDias.addingTimeInterval(TimeInterval(distancia * diaEmSegundos))
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM"
+
+        return formatter.string(from: dia)
+    }
+    
     
     func criaText(data: Date) -> some View {
         var str = ""
@@ -101,7 +139,7 @@ struct Topo: View {
 struct Semana_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-        Semana()
+            Semana()
             .preferredColorScheme(.dark)
         }
     }

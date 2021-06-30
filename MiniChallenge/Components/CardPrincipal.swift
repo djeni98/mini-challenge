@@ -81,7 +81,7 @@ struct CardPrincipal: View {
 struct MainCard_Previews: PreviewProvider {
     static var previews: some View {
         CardPrincipal(receita: listaDeReceitas[0])
-        
+            .preferredColorScheme(.dark)
         
             
     }

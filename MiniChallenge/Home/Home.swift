@@ -17,6 +17,8 @@ struct Home: View {
     
     var diaDaSemana = [1,2,3,4,5,6,7]
     
+    @State var perfilAberto = false
+    
     let dayWeek = Calendar.current.component(.weekday, from: Date())
     let tomorrow = Calendar.current.component(.day, from: Date().addingTimeInterval(86400))
     let dayYesterday = Calendar.current.component(.day, from: Date().addingTimeInterval(-86400))
@@ -32,7 +34,7 @@ struct Home: View {
     var body: some View {
         //var day = dayWeek
         
-        ScrollView{
+        ScrollView(showsIndicators: false){
             VStack{
                 HStack{
                     VStack(alignment:.leading ){
@@ -40,15 +42,27 @@ struct Home: View {
                             .font(.system(size:34, weight: .bold, design: .default))
                     }
                     Spacer()
-                    VStack{
+                               
+                    NavigationLink(
+                        destination: Perfil(),
+                        isActive: $perfilAberto,
+                        label: { })
+                    
+                    
+                    Button(action: {
+                        perfilAberto = true
+                        
+                    }, label: {
                         Image("perfil")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 45, height: 45)
                             .clipShape(Circle())
-                    }
-                }.padding(.vertical, 20)
-                
+                    })
+                    
+                }
+                .padding(.top, 20)
+                    
                 VStack(alignment: .center){
                     
                     if semanaPlanejada {
@@ -94,6 +108,7 @@ struct Home: View {
 //                            label: {})
                     }
                 }
+                .padding(.top, 50)
                 
                 //Spacer()
                 VStack(alignment:.leading){
@@ -142,6 +157,7 @@ struct Home_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             Home(semanaPlanejada: true, noticias: listaDeNoticias) {}
+              .preferredColorScheme(.light)
         }
     }
 }

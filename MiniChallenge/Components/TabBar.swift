@@ -15,7 +15,7 @@ struct TabBar: View {
     @State var selectedItem = TabItem.inicio
     
     init() {
-        UITabBar.appearance().barTintColor = UIColor(Color.white) // custom color.
+        UITabBar.appearance().barTintColor = UIColor(Color("LightDarkBg")) // custom color.
        }
 
     @State var semanaPlanejada = true
@@ -65,6 +65,15 @@ struct TabBar: View {
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        TabBar()
+        Group {
+            TabBar()
+                .preferredColorScheme(.dark)
+            
+            TabBar()
+                .preferredColorScheme(.light)
+        }
+        .previewLayout(.fixed(width: 375, height: 100))
+        .padding()
+        
     }
 }

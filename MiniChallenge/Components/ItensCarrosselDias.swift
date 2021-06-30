@@ -80,9 +80,9 @@ struct ItensCarrosselDias: View {
                     }.padding(0.5)
                 }
             }.frame(width: 180, height: 60, alignment: .leading)
-            .background(Color.white)
+            .background(Color("LightDarkBg"))
             .cornerRadius(10)
-            .shadow(color: Color(.systemGray4),radius: 18, x: 0, y: 4)
+            .shadow(radius: 10, x: 0, y: 4)
         }
     }
     
@@ -112,9 +112,11 @@ struct ItensCarrosselDias: View {
 struct ItensCarrosselDias_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ItensCarrosselDias(img: "sexta", date: Date()) {}
-            ItensCarrosselDias(img: "sexta", date: Date() + 86400) {}
-            ItensCarrosselDias(img: "sexta", date: Date() - 86400*3) {}
-        }.previewLayout(.fixed(width: 200, height: 100))
+            ItensCarrosselDias(img: "sexta", date: Date())
+            ItensCarrosselDias(img: "sexta", date: Date() + 86400)
+            ItensCarrosselDias(img: "sexta", date: Date() - 86400*3)
+        }
+        .previewLayout(.fixed(width: 200, height: 100))
+        .preferredColorScheme(.dark)
     }
 }

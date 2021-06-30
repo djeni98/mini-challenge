@@ -20,7 +20,7 @@ struct CardHome: View {
         VStack {
             ZStack {
                 Rectangle()
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("LightDarkBg"))
                     
 
                 Image(img)
@@ -129,6 +129,8 @@ struct CardHome: View {
 struct CardHome_Previews: PreviewProvider {
     static var previews: some View {
         CardHome(semanaOrganizada: true, img: "tomato")
-            .frame(width: 300, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .frame(width: 300, height: 300, alignment: .center)
+            .preferredColorScheme(.dark)
     }
+    
 }

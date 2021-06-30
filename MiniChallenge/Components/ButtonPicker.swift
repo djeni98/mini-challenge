@@ -56,7 +56,9 @@ struct ButtonPicker: View {
                 }
             }).disabled(upLimit != nil && value >= upLimit!)
 
-        }.font(.title3)
+        }
+        .font(.title3)
+        .background(Color("LightDarkBg"))
     }
 }
 
@@ -67,5 +69,6 @@ struct ButtonPicker_Previews: PreviewProvider {
             ButtonPicker(value: .constant(5), downLimit: 5, upLimit: 10)
             ButtonPicker(value: .constant(5), downLimit: 1, upLimit: 5)
         }.previewLayout(.fixed(width: 300, height: 100))
+        .preferredColorScheme(.dark)
     }
 }

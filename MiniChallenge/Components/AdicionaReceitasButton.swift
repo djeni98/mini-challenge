@@ -27,6 +27,7 @@ struct AdicionaReceitasButton: View {
 struct AdicionaReceitasButton_Previews: PreviewProvider {
     static var previews: some View {
         AdicionaReceitasButton { print("Run Action") }
+            .preferredColorScheme(.dark)
     }
 }
 

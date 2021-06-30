@@ -72,5 +72,7 @@ func data(data: Date) -> some View {
 struct ItemNoticia_Previews: PreviewProvider {
     static var previews: some View {
         ItemNoticia(noticia : Noticia(link:"https://exame.com/bussola/quer-se-concentrar-no-home-office-veja-o-que-colocar-no-prato/", titulo: "Quer se concentrar no home office? Veja o que colocar no prato", texto: "Nutricionista mostra que, com a alimentação correta, é possível reduzir o hormônio do estresse e aumentar a concentração",tipo: .nutriocional, data: stringToDate("10/12/2020") ?? Date()))
+            .preferredColorScheme(.dark)
+            .padding()
     }
 }
