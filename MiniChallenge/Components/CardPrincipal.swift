@@ -58,7 +58,7 @@ struct CardPrincipal: View {
                     }
                     .padding(.horizontal, 30)
                     .padding(.bottom, 12)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("LightDarkText"))
                 }
                 .zIndex(1)
                
@@ -68,7 +68,7 @@ struct CardPrincipal: View {
                         Spacer()
                         Rectangle()
                             .frame(height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color("LightDarkBg"))
                     }
                 }
             }

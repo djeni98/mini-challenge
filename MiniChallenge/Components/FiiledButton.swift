@@ -34,5 +34,6 @@ struct FilledButton_Previews: PreviewProvider {
             FilledButton(label: "Adicionar", desabilitado: .constant(false)) {}
                 .padding()
         }.previewLayout(.fixed(width: 400, height: 80))
+        .preferredColorScheme(.dark)
     }
 }

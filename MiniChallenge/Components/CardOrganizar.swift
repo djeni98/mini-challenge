@@ -26,7 +26,7 @@ struct CardOrganizar: View {
         VStack {
             ZStack {
                 Rectangle()
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("LightDarkBg"))
                 
                 Image(imagem)
                     .resizable()
@@ -81,8 +81,10 @@ struct CardOrganizar_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             CardOrganizar(receita: listaDeReceitas[0], estaOrganizado: false) { print("Run Action") }
+
                        .padding()
             CardOrganizar(receita: listaDeReceitas[3], estaOrganizado: true) { print("Run Action") }
+                .preferredColorScheme(.dark)
                        .padding()
                }.previewLayout(.fixed(width: 400, height: 400))
         

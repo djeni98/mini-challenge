@@ -20,7 +20,6 @@ struct DottedOutlineButton: View {
                     .fontWeight(.medium)
             }
         }
-        .padding(.horizontal)
     }
 }
 

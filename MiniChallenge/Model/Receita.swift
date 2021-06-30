@@ -22,8 +22,8 @@ struct Ingrediente {
     }
 }
 
-enum TipoDeRefeicao {
-    case cafeDaManha;
+enum TipoDeRefeicao: Int {
+    case cafeDaManha = 1
     case refeicaoPrincipal; // almoço e janta
     case lanche;
 
