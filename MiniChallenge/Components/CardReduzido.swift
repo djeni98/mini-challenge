@@ -43,6 +43,7 @@ struct CardReduzido: View {
                     Text(nome)
                         .font(.title3)
                         .bold()
+                        .lineLimit(1)
 
                     HStack {
                         Text(nivel)

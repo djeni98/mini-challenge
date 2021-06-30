@@ -15,6 +15,7 @@ struct PesquisaLanchesView: View {
     @State var pesquisa = ""
 
     @State var lanches: [Receita] = []
+    @State var searchBar = false
 
     @EnvironmentObject var controleLanches: ControleQuantidadeReceitasModel
     var lanchesSelecionados: [ControleQuantidade] {
@@ -29,16 +30,20 @@ struct PesquisaLanchesView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                VStack(alignment: .leading) {
-                    SearchField(query: $pesquisa)
-                        .padding(.vertical, 5)
+                if searchBar {
+                    VStack(alignment: .leading) {
+                        SearchField(query: $pesquisa)
+                            .padding(.vertical, 5)
 
-                    Text(selecaoTexto)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                        .padding(.bottom, 20)
+                        Text(selecaoTexto)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                            .padding(.bottom, 20)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(2)
 
-                }.padding(.horizontal)
+                    }.padding(.horizontal)
+                }
 
 
                 ForEach(lanches.filter(filterFunc)) { lanche in
@@ -90,7 +95,8 @@ struct PesquisaLanchesView: View {
         )
         .navigationBarBackButtonHidden(!lanchesSelecionados.isEmpty)
         .onAppear {
-            lanches = listaDeReceitas
+            searchBar = true
+            lanches = listaDeReceitasPronta.filter { $0.categoria == .lanche }
         }
     }
 
