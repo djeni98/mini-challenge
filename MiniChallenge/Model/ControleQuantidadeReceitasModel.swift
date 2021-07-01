@@ -30,9 +30,9 @@ class ControleRefeicoesModel: ObservableObject{
     
     static func criaTeste() -> ControleRefeicoesModel{
         let testeControle = ControleRefeicoesModel()
-        testeControle.almoco = listaTestePlanejamento
-        testeControle.janta = listaTestePlanejamento
-        testeControle.cafeDaManha = listaTestePlanejamento
+        testeControle.almoco = listaTestePlanejamentoAlmoco
+        testeControle.janta = listaTestePlanejamentoJantar
+        testeControle.cafeDaManha = listaTestePlanejamentoCafeDaManha
         return testeControle
     }
 }
