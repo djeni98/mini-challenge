@@ -1,5 +1,5 @@
 //
-//  Receitas.swift
+//  ReceitasView.swift
 //  MiniChallenge
 //
 //  Created by Maria Luiza Amaral on 30/06/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Receitas: View {
+struct ReceitasView: View {
     @Environment(\.presentationMode) var presentation
     
     @State var searchBar = false
@@ -42,7 +42,6 @@ struct Receitas: View {
                 VStack {
                     if searchBar {
                         SearchField(query: $query)
-                            .transition(AnyTransition.opacity.combined(with: .move(edge: .trailing)))
                             .padding(.top)
                     }
                     
@@ -62,14 +61,27 @@ struct Receitas: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .padding(.vertical)
-                    
+
+                    if receitas.isEmpty {
+                        HStack {
+                            Spacer()
+
+                            Text("Carregando...")
+                                .font(.title3)
+                                .foregroundColor(.gray)
+                                .padding(.top, 180)
+
+                            Spacer()
+                        }
+
+                    } 
                     
                     ForEach(receitas.filter({
                         filterFunc($0, tipoRefeicao: tiposReceita)
                     })) { receita in
                         CardPrincipal(receita: receita)
                             .frame(width: 350, height: 300)
-                                .shadow(radius: 10)
+                            .shadow(radius: 10)
                             .padding(.bottom)
 
                     }
@@ -77,11 +89,11 @@ struct Receitas: View {
             }
         }.padding(.horizontal)
         .onAppear {
+            searchBar = true
 
-                receitas = listaDeReceitas
-                
-                searchBar.toggle()
-            
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                receitas = listaDeReceitasPronta
+            }
         }
         .navigationTitle("Receitas")
         .navigationBarTitleDisplayMode(.large)
@@ -94,7 +106,7 @@ struct Receitas: View {
 struct Receitas_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            Receitas()
+            ReceitasView()
         }
     }
 }

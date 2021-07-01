@@ -48,23 +48,25 @@ struct TabBar: View {
             .tag(TabItem.semana)
 
 
-            Text("WIP Receitas")
-                .tabItem {
-                    Image(systemName:  self.selectedItem == TabItem.receitas ? "book.fill" : "book")
-                    Text("Receitas")
-                }
-                .tag(TabItem.receitas)
+            NavigationView {
+                ReceitasView()
+            }
+            .tabItem {
+                Image(systemName:  self.selectedItem == TabItem.receitas ? "book.fill" : "book")
+                Text("Receitas")
+            }
+            .tag(TabItem.receitas)
 
 
             NavigationView {
                 ListaMercado()
 
             }
-                .tabItem {
-                    Image(systemName: self.selectedItem == TabItem.mercado ? "cart.fill" : "cart")
-                    Text("Mercado")
-                }
-                .tag(TabItem.mercado)
+            .tabItem {
+                Image(systemName: self.selectedItem == TabItem.mercado ? "cart.fill" : "cart")
+                Text("Mercado")
+            }
+            .tag(TabItem.mercado)
         }
         
     }
