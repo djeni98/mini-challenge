@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardLanche: View {
-    var imagem = "sem-imagem"
+    var imagem = "receitaChocolateQuenteCremoso"
     
     var body: some View {
         VStack {
