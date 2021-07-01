@@ -12,6 +12,8 @@ struct PlanejamentoLista: View {
     @Environment(\.presentationMode) var presentation
     @EnvironmentObject var controle: ControleRefeicoesModel
     @State var lista: [ControleQuantidade] = []
+    @State var text: String = ""
+    @Binding var editou:Bool
     
     let data = Date()
     
@@ -31,16 +33,43 @@ struct PlanejamentoLista: View {
         .environment(\.editMode, .constant(.active))
         .onAppear(
             perform: {
-                lista = controle.janta
+                switch refeicao {
+                case .almoco:
+                    text = "Almoco"
+                    lista = controle.almoco
+                case .jantar:
+                    text = "jantar"
+                    lista = controle.janta
+                case .cafeDaManha:
+                    text = "café"
+                    lista = controle.cafeDaManha
+                default:
+                    text = "nada"
+                    lista = []
+                }
                 for i in 0..<lista.count {
                     lista[i].dataDePreparo = data.addingTimeInterval(86400 * Double(i))
                 }
             }
         )
-        .navigationTitle("Semana - \(refeicao.toString())")
+        .navigationTitle("\(refeicao.toString())")
         .navigationBarItems(
             trailing: Button("Confirmar") {
-                controle.janta = lista
+                switch refeicao {
+                case .almoco:
+                    text = "Almoco"
+                    controle.almoco = lista
+                case .jantar:
+                    text = "jantar"
+                    controle.janta = lista
+                case .cafeDaManha:
+                    text = "café"
+                    controle.cafeDaManha = lista
+                default:
+                    text = "nada"
+                    lista = []
+                }
+                editou = true
                 self.presentation.wrappedValue.dismiss()
             }
             .transition(.scale)
@@ -81,7 +110,7 @@ struct PlanejamentoLista: View {
 struct PlanejamentoLista_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            PlanejamentoLista(refeicao: .almoco)
+            PlanejamentoLista(refeicao: .almoco, editou: .constant(false)).environmentObject(ControleRefeicoesModel.criaTeste())
         }
     }
 }
