@@ -31,7 +31,7 @@ struct ListaMercado: View {
             }
             .foregroundColor(Color("LightDarkBg"))
             .padding(.horizontal, 20)
-            .padding(.bottom, 120)
+            .padding(.bottom, 190)
             .navigationTitle("Sua lista de mercado")
         }
         .frame(maxWidth: UIScreen.main.bounds.width,maxHeight: UIScreen.main.bounds.height)
@@ -44,7 +44,7 @@ struct ListaMercado: View {
         )
         .background(Color("LightDarkBg")
                         .ignoresSafeArea())
-        
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

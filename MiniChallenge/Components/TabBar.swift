@@ -57,7 +57,8 @@ struct TabBar: View {
 
 
             NavigationView {
-                ListaMercado()                
+                ListaMercado()
+
             }
                 .tabItem {
                     Image(systemName: self.selectedItem == TabItem.mercado ? "cart.fill" : "cart")
