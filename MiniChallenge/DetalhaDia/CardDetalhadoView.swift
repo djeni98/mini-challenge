@@ -26,7 +26,7 @@ struct CardDetalhadoView: View {
                             .resizable()
                             .frame(width: 30, height: 30)
                             .padding(.leading, 300)
-                            .foregroundColor(Color(.systemGray))
+                            .foregroundColor(Color("LightDarkBg"))
                     })
                     .padding()
                 }
