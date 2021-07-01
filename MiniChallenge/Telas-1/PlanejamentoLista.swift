@@ -15,7 +15,7 @@ struct PlanejamentoLista: View {
     @State var text: String = ""
     @Binding var editou:Bool
     
-    let data = Date()
+    @State var data = Date()
     
     var body: some View {
         VStack(alignment: .leading){
@@ -33,6 +33,7 @@ struct PlanejamentoLista: View {
         .environment(\.editMode, .constant(.active))
         .onAppear(
             perform: {
+                data = controle.dataInicio
                 switch refeicao {
                 case .almoco:
                     text = "Almoco"

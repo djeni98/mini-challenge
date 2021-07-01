@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct CardHome: View {
+    internal init(semanaOrganizada: Bool, img: String, data: Date = Date()) {
+        self.semanaOrganizada = semanaOrganizada
+        self.img = img
+        self.data = data
+    }
+
     var semanaOrganizada : Bool
     var img: String
-    
+    var data: Date
+    var hoje = Date().toFormatDayMonth()
     
 //    let month = Calendar.current.component(.month, from: Date())
 //    let year = Calendar.current.component(.year, from: Date())
@@ -33,8 +40,8 @@ struct CardHome: View {
                 
                 VStack(alignment: .leading) {
                     Spacer()
-                    if semanaOrganizada{
-                        Text("Hoje •  \(day())")
+                    if semanaOrganizada {
+                        Text("\(hoje == day() ? "Hoje" : "(planejada)") • \(day())")
                             .font(.caption)
                             .padding(.bottom, 8)
                             .foregroundColor(.accentColor)
@@ -44,14 +51,14 @@ struct CardHome: View {
                             .bold()
                         
                         HStack {
-                            Text("21 receitas estimadas")
+                            Text("3 refeições principais + lanches")
                             Spacer()
             
                         }
                         .font(.caption)
                         .foregroundColor(Color(.systemGray))
                         .padding(.bottom)
-                    }else{
+                    } else {
                         Text("\(month()) \(year()) - Semana \(week)")
                             .font(.caption)
                             .padding(.bottom, 8)
@@ -62,7 +69,7 @@ struct CardHome: View {
                             .bold()
                         
                         HStack {
-                            Text("3 refeições principais + lanches")
+                            Text("21 receitas estimadas")
                             Spacer()
             
                         }
@@ -89,7 +96,7 @@ struct CardHome: View {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM"
         formatter.locale = Locale(identifier: "pt")
-        let monthFormat = formatter.string(from: Date()).capitalized
+        let monthFormat = formatter.string(from: data).capitalized
         
         return monthFormat
     
@@ -99,27 +106,32 @@ struct CardHome: View {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
         //formatter.locale = Locale(identifier: "pt")
-        let yearFormat = formatter.string(from: Date()).capitalized
+        let yearFormat = formatter.string(from: data).capitalized
         
         return yearFormat
     
     }
     
     func day() -> String{        
-        return Date().toFormatDayMonth()
+        return data.toFormatDayMonth()
     }
     
     func weekDay() -> Text {
-        return Text(Date().toFormatWeekday_pt())
+        return Text(data.toFormatWeekday_pt())
     }
     
 
 }
 struct CardHome_Previews: PreviewProvider {
     static var previews: some View {
-        CardHome(semanaOrganizada: true, img: "tomato")
-            .frame(width: 300, height: 300, alignment: .center)
-            .preferredColorScheme(.dark)
+        Group {
+            CardHome(semanaOrganizada: true, img: "tomato", data: Date().addingTimeInterval(86400))
+                .frame(width: 300, height: 300, alignment: .center)
+                .preferredColorScheme(.light)
+            CardHome(semanaOrganizada: false, img: "calendar")
+                .frame(width: 300, height: 300, alignment: .center)
+                .preferredColorScheme(.dark)
+        }.previewLayout(.fixed(width: 400, height: 400))
     }
     
 }

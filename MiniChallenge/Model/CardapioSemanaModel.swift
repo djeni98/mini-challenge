@@ -53,6 +53,7 @@ class CardapioSemanaModel: ObservableObject {
         let cardapio = CardapioSemanaModel()
         cardapio.estaPlanejada = true
         let data = Date()
+        cardapio.dataInicio = data
 
         for i in 0..<7 {
             let dia = CardapioDia(

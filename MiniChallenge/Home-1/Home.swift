@@ -72,13 +72,22 @@ struct Home: View {
                         
                     VStack(alignment: .center){
                         
-                        if semanaPlanejada && indiceCardapioHoje != nil {
-                            CardHome(semanaOrganizada: semanaPlanejada, img: "tomato")
-                                .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .onTapGesture {
-                                    mostraCardapio = true
-                                    indiceCardapio = indiceCardapioHoje!
-                                }
+                        if semanaPlanejada {
+                            if let indiceCardapioHoje = indiceCardapioHoje {
+                                CardHome(semanaOrganizada: semanaPlanejada, img: "tomato")
+                                    .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .onTapGesture {
+                                        mostraCardapio = true
+                                        indiceCardapio = indiceCardapioHoje
+                                    }
+                            } else {
+                                CardHome(semanaOrganizada: semanaPlanejada, img: "tomato", data: cardapioSemana.dataInicio!)
+                                    .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .onTapGesture {
+                                        mostraCardapio = true
+                                        indiceCardapio = 0
+                                    }
+                            }
 
                             VStack{
                                 ScrollView(.horizontal, showsIndicators: false){
