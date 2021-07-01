@@ -29,6 +29,7 @@ enum TipoDeRefeicao {
 
     case almoco;
     case jantar;
+    case todos;
 
     func toString() -> String {
         switch self {
@@ -42,6 +43,9 @@ enum TipoDeRefeicao {
                 return "Jantar"
             case TipoDeRefeicao.lanche:
                 return "Lanche"
+                
+        default:
+            return "Todos"
         }
     }
 
