@@ -57,7 +57,7 @@ struct CardapioSemanaView: View {
                         controleGeral.almoco = controleAlmoco.lista
                         controleGeral.janta = controleJantar.lista
                         navegaOrganizaSemana = true
-                    }
+                    }.padding(.bottom)
 
                     NavigationLink(
                         destination: OrganizaRefeicaoLista().environmentObject(controleGeral),
