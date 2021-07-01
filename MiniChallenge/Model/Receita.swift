@@ -51,8 +51,7 @@ enum TipoDeRefeicao: Int {
     }
 
     func match(_ other: TipoDeRefeicao) -> Bool {
-        return self.isRefeicaoPrincipal() && other.isRefeicaoPrincipal() ||
-            self == other
+        return self.isRefeicaoPrincipal() ? other.isRefeicaoPrincipal() : self == other
     }
 }
 

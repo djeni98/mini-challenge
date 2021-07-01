@@ -38,7 +38,7 @@ struct PesquisaReceitaView: View {
             }.padding(.horizontal)
             .onAppear {
                 withAnimation(.spring(response: 0.5, dampingFraction: 0.9, blendDuration: 2)) {
-                    receitas = listaDeReceitas
+                    receitas = listaDeReceitasPronta.filter { $0.categoria.match(tipoRefeicao) }
                     
                     searchBar.toggle()
                 }

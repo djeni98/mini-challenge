@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Semana: View {
-    
+
     init() {
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(Color("Laranja"))
     }
@@ -16,13 +16,18 @@ struct Semana: View {
     let diaEmSegundos = 86400
     var tituloView = "Início da semana"
     var tituloAlert = "Redefinir dia de início?"
+
+    @State var primeiraRenderizacao = true
     
     @State private var diaSelecionado = 0
     @State var diaSelecionadoStored: Int = 0
     @State var mostrandoAlerta = false
     @State var mostraCardapioView = false
-    var limiteInferiorDias = Date()
-    
+    var hoje = Date()
+
+    var diaSelecionadoEmData: Date {
+        return hoje.addingTimeInterval(TimeInterval(diaSelecionadoStored * diaEmSegundos))
+    }
     
     var body: some View {
             VStack(alignment: .leading)  {
@@ -30,7 +35,7 @@ struct Semana: View {
                 
                 Picker("Ínicio", selection: $diaSelecionado) {
                     ForEach(0..<7) { multiplicador in
-                        let dia = limiteInferiorDias.addingTimeInterval(TimeInterval(multiplicador * diaEmSegundos))
+                        let dia = hoje.addingTimeInterval(TimeInterval(multiplicador * diaEmSegundos))
                         criaText(data: dia)
                             .tag(multiplicador)
                         
@@ -47,7 +52,9 @@ struct Semana: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: CardapioSemanaView(), isActive: $mostraCardapioView, label: {})
+                    destination: CardapioSemanaView(dataInicio: diaSelecionadoEmData),
+                    isActive: $mostraCardapioView,
+                    label: {})
 
             }
             .onAppear {
@@ -55,7 +62,14 @@ struct Semana: View {
             }
             .navigationBarTitle(tituloView)
             .toolbar(content: {
-                if diaSelecionado == diaSelecionadoStored {
+                if primeiraRenderizacao {
+                    Button("Definir") {
+                        mostraCardapioView = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            primeiraRenderizacao = false
+                        }
+                    }
+                } else if diaSelecionado == diaSelecionadoStored {
                     Button("Manter") { mostraCardapioView = true }
                     
                 } else {
@@ -67,7 +81,11 @@ struct Semana: View {
                     title: Text(tituloAlert),
                     message: Text("Você está redefinindo o dia de início do seu planejamento, de \(retornaDia(diaSelecionadoStored)) para \(retornaDia(diaSelecionado))"),
                     primaryButton: .destructive(Text("Redefinir"), action: {
-                        //Action
+                        mostraCardapioView = true
+
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            diaSelecionadoStored = diaSelecionado
+                        }
                     }),
                     secondaryButton: .cancel(Text("Cancelar")))
             }
@@ -90,7 +108,7 @@ struct Semana: View {
     }
     
     func retornaDia(_ distancia: Int) -> String {
-        let dia = limiteInferiorDias.addingTimeInterval(TimeInterval(distancia * diaEmSegundos))
+        let dia = hoje.addingTimeInterval(TimeInterval(distancia * diaEmSegundos))
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM"
 
@@ -102,9 +120,9 @@ struct Semana: View {
         var str = ""
         
         switch data {
-        case limiteInferiorDias:
+        case hoje:
             str = "Hoje"
-        case limiteInferiorDias.addingTimeInterval(TimeInterval(diaEmSegundos)):
+        case hoje.addingTimeInterval(TimeInterval(diaEmSegundos)):
             str = "Amanhã"
         default:
             str = "\(weekDayText(data: data))"

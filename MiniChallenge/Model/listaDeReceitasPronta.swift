@@ -172,7 +172,8 @@ var listaDeReceitasPronta = [
             
         ],
         modoPreparo: "Em uma panela em fogo médio, coloque um fio de óleo e refogue o alho e a cebola até ficarem levemente dourados. Acrescente o brócolis, tempere com sal a gosto, com o orégano e refogue por cerca de 1 ou 2 minutos, até o brócolis ficar macio. Abaixe o fogo, adicione o leite vegetal misturado com amido de milho e misture bem, para não empelotar. Corrija o sal, se necessário. Se quiser, acrescente salsinha, cebolinha ou pimenta. Reserve.Em uma panela com água fervente e uma pitada de sal, cozinhe as batatas até ficarem bem macias. Escorra toda a água e amasse bem, enquanto ainda estão mornas. Reserve.Em uma vasilha, coloque o tablete de fermento, o açúcar e amasse até virar uma pasta líquida. Adicione a água morna, o sal, o óleo e as batatas amassadas. Misture e acrescente a farinha de trigo aos poucos, até virar uma massa uniforme e que desgrude das mãos com facilidade. Nesta receita foram cerca de 4 xícaras e meia. Divida a massa ao meio, novamente ao meio, e novamente ao meio, formando 8 bolinhas iguais.Em uma superfície limpa e levemente enfarinhada, abra uma a uma das bolinhas na espessura de 0,5cm. Coloque uma colher de sopa bem cheia de recheio no centro e feche formando uma trouxinha. Trabalhe com a massa para que ela fique redondinha e certifique-se de que esteja bem fechada. Coloque os pães em uma assadeira untada ou forrada com papel manteiga, com 2 dedos de distância entre eles. Coloque a parte aberta virada para baixo. Cubra com um guardanapo limpo e seco e deixe descansando por 40 minutos. Pré-aqueça o forno a 240ºC e em um potinho, misture uma colher de sopa de azeite com uma colher de sopa de shoyu. Pincele esta mistura nos pães e salpique gergelim branco. Leve para assar por cerca de 30 minutos ou até os pães estiverem levemente corados.",
-        nomeImagem: "receitaPaoBatataVegano"),
+        // nomeImagem: "receitaPaoBatataVegano"),
+        nomeImagem: "sem-imagem"),
     
     Receita(
         id: 10, categoria: .cafeDaManha, nivelDificuldade: .iniciante,
@@ -200,7 +201,8 @@ var listaDeReceitasPronta = [
             
         ],
         modoPreparo: "Em uma vasilha, junte o polvilhe doce, o parmesão e misture. Adicione o creme de leite, aos poucos, misturando com as mãos até formar uma massa homogênea e firme. É necessário que o creme de leite seja adicionado aos poucos, para não perder o ponto da massa. Retire porções pequenas da massa e modele bolinhas. Coloque, uma ao lado da outra, em uma fôrma grande untada e leve ao forno alto, preaquecido, por 15 minutos ou até dourar. Retire e sirva em seguida.",
-        nomeImagem: "receitaPaoDeQueijo"),
+        // nomeImagem: "receitaPaoDeQueijo"),
+            nomeImagem: "sem-imagem"),
     
     Receita(
         id: 12, categoria: .lanche, nivelDificuldade: .iniciante,
