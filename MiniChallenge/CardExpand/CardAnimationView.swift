@@ -11,6 +11,7 @@
 
 
 import SwiftUI
+import Introspect
 
 struct CardAnimationView: View {
 
@@ -34,6 +35,7 @@ struct CardAnimationView: View {
     @State var estaAnimando = false
     @State var receitaSelecionado: Receita? = nil
     @State var estaOpaco = false
+    @State var mostraNavigationBar = true
     @Namespace var namespace
     
     
@@ -101,7 +103,7 @@ struct CardAnimationView: View {
                                             .shadow(radius: 10)
                                         
                                         if estaRemovendo {
-                                            RemoveButton()
+                                            RemoveButton() { }
                                                 .cornerRadius(elipseAnimada ? 200 : 0)
                                                 .scaleEffect(elipseAnimada ? 0 : 1)
                                                 .opacity(estaOpaco ? 1 : 0)
@@ -117,8 +119,10 @@ struct CardAnimationView: View {
                                             receitaSelecionado = receita
                                             estaAnimando = true
                                             estaExpandido.toggle()
+                                            mostraNavigationBar = false
                                             
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { estaAnimando = false }
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                estaAnimando = false }
                                         }
                                     }
                                     .matchedGeometryEffect(id: "Container\(receita.id)", in: namespace)
@@ -152,7 +156,7 @@ struct CardAnimationView: View {
             //MARK: CardDetalhado -
             if let receitaSelecionado = receitaSelecionado {
                 if estaExpandido {
-                    CardDetalhadoView(receita: receitaSelecionado, namespace: namespace)
+                    CardDetalhadoView(receita: receitaSelecionado)
                     //                        .gesture(DragGesture(minimumDistance: 0).onChanged(onChanged(value:)).onEnded(onEnded(value:)))
                     
                     ZStack {
@@ -163,6 +167,9 @@ struct CardAnimationView: View {
                                 estaExpandido.toggle()
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { estaAnimando = false }
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { mostraNavigationBar.toggle() }
+
                             }
                             }) {
                                 Image(systemName: "xmark.circle.fill")
@@ -184,7 +191,10 @@ struct CardAnimationView: View {
         .navigationTitle(diaDaSemana)
         .navigationBarTitleDisplayMode(.large)
         .navigationBarItems(trailing: botaoEditar)
-        .navigationBarHidden(estaExpandido)
+        .navigationBarHidden(!mostraNavigationBar)
+//        .introspectTabBarController { (UITabBarController) in
+//                UITabBarController.tabBar.isHidden = estaExpandido
+//            }
     }
     
     //MARK: Funcs -

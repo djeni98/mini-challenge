@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct RemoveButton: View {
-    
-    init() {
+    init(action: @escaping () -> Void, ReceitaAtual: String = "Receita") {
+        self.action = action
+        
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(Color("Laranja"))
     }
+    
+    var action: () -> Void
+    
     
     @State private var mostrandoAlerta = false
     var ReceitaAtual = "Receita"
@@ -21,10 +25,10 @@ struct RemoveButton: View {
         ZStack {
             Rectangle()
                 .cornerRadius(20)
-//                .frame(width: 350, height: 300)
+                //                .frame(width: 350, height: 300)
                 .foregroundColor(.black)
                 .opacity(0.4)
-
+            
             
             Button(action: {
                 mostrandoAlerta.toggle()
@@ -42,9 +46,7 @@ struct RemoveButton: View {
                 Alert(
                     title: Text(ReceitaAtual),
                     message: Text("O que deseja fazer com a receita?"),
-                    primaryButton: .destructive(Text("Excluir"), action:  {
-                        //Ação destrutiva aqui
-                    }),
+                    primaryButton: .destructive(Text("Excluir"), action: action),
                     secondaryButton: .cancel(Text("Cancelar")))
             }
             .accentColor(.white)
@@ -55,6 +57,8 @@ struct RemoveButton: View {
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        RemoveButton()
+        RemoveButton() {
+            
+        }
     }
 }
