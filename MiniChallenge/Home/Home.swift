@@ -34,112 +34,121 @@ struct Home: View {
     var body: some View {
         //var day = dayWeek
         
-        ScrollView(showsIndicators: false){
-            VStack{
-                HStack{
-                    VStack(alignment:.leading ){
-                        Text("Rotina Alimentar")
-                            .font(.system(size:34, weight: .bold, design: .default))
-                    }
-                    Spacer()
-                               
-                    NavigationLink(
-                        destination: Perfil(),
-                        isActive: $perfilAberto,
-                        label: { })
-                    
-                    
-                    Button(action: {
-                        perfilAberto = true
+        VStack {
+            Rectangle()
+                .foregroundColor(Color("backGround"))
+                .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 50)
+            
+            ScrollView(showsIndicators: false){
+                VStack{
+                    HStack{
+                        VStack(alignment:.leading ){
+                            Text("Rotina Alimentar")
+                                .font(.system(size:34, weight: .bold, design: .default))
+                        }
+                        Spacer()
+                                   
+                        NavigationLink(
+                            destination: Perfil(),
+                            isActive: $perfilAberto,
+                            label: { })
                         
-                    }, label: {
-                        Image("perfil")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 45, height: 45)
-                            .clipShape(Circle())
-                    })
-                    
-                }
-                .padding(.top, 20)
-                    
-                VStack(alignment: .center){
-                    
-                    if semanaPlanejada {
-                        CardHome(semanaOrganizada: semanaPlanejada, img: "tomato")
-                            .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .onTapGesture {
-                                mostraReceitasDoDia = true
-                            }
+                        
+                        Button(action: {
+                            perfilAberto = true
+                            
+                        }, label: {
+                            Image("perfil")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 45, height: 45)
+                                .clipShape(Circle())
+                        })
+                        
+                    }
+                    .padding(.top, 20)
+                        
+                    VStack(alignment: .center){
+                        
+                        if semanaPlanejada {
+                            CardHome(semanaOrganizada: semanaPlanejada, img: "tomato")
+                                .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .onTapGesture {
+                                    mostraReceitasDoDia = true
+                                }
 
-                        VStack{
-                            ScrollView(.horizontal, showsIndicators: false){
-                                HStack{
-                                    ForEach (images, id: \.self) { image in
-                                        VStack(alignment: .leading){
-                                            ItensCarrosselDias(img: image, date: Date()) {
-                                                mostraReceitasDoDia = true
-                                            }
-                                        }.padding(.vertical, 30)
-                                        
+                            VStack{
+                                ScrollView(.horizontal, showsIndicators: false){
+                                    HStack{
+                                        ForEach (images, id: \.self) { image in
+                                            VStack(alignment: .leading){
+                                                ItensCarrosselDias(img: image, date: Date()) {
+                                                    mostraReceitasDoDia = true
+                                                }
+                                            }.padding(.vertical, 30)
+                                            
+                                        }
                                     }
                                 }
                             }
+
+                            NavigationLink(
+                                destination: DetalhaDia(cardapio: CardapioDia(diaDaSemana: .quinta, cafeDaManha: listaDeReceitasPronta[1],almoco: listaDeReceitasPronta[0], jantar: listaDeReceitasPronta[5])),
+                                isActive: $mostraReceitasDoDia,
+                                label: {})
                         }
+                        else {
+                            CardHome(semanaOrganizada: semanaPlanejada, img: "calendar")
+                                .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .padding(.bottom, 50)
+                                .onTapGesture {
+                                    mostraInicioPlanejamento = true
 
-                        NavigationLink(
-                            destination: DetalhaDia(cardapio: CardapioDia(diaDaSemana: .quinta, cafeDaManha: listaDeReceitasPronta[1],almoco: listaDeReceitasPronta[0], jantar: listaDeReceitasPronta[5])),
-                            isActive: $mostraReceitasDoDia,
-                            label: {})
-                    }
-                    else {
-                        CardHome(semanaOrganizada: semanaPlanejada, img: "calendar")
-                            .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .padding(.bottom, 50)
-                            .onTapGesture {
-                                mostraInicioPlanejamento = true
+                                    navegaParaPlanejamentoView()
+                                }
 
-                                navegaParaPlanejamentoView()
-                            }
-
-//                        NavigationLink(
-//                            destination: CardapioSemanaView(funcoes: funcoes),
-//                            isActive: $mostraInicioPlanejamento,
-//                            label: {})
+    //                        NavigationLink(
+    //                            destination: CardapioSemanaView(funcoes: funcoes),
+    //                            isActive: $mostraInicioPlanejamento,
+    //                            label: {})
+                        }
                     }
-                }
-                .padding(.top, 50)
-                
-                //Spacer()
-                VStack(alignment:.leading){
-                    Text("Dicas de nutricionistas")
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 20)
-                    ForEach (noticias) { noticia in
-                        VStack{
-                            if noticia.tipo == .nutriocional{
-                                ItemNoticia(noticia: noticia)
-                            }
-                        }.padding(.bottom, 5)
-                    }
+                    .padding(.top, 50)
                     
-                    Divider()
-                    Text("Sustentabilidade na alimentação")
-                        .font(.title2)
-                        .bold()
-                        .padding(.vertical, 15)
-                    ForEach (noticias) { noticia in
-                        VStack{
-                            if noticia.tipo == .sustentavel{
-                                ItemNoticia(noticia: noticia)
+                    //Spacer()
+                    VStack(alignment:.leading){
+                        Text("Dicas de nutricionistas")
+                            .font(.title2)
+                            .bold()
+                            .padding(.bottom, 20)
+                        ForEach (noticias) { noticia in
+                            VStack{
+                                if noticia.tipo == .nutriocional{
+                                    ItemNoticia(noticia: noticia)
+                                }
+                            }.padding(.bottom, 5)
+                        }
+                        
+                        Divider()
+                        Text("Sustentabilidade na alimentação")
+                            .font(.title2)
+                            .bold()
+                            .padding(.vertical, 15)
+                        ForEach (noticias) { noticia in
+                            VStack{
+                                if noticia.tipo == .sustentavel{
+                                    ItemNoticia(noticia: noticia)
+                                }
                             }
                         }
+                        Divider()
                     }
-                    Divider()
-                }
-            }.padding()
+                }.padding()
+                
+            }
+
         }
+        .edgesIgnoringSafeArea(.top)
         .navigationBarHidden(true)
     }
 }
