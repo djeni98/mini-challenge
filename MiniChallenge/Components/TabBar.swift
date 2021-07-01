@@ -41,9 +41,15 @@ struct TabBar: View {
 
 
             NavigationView {
-                Semana() {
-                    selectedItem = TabItem.inicio
-                }.environmentObject(cardapioSemana)
+                if cardapioSemana.estaPlanejada {
+                    SemanaPlanejadaView(){
+                        selectedItem = TabItem.inicio
+                    }.environmentObject(cardapioSemana)
+                } else {
+                    Semana() {
+                        selectedItem = TabItem.inicio
+                    }.environmentObject(cardapioSemana)
+                }
             }
             .tabItem {
                 Image(systemName: "calendar")

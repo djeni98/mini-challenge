@@ -60,6 +60,7 @@ struct Semana: View {
                 NavigationLink(
                     destination: CardapioSemanaView(dataInicio: diaSelecionadoEmData) {
                         self.presentation.wrappedValue.dismiss()
+                        mostraCardapioView = false
                         navegaParaAHome()
                     }.environmentObject(cardapioSemana),
                     isActive: $mostraCardapioView,

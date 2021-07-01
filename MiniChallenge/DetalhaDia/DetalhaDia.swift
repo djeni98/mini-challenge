@@ -23,6 +23,7 @@ struct DetalhaDia: View {
                 
                 CardLanche()
                     .frame(height: 300)
+                    .padding(.bottom)
                 
                 
             }

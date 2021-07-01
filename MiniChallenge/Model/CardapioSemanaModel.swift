@@ -49,6 +49,12 @@ class CardapioSemanaModel: ObservableObject {
         }
     }
 
+    func reset() {
+        dataInicio = nil
+        cardapios = []
+        estaPlanejada = false
+    }
+
     static func criaTeste() -> CardapioSemanaModel {
         let cardapio = CardapioSemanaModel()
         cardapio.estaPlanejada = true

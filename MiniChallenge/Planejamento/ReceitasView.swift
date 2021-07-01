@@ -86,8 +86,8 @@ struct ReceitasView: View {
 
                     }
                 }
-            }
-        }.padding(.horizontal)
+            }.padding(.horizontal)
+        }
         .onAppear {
             searchBar = true
 
