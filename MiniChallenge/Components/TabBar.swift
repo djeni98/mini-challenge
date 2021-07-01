@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct TabBar: View {
     
     enum TabItem {
@@ -34,6 +35,7 @@ struct TabBar: View {
                 Text("Inicio")
             }
             .tag(TabItem.inicio)
+            
 
 
             NavigationView {
@@ -60,6 +62,7 @@ struct TabBar: View {
                 }
                 .tag(TabItem.mercado)
         }
+        
     }
 }
 

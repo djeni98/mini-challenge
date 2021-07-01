@@ -112,9 +112,9 @@ struct ItensCarrosselDias: View {
 struct ItensCarrosselDias_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ItensCarrosselDias(img: "sexta", date: Date())
-            ItensCarrosselDias(img: "sexta", date: Date() + 86400)
-            ItensCarrosselDias(img: "sexta", date: Date() - 86400*3)
+            ItensCarrosselDias(img: "sexta", date: Date()) {}
+            ItensCarrosselDias(img: "sexta", date: Date() + 86400) {}
+            ItensCarrosselDias(img: "sexta", date: Date() - 86400*3) {}
         }
         .previewLayout(.fixed(width: 200, height: 100))
         .preferredColorScheme(.dark)

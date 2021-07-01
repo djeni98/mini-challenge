@@ -12,6 +12,9 @@
 		14404EBE2683786A003970CC /* CardPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14404EBD2683786A003970CC /* CardPrincipal.swift */; };
 		14598D562684A869002D43B2 /* CardReduzido.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14598D552684A869002D43B2 /* CardReduzido.swift */; };
 		14598D592684C93A002D43B2 /* CardAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14598D582684C93A002D43B2 /* CardAnimationView.swift */; };
+		146BE13E268D3A0300775F1F /* DetalhaDia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146BE13D268D3A0300775F1F /* DetalhaDia.swift */; };
+		146BE140268D405800775F1F /* CardExpandeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146BE13F268D405800775F1F /* CardExpandeModal.swift */; };
+		146BE142268D473300775F1F /* CardLanche.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146BE141268D473300775F1F /* CardLanche.swift */; };
 		14883FDD268A2A3900772C7C /* CardDetalhadoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14883FDC268A2A3900772C7C /* CardDetalhadoView.swift */; };
 		148A592E2686116B008B4DD8 /* Transicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148A592D2686116B008B4DD8 /* Transicao.swift */; };
 		148A593226861650008B4DD8 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148A593126861650008B4DD8 /* CornerRadiusStyle.swift */; };
@@ -58,6 +61,9 @@
 		14404EBD2683786A003970CC /* CardPrincipal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPrincipal.swift; sourceTree = "<group>"; };
 		14598D552684A869002D43B2 /* CardReduzido.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReduzido.swift; sourceTree = "<group>"; };
 		14598D582684C93A002D43B2 /* CardAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAnimationView.swift; sourceTree = "<group>"; };
+		146BE13D268D3A0300775F1F /* DetalhaDia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhaDia.swift; sourceTree = "<group>"; };
+		146BE13F268D405800775F1F /* CardExpandeModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpandeModal.swift; sourceTree = "<group>"; };
+		146BE141268D473300775F1F /* CardLanche.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLanche.swift; sourceTree = "<group>"; };
 		14883FDC268A2A3900772C7C /* CardDetalhadoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetalhadoView.swift; sourceTree = "<group>"; };
 		148A592D2686116B008B4DD8 /* Transicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transicao.swift; sourceTree = "<group>"; };
 		148A593126861650008B4DD8 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
@@ -115,10 +121,19 @@
 			isa = PBXGroup;
 			children = (
 				14598D582684C93A002D43B2 /* CardAnimationView.swift */,
-				14883FDC268A2A3900772C7C /* CardDetalhadoView.swift */,
 				14C5B88F26894A6D00203634 /* dasdas.swift */,
 			);
 			path = CardExpand;
+			sourceTree = "<group>";
+		};
+		146BE143268D4BA500775F1F /* DetalhaDia */ = {
+			isa = PBXGroup;
+			children = (
+				146BE13F268D405800775F1F /* CardExpandeModal.swift */,
+				146BE13D268D3A0300775F1F /* DetalhaDia.swift */,
+				14883FDC268A2A3900772C7C /* CardDetalhadoView.swift */,
+			);
+			path = DetalhaDia;
 			sourceTree = "<group>";
 		};
 		1490D352268B42C20016E31A /* Extensions */ = {
@@ -196,6 +211,7 @@
 				1490D353268B43B00016E31A /* Início */,
 				7A44319D268A9C2E00F90EC2 /* Home */,
 				B7CBC63F2683662400460809 /* Components */,
+				146BE143268D4BA500775F1F /* DetalhaDia */,
 				14598D572684C8FF002D43B2 /* CardExpand */,
 				1490D352268B42C20016E31A /* Extensions */,
 				B76BBBE02682AA6300523DAD /* Model */,
@@ -234,8 +250,10 @@
 				7A132FE32684169500DC46C1 /* ListaOpcoesReceita.swift */,
 				7A28D2412685FE6300595997 /* ItensCarrosselDias.swift */,
 				14404EBD2683786A003970CC /* CardPrincipal.swift */,
+				146BE141268D473300775F1F /* CardLanche.swift */,
 				14B474F42683C55E008394D5 /* CardOrganizar.swift */,
 				14598D552684A869002D43B2 /* CardReduzido.swift */,
+				7A4431A0268AA1D800F90EC2 /* CardHome.swift */,
 				B746D36A2683D20C00917D47 /* MinicardReceitaButton.swift */,
 				B746D36C2683D8BE00917D47 /* SearchField.swift */,
 				B746D36E2683E50400917D47 /* FiiledButton.swift */,
@@ -244,7 +262,6 @@
 				B7CC709926868C8B00E01848 /* ButtonPicker.swift */,
 				B77FA58D2688E27E00D569AA /* ListaReceitasDeRefeicao.swift */,
 				7A44319A268A8BCC00F90EC2 /* TabBar.swift */,
-				7A4431A0268AA1D800F90EC2 /* CardHome.swift */,
 				7AE3E62B268B6DE400C8E18A /* ItemNoticia.swift */,
 			);
 			path = Components;
@@ -329,8 +346,10 @@
 				B746D36D2683D8BE00917D47 /* SearchField.swift in Sources */,
 				14598D592684C93A002D43B2 /* CardAnimationView.swift in Sources */,
 				7A44319B268A8BCC00F90EC2 /* TabBar.swift in Sources */,
+				146BE13E268D3A0300775F1F /* DetalhaDia.swift in Sources */,
 				B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */,
 				B746D36F2683E50400917D47 /* FiiledButton.swift in Sources */,
+				146BE140268D405800775F1F /* CardExpandeModal.swift in Sources */,
 				7A4431A1268AA1D800F90EC2 /* CardHome.swift in Sources */,
 				14883FDD268A2A3900772C7C /* CardDetalhadoView.swift in Sources */,
 				14353FBA268CA86700240385 /* ConditionalModifier.swift in Sources */,
@@ -357,6 +376,7 @@
 				B797C38C2684BD720048FC7C /* DottedOutlineButton.swift in Sources */,
 				B746D36B2683D20C00917D47 /* MinicardReceitaButton.swift in Sources */,
 				328B9F8F2684B73200286FD9 /* PlanejamentoLista.swift in Sources */,
+				146BE142268D473300775F1F /* CardLanche.swift in Sources */,
 				32F152AD268C93AE00F8C406 /* OrganizaRefeicaoLista.swift in Sources */,
 				148A593226861650008B4DD8 /* CornerRadiusStyle.swift in Sources */,
 				B76BBBD22682AA5500523DAD /* MiniChallengeApp.swift in Sources */,

@@ -88,7 +88,7 @@ struct Home: View {
                         }
 
                         NavigationLink(
-                            destination: CardAnimationView(receitas: listaDeReceitasPronta),
+                            destination: DetalhaDia(cardapio: CardapioDia(diaDaSemana: .quinta, cafeDaManha: listaDeReceitasPronta[1],almoco: listaDeReceitasPronta[0], jantar: listaDeReceitasPronta[5])),
                             isActive: $mostraReceitasDoDia,
                             label: {})
                     }
