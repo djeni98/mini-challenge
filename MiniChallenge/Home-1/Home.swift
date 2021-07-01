@@ -100,7 +100,8 @@ struct Home: View {
                                                     mostraCardapio = true
                                                     indiceCardapio = cardapio.id
                                                 }
-                                            }.padding(.vertical, 30)
+                                            }
+                                            .padding(.vertical, 30)
                                             .padding(.leading)
                                             
                                         }

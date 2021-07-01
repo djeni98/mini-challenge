@@ -15,7 +15,8 @@ struct CardExpandeModal: View {
         VStack {
             CardPrincipal(receita: receita)
         }
-        .cornerRadius(20)
+        .contentShape(Rectangle())
+        .cornerRadius(0)
         .sheet(isPresented: $mostraModalStack, content: { CardDetalhadoView(receita: receita) })
         .onTapGesture {
             mostraModalStack = true

@@ -65,9 +65,9 @@ class CardapioSemanaModel: ObservableObject {
             let dia = CardapioDia(
                 id: i,
                 diaDaSemana: .domingo,
-                cafeDaManha: listaDeReceitasPronta[i],
-                almoco: listaDeReceitasPronta[i],
-                jantar: listaDeReceitasPronta[i],
+                cafeDaManha: listaDeReceitasPronta[23],
+                almoco: listaDeReceitasPronta[4],
+                jantar: listaDeReceitasPronta[5],
                 lanches: [listaDeReceitasPronta[19], listaDeReceitasPronta[20]],
                 data: data.addingTimeInterval(86400 * Double(i))
             )

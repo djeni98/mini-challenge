@@ -79,7 +79,7 @@ struct ReceitasView: View {
                     ForEach(receitas.filter({
                         filterFunc($0, tipoRefeicao: tiposReceita)
                     })) { receita in
-                        CardPrincipal(receita: receita)
+                        CardExpandeModal(receita: receita)
                             .frame(width: 350, height: 300)
                             .shadow(radius: 10)
                             .padding(.bottom)

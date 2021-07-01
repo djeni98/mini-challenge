@@ -54,6 +54,7 @@ struct PlanejamentoLista: View {
             }
         )
         .navigationTitle("\(refeicao.toString())")
+        .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(
             trailing: Button("Confirmar") {
                 switch refeicao {

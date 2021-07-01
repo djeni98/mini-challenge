@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct CardPrincipal: View {
+    internal init(receita: Receita, corner: CGFloat = 20) {
+        self.receita = receita
+        self.corner = corner
+    }
+
+    var corner: CGFloat
     var receita: Receita
     var imagem: String {
         guard let nomeImagem = receita.nomeImagem else {
@@ -74,7 +80,7 @@ struct CardPrincipal: View {
             }
             
         }
-        .cornerRadius(20)
+        .cornerRadius(corner)
     }
 }
 

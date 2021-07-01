@@ -16,7 +16,7 @@ struct CardDetalhadoView: View {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading) {
                     ZStack(alignment: .topTrailing) {
-                        CardPrincipal(receita: receita)
+                        CardPrincipal(receita: receita, corner: 0)
                             .frame(height: 400)
 
                         Button(action: {

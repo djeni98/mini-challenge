@@ -308,20 +308,6 @@ var listaDeReceitasPronta = [
     nomeImagem: "receitaCookie"),
     
     Receita(
-        id: 18, categoria: .lanche, nivelDificuldade: .iniciante,
-        nome: "Chocolate quente cremoso",
-        tempoPreparo: "5 min",
-        ingredientes: [
-            Ingrediente(nome: "leite", descricao: "2 xícaras (chá) de leite"),
-            Ingrediente(nome: "cacau em pó", descricao: "3 colheres (sopa) de cacau em pó"),
-            Ingrediente(nome: "açucar", descricao: "2 colheres (sopa) de açúcar"),
-            Ingrediente(nome: "amido de milho", descricao: "1 colher (sopa) de amido de milho")
-        ],
-        modoPreparo: "Em uma panela, misture bem todos os ingredientes e leve ao fogo baixo, mexendo sempre até levantar fervura, e deixe cozinhe por 2 minutos. Sirva a seguir.",
-    
-    nomeImagem: "receitaChocolateQuenteCremoso"),
-    
-    Receita(
         id: 19, categoria: .lanche, nivelDificuldade: .iniciante,
         nome: "Pasta de amendoim",
         tempoPreparo: "10 min",
@@ -438,5 +424,20 @@ var listaDeReceitasPronta = [
         modoPreparo: "Em uma panela aqueça o azeite e refogue a cebola e o alho. Junte o palmito e os cogumelos e refogue ligeiramente. Adicione o sal, a pimenta-do-reino, os tomates, a mostarda, o shoyu e o ketchup e misture bem. Junte o leite vegetal com a farinha de trigo em outro recipiente e misture bem. Adicione o leite vegetal na panela e mexa até incoroporar o molho.Retire do fogo antes de ferver. Sirva.",
     
     nomeImagem: "receitaStrogonoffVegano"),
+
+
+    Receita(
+        id: 26, categoria: .lanche, nivelDificuldade: .iniciante,
+        nome: "Chocolate quente cremoso",
+        tempoPreparo: "5 min",
+        ingredientes: [
+            Ingrediente(nome: "leite", descricao: "2 xícaras (chá) de leite"),
+            Ingrediente(nome: "cacau em pó", descricao: "3 colheres (sopa) de cacau em pó"),
+            Ingrediente(nome: "açucar", descricao: "2 colheres (sopa) de açúcar"),
+            Ingrediente(nome: "amido de milho", descricao: "1 colher (sopa) de amido de milho")
+        ],
+        modoPreparo: "Em uma panela, misture bem todos os ingredientes e leve ao fogo baixo, mexendo sempre até levantar fervura, e deixe cozinhe por 2 minutos. Sirva a seguir.",
+
+    nomeImagem: "receitaChocolateQuenteCremoso"),
 ]
 

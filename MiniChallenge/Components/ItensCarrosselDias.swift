@@ -77,6 +77,8 @@ struct ItensCarrosselDias: View {
                                 .foregroundColor(.accentColor)
                                 .font(.system(size:12, weight: .medium, design: .default))
                         }
+
+                        Spacer()
                     }.padding(0.5)
                 }
             }.frame(width: 180, height: 60, alignment: .leading)

@@ -262,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				B7CBC6402683668C00460809 /* AdicionaReceitasButton.swift */,
+				141B1CB22688E6AA00A07F41 /* RemoveButton.swift */,
 				7AF9998E2683F90800E91065 /* ListaReceitasParaOrganizar.swift */,
 				7A132FE32684169500DC46C1 /* ListaOpcoesReceita.swift */,
 				7A28D2412685FE6300595997 /* ItensCarrosselDias.swift */,
@@ -274,7 +275,6 @@
 				B746D36C2683D8BE00917D47 /* SearchField.swift */,
 				B746D36E2683E50400917D47 /* FiiledButton.swift */,
 				B797C38B2684BD720048FC7C /* DottedOutlineButton.swift */,
-				141B1CB22688E6AA00A07F41 /* RemoveButton.swift */,
 				B7CC709926868C8B00E01848 /* ButtonPicker.swift */,
 				B77FA58D2688E27E00D569AA /* ListaReceitasDeRefeicao.swift */,
 				7A44319A268A8BCC00F90EC2 /* TabBar.swift */,
