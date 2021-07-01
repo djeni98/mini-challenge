@@ -23,6 +23,23 @@ struct TabBar: View {
 
     @State var semanaPlanejada = true
 
+    func semanaTabViewItem() -> some View {
+        if cardapioSemana.estaPlanejada {
+            return AnyView(NavigationView {
+                SemanaPlanejadaView(){
+                    selectedItem = TabItem.inicio
+                }.environmentObject(cardapioSemana)
+            })
+        } else {
+            return AnyView(NavigationView {
+                Semana() {
+                    selectedItem = TabItem.inicio
+                }.environmentObject(cardapioSemana)
+            })
+        }
+    }
+
+
     var body: some View {
         TabView(selection: $selectedItem) {
             NavigationView {
@@ -40,17 +57,7 @@ struct TabBar: View {
             
 
 
-            NavigationView {
-                if cardapioSemana.estaPlanejada {
-                    SemanaPlanejadaView(){
-                        selectedItem = TabItem.inicio
-                    }.environmentObject(cardapioSemana)
-                } else {
-                    Semana() {
-                        selectedItem = TabItem.inicio
-                    }.environmentObject(cardapioSemana)
-                }
-            }
+            semanaTabViewItem()
             .tabItem {
                 Image(systemName: "calendar")
                 Text("Semana")

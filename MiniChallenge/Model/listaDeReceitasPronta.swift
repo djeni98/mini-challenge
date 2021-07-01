@@ -31,7 +31,7 @@ var listaDeReceitasPronta = [
     Receita(
         id: 2, categoria: .refeicaoPrincipal, nivelDificuldade: .intermediario,
         nome: "Legumes marinados",
-        tempoPreparo: "",
+        tempoPreparo: "40 min",
         ingredientes: [
             Ingrediente(nome: "abobrinha", descricao: "1 abobrinha pequena cortada em cubos médios"),
             Ingrediente(nome: "pimentão amarelo", descricao: "½ pimentão amarelo cortado em cubos médios"),
@@ -66,7 +66,7 @@ var listaDeReceitasPronta = [
     Receita(
         id: 4, categoria: .refeicaoPrincipal, nivelDificuldade: .iniciante,
         nome: "Almôndega de carne",
-        tempoPreparo: "",
+        tempoPreparo: "25 min",
         ingredientes: [
             Ingrediente(nome: "patinho", descricao: "½ kg de patinho moído"),
             Ingrediente(nome: "cebola", descricao: "1 cebola ralada"),
