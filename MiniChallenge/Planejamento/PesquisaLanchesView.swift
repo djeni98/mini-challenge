@@ -45,46 +45,60 @@ struct PesquisaLanchesView: View {
                     }.padding(.horizontal)
                 }
 
+                if lanches.isEmpty {
+                    HStack {
+                        Spacer()
+                        
+                        Text("Carregando...")
+                            .font(.title3)
+                            .foregroundColor(.gray)
+                            .padding(.top, 180)
+                        
+                        Spacer()
+                    }
+                    
+                } else {
+                    ForEach(lanches.filter(filterFunc)) { lanche in
+                        VStack {
+                            HStack {
+                                Image(lanche.nomeImagem ?? "sem-imagem")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 60, height: 60)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                Text(lanche.nome)
 
-                ForEach(lanches.filter(filterFunc)) { lanche in
-                    VStack {
-                        HStack {
-                            Image(lanche.nomeImagem ?? "sem-imagem")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 60, height: 60)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                            Text(lanche.nome)
+                                Spacer()
 
-                            Spacer()
+                                if lanchesSelecionados.contains(where: { controle in
+                                    controle.receita.id == lanche.id
+                                }) {
+                                    Image(systemName: "checkmark.square.fill")
+                                        .foregroundColor(.accentColor)
+                                        .padding(.trailing)
+                                } else {
+                                    Image(systemName: "square")
+                                        .foregroundColor(.accentColor)
+                                        .padding(.trailing)
+                                }
+                            }
 
+                            Divider().padding(.leading, 65)
+                        }.padding(.leading)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
                             if lanchesSelecionados.contains(where: { controle in
                                 controle.receita.id == lanche.id
                             }) {
-                                Image(systemName: "checkmark.square.fill")
-                                    .foregroundColor(.accentColor)
-                                    .padding(.trailing)
+                                let index = lanchesSelecionados.firstIndex { $0.receita.id == lanche.id }!
+                                controleLanches.lista.remove(at: index)
                             } else {
-                                Image(systemName: "square")
-                                    .foregroundColor(.accentColor)
-                                    .padding(.trailing)
+                                controleLanches.lista.append(ControleQuantidade(quantidadePessoas: 1, receita: lanche))
                             }
-                        }
-
-                        Divider().padding(.leading, 65)
-                    }.padding(.leading)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        if lanchesSelecionados.contains(where: { controle in
-                            controle.receita.id == lanche.id
-                        }) {
-                            let index = lanchesSelecionados.firstIndex { $0.receita.id == lanche.id }!
-                            controleLanches.lista.remove(at: index)
-                        } else {
-                            controleLanches.lista.append(ControleQuantidade(quantidadePessoas: 1, receita: lanche))
                         }
                     }
                 }
+                
             }
         }
         .navigationTitle("Lanches")

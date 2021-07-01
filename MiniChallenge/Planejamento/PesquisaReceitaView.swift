@@ -14,6 +14,8 @@ struct PesquisaReceitaView: View {
     @State var searchBar = false
     @State var receitas: [Receita] = []
     @State var query: String = ""
+    @State var estaRodando = false
+    
     
     func filterFunc(_ receita: Receita) -> Bool {
         query.isEmpty || receita.nome.uppercased().contains(query.uppercased())
@@ -22,30 +24,34 @@ struct PesquisaReceitaView: View {
     var body: some View {
         ScrollView {
             VStack {
-                if searchBar {
-                    SearchField(query: $query)
-                        .transition(AnyTransition.opacity.combined(with: .move(edge: .trailing)))
-                        .padding(.vertical)
-                }
-
-                ForEach(receitas.filter(filterFunc)) { receita in
-                    CardReduzido(receita: receita) {
-                        self.presentation.wrappedValue.dismiss()
+                SearchField(query: $query)
+                    .padding(.vertical)
+                
+                if receitas.isEmpty {
+                    Text("Carregando...")
+                        .font(.title3)
+                        .foregroundColor(.gray)
+                        .padding(.top, 200)
+                    
+                } else {
+                    ForEach(receitas.filter(filterFunc)) { receita in
+                        CardReduzido(receita: receita) {
+                            self.presentation.wrappedValue.dismiss()
+                        }
+                        .padding(.bottom)
                     }
-                    .transition(AnyTransition.opacity.combined(with: .move(edge: .trailing)))
-                    .padding(.bottom)
                 }
+                
             }.padding(.horizontal)
             .onAppear {
-                searchBar.toggle()
                 DispatchQueue.main.asyncAfter(deadline: .now()) {
                     receitas = listaDeReceitasPronta.filter { $0.categoria.match(tipoRefeicao) }
-
+                    
                 }
             }
+            .navigationTitle(tipoRefeicao.toString())
+            .navigationBarTitleDisplayMode(.large)
         }
-        .navigationTitle(tipoRefeicao.toString())
-        .navigationBarTitleDisplayMode(.large)
     }
 }
 
