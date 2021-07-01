@@ -38,7 +38,7 @@ struct OrganizaRefeicaoLista: View {
                     })
                     .padding(.vertical)
                 
-                FilledButton(label: "Prosseguir", desabilitado: .constant(!(editouCafe && editouJantar && editouCafe)), buttonAction: {})
+                FilledButton(label: "Prosseguir", desabilitado: !(editouCafe && editouJantar && editouCafe), buttonAction: {})
                     .padding(.vertical)
             }
         }
