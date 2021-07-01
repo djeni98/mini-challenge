@@ -91,7 +91,7 @@ struct CardAnimationView: View {
             
             //MARK: CardView -
             if !estaExpandido {
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     VStack(spacing: 20) {
                         ForEach(refeicoes) { refeicao in                            
                             if let receita = refeicao.receita {

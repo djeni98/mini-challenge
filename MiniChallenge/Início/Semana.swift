@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct Semana: View {
+    var navegaParaAHome: () -> Void
 
-    init() {
+    @Environment(\.presentationMode) var presentation
+
+    init(navegaParaAHome: @escaping () -> Void) {
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(Color("Laranja"))
+        self.navegaParaAHome = navegaParaAHome
     }
     
     let diaEmSegundos = 86400
@@ -24,6 +28,8 @@ struct Semana: View {
     @State var mostrandoAlerta = false
     @State var mostraCardapioView = false
     var hoje = Date()
+
+    @EnvironmentObject var cardapioSemana: CardapioSemanaModel
 
     var diaSelecionadoEmData: Date {
         return hoje.addingTimeInterval(TimeInterval(diaSelecionadoStored * diaEmSegundos))
@@ -52,7 +58,10 @@ struct Semana: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: CardapioSemanaView(dataInicio: diaSelecionadoEmData),
+                    destination: CardapioSemanaView(dataInicio: diaSelecionadoEmData) {
+                        self.presentation.wrappedValue.dismiss()
+                        navegaParaAHome()
+                    }.environmentObject(cardapioSemana),
                     isActive: $mostraCardapioView,
                     label: {})
 
@@ -99,20 +108,10 @@ struct Semana: View {
         return formatter.string(from: data)
     }
     
-    func weekDayText(data: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "pt")
-        formatter.dateFormat = "EEEE"
-        
-        return formatter.string(from: data).capitalized
-    }
-    
     func retornaDia(_ distancia: Int) -> String {
         let dia = hoje.addingTimeInterval(TimeInterval(distancia * diaEmSegundos))
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM"
 
-        return formatter.string(from: dia)
+        return dia.toFormatDayMonth()
     }
     
     
@@ -125,7 +124,7 @@ struct Semana: View {
         case hoje.addingTimeInterval(TimeInterval(diaEmSegundos)):
             str = "Amanhã"
         default:
-            str = "\(weekDayText(data: data))"
+            str = "\(data.toFormatWeekday_pt())"
         }
         
         return Text("\(str) \(dataText(data: data))")
@@ -157,8 +156,9 @@ struct Topo: View {
 struct Semana_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            Semana()
-            .preferredColorScheme(.dark)
+            Semana() {}
+                .environmentObject(CardapioSemanaModel())
+                .preferredColorScheme(.dark)
         }
     }
 }

@@ -15,8 +15,6 @@ struct Home: View {
     
     var images = ["domingo", "segunda", "terca", "quarta", "quinta", "sexta", "sabado"]
     
-    var diaDaSemana = [1,2,3,4,5,6,7]
-    
     @State var perfilAberto = false
     
     let dayWeek = Calendar.current.component(.weekday, from: Date())
@@ -29,7 +27,11 @@ struct Home: View {
 
 
     @State var mostraInicioPlanejamento = false
-    @State var mostraReceitasDoDia = false
+    @State var mostraCardapio = false
+    @State var indiceCardapio = 0
+    @State var indiceCardapioHoje: Int?
+
+    @EnvironmentObject var cardapioSemana: CardapioSemanaModel
     
     var body: some View {
         //var day = dayWeek
@@ -39,7 +41,7 @@ struct Home: View {
                 .foregroundColor(Color("backGround"))
                 .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 50)
             
-            ScrollView(showsIndicators: false){
+            ScrollView(showsIndicators: false) {
                 VStack{
                     HStack{
                         VStack(alignment:.leading ){
@@ -67,39 +69,54 @@ struct Home: View {
                         
                     }
                     .padding(.top, 20)
+                    .padding(.horizontal)
                         
                     VStack(alignment: .center){
                         
                         if semanaPlanejada {
-                            CardHome(semanaOrganizada: semanaPlanejada, img: "tomato")
-                                .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .onTapGesture {
-                                    mostraReceitasDoDia = true
-                                }
+                            if let indiceCardapioHoje = indiceCardapioHoje {
+                                CardHome(semanaOrganizada: semanaPlanejada, img: "tomato")
+                                    .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .onTapGesture {
+                                        mostraCardapio = true
+                                        indiceCardapio = indiceCardapioHoje
+                                    }.padding(.horizontal)
+                            } else {
+                                CardHome(semanaOrganizada: semanaPlanejada, img: "tomato", data: cardapioSemana.dataInicio!)
+                                    .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .onTapGesture {
+                                        mostraCardapio = true
+                                        indiceCardapio = 0
+                                    }.padding(.horizontal)
+                            }
 
                             VStack{
                                 ScrollView(.horizontal, showsIndicators: false){
-                                    HStack{
-                                        ForEach (images, id: \.self) { image in
+                                    HStack(spacing: 0){
+                                        ForEach (cardapioSemana.cardapios) { cardapio in
+                                            let image = images[cardapio.id]
                                             VStack(alignment: .leading){
-                                                ItensCarrosselDias(img: image, date: Date()) {
-                                                    mostraReceitasDoDia = true
+                                                ItensCarrosselDias(img: image, date: cardapio.data) {
+                                                    mostraCardapio = true
+                                                    indiceCardapio = cardapio.id
                                                 }
                                             }.padding(.vertical, 30)
+                                            .padding(.leading)
                                             
                                         }
-                                    }
+                                    }.padding(.trailing)
                                 }
                             }
 
                             NavigationLink(
-                                destination: DetalhaDia(cardapio: CardapioDia(diaDaSemana: .quinta, cafeDaManha: listaDeReceitasPronta[1],almoco: listaDeReceitasPronta[0], jantar: listaDeReceitasPronta[5])),
-                                isActive: $mostraReceitasDoDia,
+                                destination: DetalhaDia(cardapio: cardapioSemana.cardapios[indiceCardapio]),
+                                isActive: $mostraCardapio,
                                 label: {})
                         }
                         else {
                             CardHome(semanaOrganizada: semanaPlanejada, img: "calendar")
                                 .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .padding(.horizontal)
                                 .padding(.bottom, 50)
                                 .onTapGesture {
                                     mostraInicioPlanejamento = true
@@ -142,11 +159,16 @@ struct Home: View {
                             }
                         }
                         Divider()
-                    }
-                }.padding()
+                    }.padding(.horizontal)
+                }.padding(.vertical)
                 
             }
 
+        }
+        .onAppear {
+            let hojeString = Date().toFormatDayMonth()
+            let diasCardapioString = cardapioSemana.cardapios.map { $0.data.toFormatDayMonth() }
+            indiceCardapioHoje = diasCardapioString.firstIndex(where: { $0 == hojeString })
         }
         .edgesIgnoringSafeArea(.top)
         .navigationBarHidden(true)
@@ -166,7 +188,8 @@ struct Home_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             Home(semanaPlanejada: true, noticias: listaDeNoticias) {}
-              .preferredColorScheme(.light)
+                .preferredColorScheme(.light)
+                .environmentObject(CardapioSemanaModel.criaTeste())
         }
     }
 }

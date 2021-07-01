@@ -73,7 +73,7 @@ struct ItensCarrosselDias: View {
                                 .font(.system(size:14, weight: .medium, design: .default))
                         }
                         VStack{
-                            dataText()
+                            Text(date.toFormatDayMonth())
                                 .foregroundColor(.accentColor)
                                 .font(.system(size:12, weight: .medium, design: .default))
                         }
@@ -86,19 +86,8 @@ struct ItensCarrosselDias: View {
         }
     }
     
-    func dataText() -> some View {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM"
-        
-        return Text(formatter.string(from: date))
-    }
-    
     func weekDayText() -> some View {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "pt")
-        formatter.dateFormat = "EEEE"
-        
-        let weekDayFormat = formatter.string(from: date).capitalized
+        let weekDayFormat = date.toFormatWeekday_pt()
         
         return Text(weekDayFormat.components(separatedBy: "-")[0])
     }

@@ -28,7 +28,7 @@ struct PesquisaLanchesView: View {
 
     let selecaoTexto = "Selecione à vontade os lanches que você gosta de comer durante o dia"
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
                 if searchBar {
                     VStack(alignment: .leading) {
