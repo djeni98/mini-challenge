@@ -22,8 +22,8 @@ struct Ingrediente {
     }
 }
 
-enum TipoDeRefeicao {
-    case cafeDaManha;
+enum TipoDeRefeicao: Int {
+    case cafeDaManha = 1
     case refeicaoPrincipal; // almoço e janta
     case lanche;
 
@@ -55,8 +55,7 @@ enum TipoDeRefeicao {
     }
 
     func match(_ other: TipoDeRefeicao) -> Bool {
-        return self.isRefeicaoPrincipal() && other.isRefeicaoPrincipal() ||
-            self == other
+        return self.isRefeicaoPrincipal() ? other.isRefeicaoPrincipal() : self == other
     }
 }
 
@@ -77,6 +76,7 @@ enum Dificuldade {
 
 
 struct Receita: Identifiable {
+    var id1 = UUID().uuidString
     var id: Int;
     var categoria: TipoDeRefeicao;
     var nivelDificuldade: Dificuldade;
@@ -93,10 +93,11 @@ enum DiaDaSemana {
 
 struct CardapioDia {
     var diaDaSemana: DiaDaSemana;
-    var cafeDaManha: ControleQuantidade;
-    var almoco: ControleQuantidade;
-    var jantar: ControleQuantidade;
-    var lanches: [Receita];
+    var cafeDaManha: Receita?;
+    var almoco: Receita?;
+    var jantar: Receita?;
+    var lanches: [Receita] = []
+    var data: Date = Date()
 }
 
 var listaDeReceitas = [

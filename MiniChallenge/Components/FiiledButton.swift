@@ -9,8 +9,9 @@ import SwiftUI
 
 struct FilledButton: View {
     var label: String
-    @Binding var desabilitado: Bool
+    var desabilitado: Bool
     var buttonAction: () -> Void
+    
     var body: some View {
         Button(action: buttonAction) {
             ZStack {
@@ -29,10 +30,11 @@ struct FilledButton: View {
 struct FilledButton_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            FilledButton(label: "Prosseguir", desabilitado: .constant(true)) {}
+            FilledButton(label: "Prosseguir", desabilitado: true) {}
                 .padding()
-            FilledButton(label: "Adicionar", desabilitado: .constant(false)) {}
+            FilledButton(label: "Adicionar", desabilitado: false) {}
                 .padding()
         }.previewLayout(.fixed(width: 400, height: 80))
+        .preferredColorScheme(.dark)
     }
 }

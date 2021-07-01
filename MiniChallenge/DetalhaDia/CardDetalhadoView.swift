@@ -9,16 +9,26 @@ import SwiftUI
 
 struct CardDetalhadoView: View {
     var receita: Receita
-    var namespace: Namespace.ID
-    
+    @Environment(\.presentationMode) var presentation 
     
     var body: some View {
         VStack(spacing: 0) {
             ScrollView {
-                VStack {
+                ZStack(alignment: .topTrailing) {
                     CardPrincipal(receita: receita)
-                        .matchedGeometryEffect(id: receita.id, in: namespace)
                         .frame(height: 400)
+                    
+                    Button(action: {
+                        self.presentation.wrappedValue.dismiss()
+                        
+                    }, label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .padding(.leading, 300)
+                            .foregroundColor(Color("LightDarkBg"))
+                    })
+                    .padding()
                 }
                 
                 Divider()
@@ -40,20 +50,13 @@ struct CardDetalhadoView: View {
                     .padding(40)
             }
         }
-        .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 20))
-        .matchedGeometryEffect(id: "Container\(receita.id)", in: namespace)
-        .statusBar(hidden: true)
-        .edgesIgnoringSafeArea(.all)
-        .transition(.hero)
-        .zIndex(2)
+        .background(Color("LightDarkBg"))
+        .navigationBarHidden(true)
     }
 }
 
 struct CardDetalhadoView_Previews: PreviewProvider {
-    @Namespace static var namespace
-
     static var previews: some View {
-        CardDetalhadoView(receita: listaDeReceitas[0], namespace: namespace)
+        CardDetalhadoView(receita: listaDeReceitas[0])
     }
 }

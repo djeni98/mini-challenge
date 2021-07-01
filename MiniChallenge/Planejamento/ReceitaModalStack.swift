@@ -47,18 +47,20 @@ struct ReceitaModalStack: View {
                         .font(.caption)
                         .foregroundColor(Color(.systemGray))
                         .padding(.vertical, 5)
+                        .padding(.bottom, 20)
                         
-                        repeticaoSemanaView.padding(.bottom)
+                        repeticaoSemanaView.padding(.bottom, 40)
                         
-                        quantidadePessoasView.padding(.bottom)
+                        quantidadePessoasView.padding(.bottom, 40)
                         
-                        ingredientesView.padding(.bottom)
-                        
-                        modoDePreparoView.padding(.bottom)
+                        DescricaoIngredientesSubview(ingredientes: receita.ingredientes)
+                            .padding(.bottom, 40)
+
+                        DescricaoModoPreparoSubview(modoPreparo: receita.modoPreparo)
+                            .padding(.bottom, 40)
                         
                     }.padding(.horizontal)
-                }
-                
+                }   
             }
             .navigationTitle(receita.nome)
             .navigationBarTitleDisplayMode(.large)
@@ -119,35 +121,6 @@ struct ReceitaModalStack: View {
                 
                 ButtonPicker(value: $quantidadePessoas, downLimit: 1, upLimit: 100)
             }
-        }
-    }
-    
-    var ingredientesView: some View {
-        VStack(alignment: .leading) {
-            Text("Ingredientes")
-                .bold()
-                .font(.title2)
-                .padding(.bottom, 5)
-            
-            ForEach(receita.ingredientes.indices) { i in
-                let ingrediente = receita.ingredientes[i]
-                Text("→ \(ingrediente.toString())")
-                    .padding(.leading, 5)
-                    .padding(.bottom, 1)
-            }
-            
-        }
-    }
-    
-    var modoDePreparoView: some View {
-        VStack(alignment: .leading) {
-            Text("Modo de Preparo")
-                .bold()
-                .font(.title2)
-                .padding(.bottom, 5)
-            
-            Text(receita.modoPreparo)
-            
         }
     }
 }

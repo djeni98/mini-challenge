@@ -57,6 +57,8 @@ struct ListaReceitasParaOrganizar: View {
             .padding()
             //
         }
+        .background((Color("LightDarkBg")))
+        .cornerRadius(10)
         
     }
     
@@ -69,6 +71,7 @@ struct ListaReceitasParaOrganizar_Previews: PreviewProvider {
         List {
             ListaReceitasParaOrganizar(receita: Receita(id: 1, categoria: .refeicaoPrincipal, nivelDificuldade: .iniciante, nome: "Strogonoff", tempoPreparo: "40 minutos", ingredientes: [Ingrediente(quantidade: 10, nome: "cogumelos", descricao: "limpos e sem manchas")], modoPreparo: "1. Cozinhe os cogumelos"), diaSemana: "S", data: 21)
         }
+        .preferredColorScheme(.dark)
     }
 }
 

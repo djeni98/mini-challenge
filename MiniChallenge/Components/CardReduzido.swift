@@ -29,7 +29,7 @@ struct CardReduzido: View {
         VStack(alignment: .leading) {
             ZStack {
                 Rectangle()
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("LightDarkBg"))
                 
                 Image(imagem)
                     .resizable()
@@ -43,6 +43,7 @@ struct CardReduzido: View {
                     Text(nome)
                         .font(.title3)
                         .bold()
+                        .lineLimit(1)
 
                     HStack {
                         Text(nivel)
@@ -78,6 +79,7 @@ struct CardReduzido: View {
 struct CardReduzido_Previews: PreviewProvider {
     static var previews: some View {
         CardReduzido(receita: listaDeReceitas[0]) {}
+            .preferredColorScheme(.dark)
             .padding(20)
             .previewLayout(.fixed(width: 375, height: 250))
     }

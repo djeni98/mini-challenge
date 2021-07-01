@@ -3,20 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		141B1CB32688E6AA00A07F41 /* RemoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B1CB22688E6AA00A07F41 /* RemoveButton.swift */; };
+		14353FBA268CA86700240385 /* ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14353FB9268CA86700240385 /* ConditionalModifier.swift */; };
 		14404EBE2683786A003970CC /* CardPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14404EBD2683786A003970CC /* CardPrincipal.swift */; };
 		14598D562684A869002D43B2 /* CardReduzido.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14598D552684A869002D43B2 /* CardReduzido.swift */; };
 		14598D592684C93A002D43B2 /* CardAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14598D582684C93A002D43B2 /* CardAnimationView.swift */; };
+		146BE13E268D3A0300775F1F /* DetalhaDia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146BE13D268D3A0300775F1F /* DetalhaDia.swift */; };
+		146BE140268D405800775F1F /* CardExpandeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146BE13F268D405800775F1F /* CardExpandeModal.swift */; };
+		146BE142268D473300775F1F /* CardLanche.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146BE141268D473300775F1F /* CardLanche.swift */; };
 		14883FDD268A2A3900772C7C /* CardDetalhadoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14883FDC268A2A3900772C7C /* CardDetalhadoView.swift */; };
 		148A592E2686116B008B4DD8 /* Transicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148A592D2686116B008B4DD8 /* Transicao.swift */; };
 		148A593226861650008B4DD8 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148A593126861650008B4DD8 /* CornerRadiusStyle.swift */; };
+		1490D355268B45610016E31A /* Semana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1490D354268B45610016E31A /* Semana.swift */; };
 		14B474F52683C55E008394D5 /* CardOrganizar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B474F42683C55E008394D5 /* CardOrganizar.swift */; };
 		14C5B89026894A6D00203634 /* dasdas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C5B88F26894A6D00203634 /* dasdas.swift */; };
+		14D4668B268CF1F6000CF79D /* ListaMercado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4668A268CF1F6000CF79D /* ListaMercado.swift */; };
+		14D4668D268D0390000CF79D /* Perfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4668C268D0390000CF79D /* Perfil.swift */; };
+		14D46693268D1868000CF79D /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 14D46692268D1868000CF79D /* Introspect */; };
 		328B9F8F2684B73200286FD9 /* PlanejamentoLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328B9F8E2684B73200286FD9 /* PlanejamentoLista.swift */; };
+		32F152AD268C93AE00F8C406 /* OrganizaRefeicaoLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F152AC268C93AE00F8C406 /* OrganizaRefeicaoLista.swift */; };
+		32F152B0268C9AF400F8C406 /* Dados.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F152AF268C9AF400F8C406 /* Dados.swift */; };
 		7A132FE42684169500DC46C1 /* ListaOpcoesReceita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A132FE32684169500DC46C1 /* ListaOpcoesReceita.swift */; };
 		7A28D2422685FE6300595997 /* ItensCarrosselDias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A28D2412685FE6300595997 /* ItensCarrosselDias.swift */; };
 		7A44319B268A8BCC00F90EC2 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A44319A268A8BCC00F90EC2 /* TabBar.swift */; };
@@ -39,6 +49,8 @@
 		B76BBBE22682AA7200523DAD /* Receita.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76BBBE12682AA7200523DAD /* Receita.swift */; };
 		B77FA58C2688DC6300D569AA /* CardapioSemanaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FA58B2688DC6300D569AA /* CardapioSemanaView.swift */; };
 		B77FA58E2688E27E00D569AA /* ListaReceitasDeRefeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FA58D2688E27E00D569AA /* ListaReceitasDeRefeicao.swift */; };
+		B780B886268D2ECA00DF1DD3 /* DescricaoIngredientesSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B780B885268D2ECA00DF1DD3 /* DescricaoIngredientesSubview.swift */; };
+		B780B888268D2FDF00DF1DD3 /* DescricaoModoPreparoSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B780B887268D2FDF00DF1DD3 /* DescricaoModoPreparoSubview.swift */; };
 		B78B43682689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78B43672689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift */; };
 		B797C38C2684BD720048FC7C /* DottedOutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B797C38B2684BD720048FC7C /* DottedOutlineButton.swift */; };
 		B7CBC6412683668C00460809 /* AdicionaReceitasButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CBC6402683668C00460809 /* AdicionaReceitasButton.swift */; };
@@ -48,15 +60,24 @@
 
 /* Begin PBXFileReference section */
 		141B1CB22688E6AA00A07F41 /* RemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveButton.swift; sourceTree = "<group>"; };
+		14353FB9268CA86700240385 /* ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalModifier.swift; sourceTree = "<group>"; };
 		14404EBD2683786A003970CC /* CardPrincipal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPrincipal.swift; sourceTree = "<group>"; };
 		14598D552684A869002D43B2 /* CardReduzido.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReduzido.swift; sourceTree = "<group>"; };
 		14598D582684C93A002D43B2 /* CardAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAnimationView.swift; sourceTree = "<group>"; };
+		146BE13D268D3A0300775F1F /* DetalhaDia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhaDia.swift; sourceTree = "<group>"; };
+		146BE13F268D405800775F1F /* CardExpandeModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpandeModal.swift; sourceTree = "<group>"; };
+		146BE141268D473300775F1F /* CardLanche.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLanche.swift; sourceTree = "<group>"; };
 		14883FDC268A2A3900772C7C /* CardDetalhadoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetalhadoView.swift; sourceTree = "<group>"; };
 		148A592D2686116B008B4DD8 /* Transicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transicao.swift; sourceTree = "<group>"; };
 		148A593126861650008B4DD8 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
+		1490D354268B45610016E31A /* Semana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semana.swift; sourceTree = "<group>"; };
 		14B474F42683C55E008394D5 /* CardOrganizar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOrganizar.swift; sourceTree = "<group>"; };
 		14C5B88F26894A6D00203634 /* dasdas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dasdas.swift; sourceTree = "<group>"; };
+		14D4668A268CF1F6000CF79D /* ListaMercado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaMercado.swift; sourceTree = "<group>"; };
+		14D4668C268D0390000CF79D /* Perfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfil.swift; sourceTree = "<group>"; };
 		328B9F8E2684B73200286FD9 /* PlanejamentoLista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanejamentoLista.swift; sourceTree = "<group>"; };
+		32F152AC268C93AE00F8C406 /* OrganizaRefeicaoLista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizaRefeicaoLista.swift; sourceTree = "<group>"; };
+		32F152AF268C9AF400F8C406 /* Dados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dados.swift; sourceTree = "<group>"; };
 		7A132FE32684169500DC46C1 /* ListaOpcoesReceita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaOpcoesReceita.swift; sourceTree = "<group>"; };
 		7A28D2412685FE6300595997 /* ItensCarrosselDias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItensCarrosselDias.swift; sourceTree = "<group>"; };
 		7A44319A268A8BCC00F90EC2 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -81,6 +102,8 @@
 		B76BBBE12682AA7200523DAD /* Receita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receita.swift; sourceTree = "<group>"; };
 		B77FA58B2688DC6300D569AA /* CardapioSemanaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardapioSemanaView.swift; sourceTree = "<group>"; };
 		B77FA58D2688E27E00D569AA /* ListaReceitasDeRefeicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaReceitasDeRefeicao.swift; sourceTree = "<group>"; };
+		B780B885268D2ECA00DF1DD3 /* DescricaoIngredientesSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescricaoIngredientesSubview.swift; sourceTree = "<group>"; };
+		B780B887268D2FDF00DF1DD3 /* DescricaoModoPreparoSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescricaoModoPreparoSubview.swift; sourceTree = "<group>"; };
 		B78B43672689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControleQuantidadeReceitasModel.swift; sourceTree = "<group>"; };
 		B797C38B2684BD720048FC7C /* DottedOutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedOutlineButton.swift; sourceTree = "<group>"; };
 		B7CBC6402683668C00460809 /* AdicionaReceitasButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionaReceitasButton.swift; sourceTree = "<group>"; };
@@ -93,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14D46693268D1868000CF79D /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,26 +127,55 @@
 			isa = PBXGroup;
 			children = (
 				14598D582684C93A002D43B2 /* CardAnimationView.swift */,
-				14883FDC268A2A3900772C7C /* CardDetalhadoView.swift */,
 				14C5B88F26894A6D00203634 /* dasdas.swift */,
-				148A592D2686116B008B4DD8 /* Transicao.swift */,
-				148A593126861650008B4DD8 /* CornerRadiusStyle.swift */,
 			);
 			path = CardExpand;
+			sourceTree = "<group>";
+		};
+		146BE143268D4BA500775F1F /* DetalhaDia */ = {
+			isa = PBXGroup;
+			children = (
+				146BE13F268D405800775F1F /* CardExpandeModal.swift */,
+				146BE13D268D3A0300775F1F /* DetalhaDia.swift */,
+				14883FDC268A2A3900772C7C /* CardDetalhadoView.swift */,
+			);
+			path = DetalhaDia;
+			sourceTree = "<group>";
+		};
+		1490D352268B42C20016E31A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				148A592D2686116B008B4DD8 /* Transicao.swift */,
+				148A593126861650008B4DD8 /* CornerRadiusStyle.swift */,
+				14353FB9268CA86700240385 /* ConditionalModifier.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1490D353268B43B00016E31A /* Inicio */ = {
+			isa = PBXGroup;
+			children = (
+				1490D354268B45610016E31A /* Semana.swift */,
+			);
+			name = Inicio;
+			path = "Início";
 			sourceTree = "<group>";
 		};
 		328B9F872684B68400286FD9 /* Telas */ = {
 			isa = PBXGroup;
 			children = (
 				328B9F8E2684B73200286FD9 /* PlanejamentoLista.swift */,
+				32F152AC268C93AE00F8C406 /* OrganizaRefeicaoLista.swift */,
+				14D4668A268CF1F6000CF79D /* ListaMercado.swift */,
 			);
-			path = Telas;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		7A44319D268A9C2E00F90EC2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				7A44319E268A9C4A00F90EC2 /* Home.swift */,
+				14D4668C268D0390000CF79D /* Perfil.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -162,9 +215,12 @@
 				B76BBBD32682AA5500523DAD /* ContentView.swift */,
 				328B9F872684B68400286FD9 /* Telas */,
 				B73E30262684F30B007FB08D /* Planejamento */,
+				1490D353268B43B00016E31A /* Inicio */,
 				7A44319D268A9C2E00F90EC2 /* Home */,
 				B7CBC63F2683662400460809 /* Components */,
+				146BE143268D4BA500775F1F /* DetalhaDia */,
 				14598D572684C8FF002D43B2 /* CardExpand */,
+				1490D352268B42C20016E31A /* Extensions */,
 				B76BBBE02682AA6300523DAD /* Model */,
 				B76BBBD52682AA5600523DAD /* Assets.xcassets */,
 				B76BBBDA2682AA5600523DAD /* Info.plist */,
@@ -187,6 +243,7 @@
 				B76BBBE12682AA7200523DAD /* Receita.swift */,
 				B7EAD067268B8A9400C5B552 /* listaDeReceitasPronta.swift */,
 				B78B43672689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift */,
+				32F152AF268C9AF400F8C406 /* Dados.swift */,
 				7A4431A2268B492500F90EC2 /* Noticia.swift */,
 			);
 			path = Model;
@@ -200,8 +257,10 @@
 				7A132FE32684169500DC46C1 /* ListaOpcoesReceita.swift */,
 				7A28D2412685FE6300595997 /* ItensCarrosselDias.swift */,
 				14404EBD2683786A003970CC /* CardPrincipal.swift */,
+				146BE141268D473300775F1F /* CardLanche.swift */,
 				14B474F42683C55E008394D5 /* CardOrganizar.swift */,
 				14598D552684A869002D43B2 /* CardReduzido.swift */,
+				7A4431A0268AA1D800F90EC2 /* CardHome.swift */,
 				B746D36A2683D20C00917D47 /* MinicardReceitaButton.swift */,
 				B746D36C2683D8BE00917D47 /* SearchField.swift */,
 				B746D36E2683E50400917D47 /* FiiledButton.swift */,
@@ -210,8 +269,9 @@
 				B7CC709926868C8B00E01848 /* ButtonPicker.swift */,
 				B77FA58D2688E27E00D569AA /* ListaReceitasDeRefeicao.swift */,
 				7A44319A268A8BCC00F90EC2 /* TabBar.swift */,
-				7A4431A0268AA1D800F90EC2 /* CardHome.swift */,
 				7AE3E62B268B6DE400C8E18A /* ItemNoticia.swift */,
+				B780B885268D2ECA00DF1DD3 /* DescricaoIngredientesSubview.swift */,
+				B780B887268D2FDF00DF1DD3 /* DescricaoModoPreparoSubview.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -232,6 +292,9 @@
 			dependencies = (
 			);
 			name = MiniChallenge;
+			packageProductDependencies = (
+				14D46692268D1868000CF79D /* Introspect */,
+			);
 			productName = MiniChallenge;
 			productReference = B76BBBCE2682AA5500523DAD /* MiniChallenge.app */;
 			productType = "com.apple.product-type.application";
@@ -259,6 +322,9 @@
 				Base,
 			);
 			mainGroup = B76BBBC52682AA5500523DAD;
+			packageReferences = (
+				14D46691268D1868000CF79D /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+			);
 			productRefGroup = B76BBBCF2682AA5500523DAD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -290,12 +356,18 @@
 				14598D592684C93A002D43B2 /* CardAnimationView.swift in Sources */,
 				7A9C8734268D41420027E060 /* Receitas.swift in Sources */,
 				7A44319B268A8BCC00F90EC2 /* TabBar.swift in Sources */,
+				146BE13E268D3A0300775F1F /* DetalhaDia.swift in Sources */,
+				B780B888268D2FDF00DF1DD3 /* DescricaoModoPreparoSubview.swift in Sources */,
 				B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */,
 				B746D36F2683E50400917D47 /* FiiledButton.swift in Sources */,
+				146BE140268D405800775F1F /* CardExpandeModal.swift in Sources */,
 				7A4431A1268AA1D800F90EC2 /* CardHome.swift in Sources */,
 				14883FDD268A2A3900772C7C /* CardDetalhadoView.swift in Sources */,
+				14353FBA268CA86700240385 /* ConditionalModifier.swift in Sources */,
+				32F152B0268C9AF400F8C406 /* Dados.swift in Sources */,
 				14598D592684C93A002D43B2 /* CardAnimationView.swift in Sources */,
 				14C5B89026894A6D00203634 /* dasdas.swift in Sources */,
+				B780B886268D2ECA00DF1DD3 /* DescricaoIngredientesSubview.swift in Sources */,
 				141B1CB32688E6AA00A07F41 /* RemoveButton.swift in Sources */,
 				B76BBBD42682AA5500523DAD /* ContentView.swift in Sources */,
 				B7EAD068268B8A9400C5B552 /* listaDeReceitasPronta.swift in Sources */,
@@ -305,14 +377,19 @@
 				B77FA58C2688DC6300D569AA /* CardapioSemanaView.swift in Sources */,
 				14B474F52683C55E008394D5 /* CardOrganizar.swift in Sources */,
 				14598D562684A869002D43B2 /* CardReduzido.swift in Sources */,
+				14D4668B268CF1F6000CF79D /* ListaMercado.swift in Sources */,
 				B76BBBE22682AA7200523DAD /* Receita.swift in Sources */,
+				1490D355268B45610016E31A /* Semana.swift in Sources */,
 				148A592E2686116B008B4DD8 /* Transicao.swift in Sources */,
+				14D4668D268D0390000CF79D /* Perfil.swift in Sources */,
 				7A132FE42684169500DC46C1 /* ListaOpcoesReceita.swift in Sources */,
 				B78B43682689255F006E5FE7 /* ControleQuantidadeReceitasModel.swift in Sources */,
 				B77FA58E2688E27E00D569AA /* ListaReceitasDeRefeicao.swift in Sources */,
 				B797C38C2684BD720048FC7C /* DottedOutlineButton.swift in Sources */,
 				B746D36B2683D20C00917D47 /* MinicardReceitaButton.swift in Sources */,
 				328B9F8F2684B73200286FD9 /* PlanejamentoLista.swift in Sources */,
+				146BE142268D473300775F1F /* CardLanche.swift in Sources */,
+				32F152AD268C93AE00F8C406 /* OrganizaRefeicaoLista.swift in Sources */,
 				148A593226861650008B4DD8 /* CornerRadiusStyle.swift in Sources */,
 				B76BBBD22682AA5500523DAD /* MiniChallengeApp.swift in Sources */,
 				B73E30282684F3E7007FB08D /* PesquisaReceitaView.swift in Sources */,
@@ -511,6 +588,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		14D46691268D1868000CF79D /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		14D46692268D1868000CF79D /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14D46691268D1868000CF79D /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B76BBBC62682AA5500523DAD /* Project object */;
 }
