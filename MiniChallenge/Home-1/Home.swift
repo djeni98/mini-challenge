@@ -15,8 +15,6 @@ struct Home: View {
     
     var images = ["domingo", "segunda", "terca", "quarta", "quinta", "sexta", "sabado"]
     
-    var diaDaSemana = [1,2,3,4,5,6,7]
-    
     @State var perfilAberto = false
     
     let dayWeek = Calendar.current.component(.weekday, from: Date())
@@ -29,7 +27,11 @@ struct Home: View {
 
 
     @State var mostraInicioPlanejamento = false
-    @State var mostraReceitasDoDia = false
+    @State var mostraCardapio = false
+    @State var indiceCardapio = 0
+    @State var indiceCardapioHoje: Int?
+
+    @EnvironmentObject var cardapioSemana: CardapioSemanaModel
     
     var body: some View {
         //var day = dayWeek
@@ -70,20 +72,23 @@ struct Home: View {
                         
                     VStack(alignment: .center){
                         
-                        if semanaPlanejada {
+                        if semanaPlanejada && indiceCardapioHoje != nil {
                             CardHome(semanaOrganizada: semanaPlanejada, img: "tomato")
                                 .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .onTapGesture {
-                                    mostraReceitasDoDia = true
+                                    mostraCardapio = true
+                                    indiceCardapio = indiceCardapioHoje!
                                 }
 
                             VStack{
                                 ScrollView(.horizontal, showsIndicators: false){
                                     HStack{
-                                        ForEach (images, id: \.self) { image in
+                                        ForEach (cardapioSemana.cardapios) { cardapio in
+                                            let image = images[cardapio.id]
                                             VStack(alignment: .leading){
-                                                ItensCarrosselDias(img: image, date: Date()) {
-                                                    mostraReceitasDoDia = true
+                                                ItensCarrosselDias(img: image, date: cardapio.data) {
+                                                    mostraCardapio = true
+                                                    indiceCardapio = cardapio.id
                                                 }
                                             }.padding(.vertical, 30)
                                             
@@ -93,8 +98,8 @@ struct Home: View {
                             }
 
                             NavigationLink(
-                                destination: DetalhaDia(cardapio: CardapioDia(diaDaSemana: .quinta, cafeDaManha: listaDeReceitasPronta[1],almoco: listaDeReceitasPronta[0], jantar: listaDeReceitasPronta[5])),
-                                isActive: $mostraReceitasDoDia,
+                                destination: DetalhaDia(cardapio: cardapioSemana.cardapios[indiceCardapio]),
+                                isActive: $mostraCardapio,
                                 label: {})
                         }
                         else {
@@ -148,6 +153,14 @@ struct Home: View {
             }
 
         }
+        .onAppear {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM"
+
+            let hojeString = formatter.string(from: Date())
+            let diasCardapioString = cardapioSemana.cardapios.map { formatter.string(from: $0.data) }
+            indiceCardapioHoje = diasCardapioString.firstIndex(where: { $0 == hojeString })
+        }
         .edgesIgnoringSafeArea(.top)
         .navigationBarHidden(true)
     }
@@ -166,7 +179,8 @@ struct Home_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             Home(semanaPlanejada: true, noticias: listaDeNoticias) {}
-              .preferredColorScheme(.light)
+                .preferredColorScheme(.light)
+                .environmentObject(CardapioSemanaModel.criaTeste())
         }
     }
 }

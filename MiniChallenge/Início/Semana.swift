@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct Semana: View {
+    var navegaParaAHome: () -> Void
 
-    init() {
+    @Environment(\.presentationMode) var presentation
+
+    init(navegaParaAHome: @escaping () -> Void) {
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(Color("Laranja"))
+        self.navegaParaAHome = navegaParaAHome
     }
     
     let diaEmSegundos = 86400
@@ -24,6 +28,8 @@ struct Semana: View {
     @State var mostrandoAlerta = false
     @State var mostraCardapioView = false
     var hoje = Date()
+
+    @EnvironmentObject var cardapioSemana: CardapioSemanaModel
 
     var diaSelecionadoEmData: Date {
         return hoje.addingTimeInterval(TimeInterval(diaSelecionadoStored * diaEmSegundos))
@@ -52,7 +58,10 @@ struct Semana: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: CardapioSemanaView(dataInicio: diaSelecionadoEmData),
+                    destination: CardapioSemanaView(dataInicio: diaSelecionadoEmData) {
+                        self.presentation.wrappedValue.dismiss()
+                        navegaParaAHome()
+                    }.environmentObject(cardapioSemana),
                     isActive: $mostraCardapioView,
                     label: {})
 
@@ -157,8 +166,9 @@ struct Topo: View {
 struct Semana_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            Semana()
-            .preferredColorScheme(.dark)
+            Semana() {}
+                .environmentObject(CardapioSemanaModel())
+                .preferredColorScheme(.dark)
         }
     }
 }

@@ -71,7 +71,7 @@ struct DetalhaDia: View {
 struct DetalhaDia_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DetalhaDia(cardapio: CardapioDia(diaDaSemana: .quinta, cafeDaManha: listaDeReceitasPronta[1],almoco: listaDeReceitasPronta[0], jantar: listaDeReceitasPronta[5]))
+            DetalhaDia(cardapio: CardapioDia(id: 1, diaDaSemana: .quinta, cafeDaManha: listaDeReceitasPronta[1],almoco: listaDeReceitasPronta[0], jantar: listaDeReceitasPronta[5]))
         }
     }
 }

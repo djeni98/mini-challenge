@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct OrganizaRefeicaoLista: View {
+    var dismissPreviousNavigation: () -> Void
+    @Environment(\.presentationMode) var presentation
+
     @EnvironmentObject var controle: ControleRefeicoesModel
+    @EnvironmentObject var cardapioSemana: CardapioSemanaModel
+
     
     @State var editouCafe = false
     @State var editouAlmoco = false
@@ -38,7 +43,12 @@ struct OrganizaRefeicaoLista: View {
                     })
                     .padding(.vertical)
                 
-                FilledButton(label: "Prosseguir", desabilitado: !(editouCafe && editouJantar && editouCafe), buttonAction: {})
+                FilledButton(label: "Prosseguir", desabilitado: !(editouCafe && editouJantar && editouCafe), buttonAction: {
+                    cardapioSemana.update(cafe: controle.cafeDaManha, almoco: controle.almoco, janta: controle.janta, lanches: controle.lanches)
+
+                    self.presentation.wrappedValue.dismiss()
+                    dismissPreviousNavigation()
+                })
                     .padding(.vertical)
             }
         }
@@ -50,7 +60,10 @@ struct OrganizaRefeicaoLista: View {
 struct OrganizaRefeicaoLista_Previews: PreviewProvider {
     static var previews: some View {
         
-        NavigationView{            OrganizaRefeicaoLista().environmentObject(ControleRefeicoesModel.criaTeste())
+        NavigationView{
+            OrganizaRefeicaoLista() {}
+                .environmentObject(ControleRefeicoesModel.criaTeste())
+                .environmentObject(CardapioSemanaModel())
         }
         .preferredColorScheme(.dark)
     }

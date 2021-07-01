@@ -9,12 +9,15 @@ import SwiftUI
 
 struct CardapioSemanaView: View {
     var dataInicio: Date
+    var dismissPreviousNavigation: () -> Void
+    @Environment(\.presentationMode) var presentation
 
-    init(dataInicio: Date = Date()) {
+    init(dataInicio: Date = Date(), dismissPreviousNavigation: @escaping () -> Void) {
         self.dataInicio = dataInicio
+        self.dismissPreviousNavigation = dismissPreviousNavigation
     }
 
-    @Environment(\.presentationMode) var presentation
+    @EnvironmentObject var cardapioSemana: CardapioSemanaModel
 
     @StateObject var controleCafeDaManha = ControleQuantidadeReceitasModel()
     @StateObject var controleAlmoco = ControleQuantidadeReceitasModel()
@@ -56,11 +59,16 @@ struct CardapioSemanaView: View {
                         controleGeral.cafeDaManha = controleCafeDaManha.lista
                         controleGeral.almoco = controleAlmoco.lista
                         controleGeral.janta = controleJantar.lista
+                        controleGeral.lanches = controleLanches.lista
                         navegaOrganizaSemana = true
                     }.padding(.bottom)
 
                     NavigationLink(
-                        destination: OrganizaRefeicaoLista().environmentObject(controleGeral),
+                        destination: OrganizaRefeicaoLista() {
+                            self.presentation.wrappedValue.dismiss()
+                            dismissPreviousNavigation()
+                        }.environmentObject(controleGeral)
+                        .environmentObject(cardapioSemana),
                         isActive: $navegaOrganizaSemana,
                         label: {})
                 }
@@ -95,7 +103,8 @@ struct CardapioSemanaView: View {
 struct CardapioSemanaView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CardapioSemanaView()
+            CardapioSemanaView() {}
+                .environmentObject(CardapioSemanaModel())
         }
     }
 }

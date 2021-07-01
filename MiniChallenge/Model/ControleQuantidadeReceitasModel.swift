@@ -27,6 +27,7 @@ class ControleRefeicoesModel: ObservableObject{
     @Published var cafeDaManha: [ControleQuantidade] = []
     @Published var almoco: [ControleQuantidade] = []
     @Published var janta: [ControleQuantidade] = []
+    @Published var lanches: [ControleQuantidade] = []
     
     static func criaTeste() -> ControleRefeicoesModel{
         let testeControle = ControleRefeicoesModel()

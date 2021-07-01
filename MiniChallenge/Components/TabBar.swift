@@ -9,6 +9,8 @@ import SwiftUI
 
 
 struct TabBar: View {
+
+    @StateObject var cardapioSemana = CardapioSemanaModel()
     
     enum TabItem {
         case inicio, semana, receitas, mercado
@@ -25,10 +27,10 @@ struct TabBar: View {
         TabView(selection: $selectedItem) {
             NavigationView {
                 Home(
-                    semanaPlanejada: semanaPlanejada,
+                    semanaPlanejada: cardapioSemana.estaPlanejada,
                     noticias: listaDeNoticias) {
                     selectedItem = TabItem.semana
-                }
+                }.environmentObject(cardapioSemana)
             }
             .tabItem {
                 Image(systemName: self.selectedItem == TabItem.inicio ? "house.fill" : "house")
@@ -39,7 +41,9 @@ struct TabBar: View {
 
 
             NavigationView {
-                Semana()
+                Semana() {
+                    selectedItem = TabItem.inicio
+                }.environmentObject(cardapioSemana)
             }
             .tabItem {
                 Image(systemName: "calendar")

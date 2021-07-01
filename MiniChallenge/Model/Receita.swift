@@ -87,19 +87,6 @@ struct Receita: Identifiable {
     var nomeImagem: String?;
 }
 
-enum DiaDaSemana {
-    case domingo, segunda, terca, quarta, quinta, sexta, sabado
-}
-
-struct CardapioDia {
-    var diaDaSemana: DiaDaSemana;
-    var cafeDaManha: Receita?;
-    var almoco: Receita?;
-    var jantar: Receita?;
-    var lanches: [Receita] = []
-    var data: Date = Date()
-}
-
 var listaDeReceitas = [
     Receita(
         id: 1, categoria: .refeicaoPrincipal, nivelDificuldade: .intermediario,
