@@ -8,19 +8,32 @@
 import SwiftUI
 
 struct CardOrganizar: View {
-    var receita: Receita
-    var estaOrganizado: Bool
-    var buttonAction: () -> Void
+//    var receita: Receita
+    var refeicao: TipoDeRefeicao
+    @Binding var estaOrganizado: Bool
   
+//    var imagem: String {
+//        guard let nomeImagem = receita.nomeImagem else {
+//            return "sem-imagem"
+//        }
+//        return nomeImagem
+//    }
     var imagem: String {
-        guard let nomeImagem = receita.nomeImagem else {
-            return "sem-imagem"
+        switch refeicao {
+        case .almoco:
+            return "ImagemAlmoco"
+        case .jantar:
+            return "ImagemJantar"
+        case .cafeDaManha:
+            return "ImagemCafeDaManha"
+        default:
+            return ""
         }
-        return nomeImagem
     }
-    var nome: String { receita.nome }
-    var nivel: String { receita.nivelDificuldade.toString() }
-    var tempoPreparo: String { receita.tempoPreparo }
+    
+    var nome: String { refeicao.toString() }
+//    var nivel: String { receita.nivelDificuldade.toString() }
+//    var tempoPreparo: String { receita.tempoPreparo }
     
     var body: some View {
         VStack {
@@ -41,26 +54,23 @@ struct CardOrganizar: View {
                             .font(.title3)
                             .bold()
                         Spacer()
-                        
-                        Button(action: buttonAction) {
-                            ZStack {
-                                if !estaOrganizado {
-                                    RoundedRectangle(cornerRadius: 24)
-                                        .foregroundColor(.accentColor)
-                                        .frame(width: 100, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    
-                                } else {
-                                    RoundedRectangle(cornerRadius: 24)
-                                        .stroke(Color.accentColor, lineWidth: 2)
-                                        .foregroundColor(.accentColor)
-                                        .frame(width: 100, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        ZStack {
+                            if !estaOrganizado {
+                                RoundedRectangle(cornerRadius: 24)
+                                    .foregroundColor(.accentColor)
+                                    .frame(width: 100, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                
+                            } else {
+                                RoundedRectangle(cornerRadius: 24)
+                                    .stroke(Color.accentColor, lineWidth: 2)
+                                    .foregroundColor(.accentColor)
+                                    .frame(width: 100, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 
-                                }
-                                Text(!estaOrganizado ? "Organizar" : "Editar")
-                                    .font(.body)
-                                    .bold()
-                                    .foregroundColor(!estaOrganizado ? .white : .accentColor)
                             }
+                            Text(!estaOrganizado ? "Organizar" : "Editar")
+                                .font(.body)
+                                .bold()
+                                .foregroundColor(!estaOrganizado ? .white : .accentColor)
                         }
                     }
                 }
@@ -80,11 +90,15 @@ struct CardOrganizar: View {
 struct CardOrganizar_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CardOrganizar(receita: listaDeReceitas[0], estaOrganizado: false) { print("Run Action") }
-                       .padding()
-            CardOrganizar(receita: listaDeReceitas[3], estaOrganizado: true) { print("Run Action") }
-                       .padding()
-               }.previewLayout(.fixed(width: 400, height: 400))
+            CardOrganizar(refeicao: .almoco, estaOrganizado: .constant(false))
+            .padding()
+            CardOrganizar(refeicao: .jantar, estaOrganizado: .constant(true))
+            .padding()
+            CardOrganizar(refeicao: .cafeDaManha, estaOrganizado: .constant(true))
+            .padding()
+            
+               
+        }.previewLayout(.fixed(width: 400, height: 400))
         
     }
 }
