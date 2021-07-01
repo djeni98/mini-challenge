@@ -22,7 +22,7 @@ struct PesquisaReceitaView: View {
     }
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack {
                 SearchField(query: $query)
                     .padding(.vertical)

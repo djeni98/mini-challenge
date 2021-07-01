@@ -39,7 +39,7 @@ struct CardapioSemanaView: View {
     }
 
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             if mostraTela {
                 VStack(alignment: .leading) {
                     ListaReceitasDeRefeicao(tipoRefeicao: .cafeDaManha, estaEditando: estaEditando)

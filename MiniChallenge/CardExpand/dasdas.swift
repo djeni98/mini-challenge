@@ -10,7 +10,7 @@ import SwiftUI
 struct dasdas: View {
     @State var ContentArray = ["A","B","C", "D", "E", "F", "G", "I", "J"]
         var body: some View {
-            ScrollView{
+            ScrollView(showsIndicators: false) {
             VStack{
                 ForEach(Array(ContentArray.enumerated()), id: \.element){ (i, item) in // << 1) !
                     ZStack{

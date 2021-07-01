@@ -41,7 +41,7 @@ struct Home: View {
                 .foregroundColor(Color("backGround"))
                 .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 50)
             
-            ScrollView(showsIndicators: false){
+            ScrollView(showsIndicators: false) {
                 VStack{
                     HStack{
                         VStack(alignment:.leading ){
@@ -69,6 +69,7 @@ struct Home: View {
                         
                     }
                     .padding(.top, 20)
+                    .padding(.horizontal)
                         
                     VStack(alignment: .center){
                         
@@ -79,19 +80,19 @@ struct Home: View {
                                     .onTapGesture {
                                         mostraCardapio = true
                                         indiceCardapio = indiceCardapioHoje
-                                    }
+                                    }.padding(.horizontal)
                             } else {
                                 CardHome(semanaOrganizada: semanaPlanejada, img: "tomato", data: cardapioSemana.dataInicio!)
                                     .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                     .onTapGesture {
                                         mostraCardapio = true
                                         indiceCardapio = 0
-                                    }
+                                    }.padding(.horizontal)
                             }
 
                             VStack{
                                 ScrollView(.horizontal, showsIndicators: false){
-                                    HStack{
+                                    HStack(spacing: 0){
                                         ForEach (cardapioSemana.cardapios) { cardapio in
                                             let image = images[cardapio.id]
                                             VStack(alignment: .leading){
@@ -100,9 +101,10 @@ struct Home: View {
                                                     indiceCardapio = cardapio.id
                                                 }
                                             }.padding(.vertical, 30)
+                                            .padding(.leading)
                                             
                                         }
-                                    }
+                                    }.padding(.trailing)
                                 }
                             }
 
@@ -114,6 +116,7 @@ struct Home: View {
                         else {
                             CardHome(semanaOrganizada: semanaPlanejada, img: "calendar")
                                 .frame(height: 303, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .padding(.horizontal)
                                 .padding(.bottom, 50)
                                 .onTapGesture {
                                     mostraInicioPlanejamento = true
@@ -156,8 +159,8 @@ struct Home: View {
                             }
                         }
                         Divider()
-                    }
-                }.padding()
+                    }.padding(.horizontal)
+                }.padding(.vertical)
                 
             }
 

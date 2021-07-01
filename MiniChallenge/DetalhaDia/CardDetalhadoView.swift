@@ -13,7 +13,7 @@ struct CardDetalhadoView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 ZStack(alignment: .topTrailing) {
                     CardPrincipal(receita: receita)
                         .frame(height: 400)

@@ -15,19 +15,19 @@ struct DetalhaDia: View {
     @State var estaRemovendo = false
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack(spacing: 20) {
                 criaCards(cardapio.cafeDaManha, tipoRefeicao: .cafeDaManha)
                 criaCards(cardapio.almoco, tipoRefeicao: .almoco)
                 criaCards(cardapio.jantar, tipoRefeicao: .jantar)
                 
                 CardLanche()
-                    .frame(width: 350, height: 300)
+                    .frame(height: 300)
                 
                 
             }
             .padding(.top, 40)
-            .padding(.horizontal, 50)
+            .padding(.horizontal)
         }
         .navigationTitle(cardapio.data.toFormatWeekday_pt())
 //        .navigationBarItems(trailing: Button(action: { estaRemovendo.toggle() }) { Image(systemName: "slider.horizontal.3").font(.title2)})
@@ -38,7 +38,7 @@ struct DetalhaDia: View {
             return AnyView(
                 ZStack {
                     CardExpandeModal(receita: receita)
-                        .frame(width: 350, height: 300)
+                        .frame(height: 300)
                         .shadow(radius: 10)
                     
                     if estaRemovendo {

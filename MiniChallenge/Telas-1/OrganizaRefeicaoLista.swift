@@ -20,14 +20,14 @@ struct OrganizaRefeicaoLista: View {
     @State var editouJantar = false
     
     var body: some View {
-        ScrollView{
+        ScrollView(showsIndicators: false) {
             VStack{
                 NavigationLink(
                     destination: PlanejamentoLista(refeicao: .cafeDaManha, editou: $editouCafe).environmentObject(controle),
                     label: {
                         CardOrganizar(refeicao: .cafeDaManha, estaOrganizado: $editouCafe)
                     })
-                    .padding(.bottom)
+                    .padding(.vertical)
                 
                 NavigationLink(
                     destination: PlanejamentoLista(refeicao: .almoco, editou: $editouAlmoco).environmentObject(controle),
@@ -51,8 +51,8 @@ struct OrganizaRefeicaoLista: View {
                 })
                     .padding(.vertical)
             }
+            .padding(.horizontal)
         }
-        .padding()
         .navigationTitle("Organize o cardápio")
     }
 }
