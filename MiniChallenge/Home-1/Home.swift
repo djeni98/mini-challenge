@@ -154,11 +154,8 @@ struct Home: View {
 
         }
         .onAppear {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd/MM"
-
-            let hojeString = formatter.string(from: Date())
-            let diasCardapioString = cardapioSemana.cardapios.map { formatter.string(from: $0.data) }
+            let hojeString = Date().toFormatDayMonth()
+            let diasCardapioString = cardapioSemana.cardapios.map { $0.data.toFormatDayMonth() }
             indiceCardapioHoje = diasCardapioString.firstIndex(where: { $0 == hojeString })
         }
         .edgesIgnoringSafeArea(.top)

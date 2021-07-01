@@ -105,23 +105,12 @@ struct CardHome: View {
     
     }
     
-    func day() -> String{
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM"
-        
-        let dayFormat = formatter.string(from: Date())
-        
-        return dayFormat
+    func day() -> String{        
+        return Date().toFormatDayMonth()
     }
     
     func weekDay() -> Text {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "pt")
-        formatter.dateFormat = "EEEE"
-        
-        let weekDayFormat = formatter.string(from: Date()).capitalized
-        
-        return Text(weekDayFormat)
+        return Text(Date().toFormatWeekday_pt())
     }
     
 

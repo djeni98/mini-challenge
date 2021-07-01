@@ -108,20 +108,10 @@ struct Semana: View {
         return formatter.string(from: data)
     }
     
-    func weekDayText(data: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "pt")
-        formatter.dateFormat = "EEEE"
-        
-        return formatter.string(from: data).capitalized
-    }
-    
     func retornaDia(_ distancia: Int) -> String {
         let dia = hoje.addingTimeInterval(TimeInterval(distancia * diaEmSegundos))
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM"
 
-        return formatter.string(from: dia)
+        return dia.toFormatDayMonth()
     }
     
     
@@ -134,7 +124,7 @@ struct Semana: View {
         case hoje.addingTimeInterval(TimeInterval(diaEmSegundos)):
             str = "Amanhã"
         default:
-            str = "\(weekDayText(data: data))"
+            str = "\(data.toFormatWeekday_pt())"
         }
         
         return Text("\(str) \(dataText(data: data))")

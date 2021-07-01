@@ -29,7 +29,7 @@ struct DetalhaDia: View {
             .padding(.top, 40)
             .padding(.horizontal, 50)
         }
-        .navigationTitle(diaDaSemana)
+        .navigationTitle(cardapio.data.toFormatWeekday_pt())
 //        .navigationBarItems(trailing: Button(action: { estaRemovendo.toggle() }) { Image(systemName: "slider.horizontal.3").font(.title2)})
     }
     
