@@ -96,7 +96,11 @@ struct PesquisaLanchesView: View {
         .navigationBarBackButtonHidden(!lanchesSelecionados.isEmpty)
         .onAppear {
             searchBar = true
-            lanches = listaDeReceitasPronta.filter { $0.categoria == .lanche }
+            // lanches = listaDeReceitasPronta.filter { $0.categoria == .lanche }
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                lanches = listaDeReceitasPronta.filter { $0.categoria == .lanche }
+
+            }
         }
     }
 
